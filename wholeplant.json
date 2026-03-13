@@ -1,0 +1,2507 @@
+[
+    {
+        "LINE_NAME": "CN02",
+        "MACHINE_LIST": [
+            {
+                "MACHINE_NAME": "AOI Machine (3D Soldering AOI)",
+                "EQUIPMENT_ID": "180480DE6FD802C6E06326C4940A06A7",
+                "EQUIPMENT_CODE": "OT00550014",
+                "EQUIPMENT_TYPE": "A00550030",
+                "EQUIPMENT_STATUS": "offline",
+                "EQUIPMENT_STATUS_CODE": null
+            }
+        ]
+    },
+    {
+        "LINE_NAME": "CN03A",
+        "MACHINE_LIST": []
+    },
+    {
+        "LINE_NAME": "CN08",
+        "MACHINE_LIST": [
+            {
+                "MACHINE_NAME": "Auto Insertion 2",
+                "EQUIPMENT_ID": "FE686C5E35DAF511E05306F913ACFDC6",
+                "EQUIPMENT_CODE": "S023006302",
+                "EQUIPMENT_TYPE": "AM-SA003004-0007",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "CN08ATS2_3",
+                "EQUIPMENT_ID": "F77C7BE6FCF94A46E05306F913AC48FD",
+                "EQUIPMENT_CODE": "H21903011K",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN08VIBRATION_1",
+                "EQUIPMENT_ID": "F77C3F6E29D2223DE05306F913AC675D",
+                "EQUIPMENT_CODE": "H219030118",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN08I2C1P2_1",
+                "EQUIPMENT_ID": "F77C2ECAA87B16DBE05306F913AC632B",
+                "EQUIPMENT_CODE": "H219030111",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN08I2C1P2_4",
+                "EQUIPMENT_ID": "F77C2ECAA87E16DBE05306F913AC632B",
+                "EQUIPMENT_CODE": "H219030114",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN08ATS1_2",
+                "EQUIPMENT_ID": "F77C2ECAA88016DBE05306F913AC632B",
+                "EQUIPMENT_CODE": "H219030116",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN08I2C1P1_1",
+                "EQUIPMENT_ID": "F77C2CEE7984118CE05306F913AC3FD6",
+                "EQUIPMENT_CODE": "H21903010X",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN08I2C1P1_3",
+                "EQUIPMENT_ID": "F77C2CEE7986118CE05306F913AC3FD6",
+                "EQUIPMENT_CODE": "H21903010Z",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN08I2C1P1_2",
+                "EQUIPMENT_ID": "F77C2CEE7985118CE05306F913AC3FD6",
+                "EQUIPMENT_CODE": "H21903010Y",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN08ATS2_4",
+                "EQUIPMENT_ID": "F77C7BE6FCFA4A46E05306F913AC48FD",
+                "EQUIPMENT_CODE": "H21903011L",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN08I2C1P2_3",
+                "EQUIPMENT_ID": "F77C2ECAA87D16DBE05306F913AC632B",
+                "EQUIPMENT_CODE": "H219030113",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN08SHARING_1",
+                "EQUIPMENT_ID": "F77C7BE6FCFB4A46E05306F913AC48FD",
+                "EQUIPMENT_CODE": "H21903011M",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN08I2C2_5",
+                "EQUIPMENT_ID": "F77C3F6E29D9223DE05306F913AC675D",
+                "EQUIPMENT_CODE": "H21903011E",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN08I2C2_6",
+                "EQUIPMENT_ID": "F77C3F6E29DA223DE05306F913AC675D",
+                "EQUIPMENT_CODE": "H21903011F",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN08I2C2_8",
+                "EQUIPMENT_ID": "F77C7BE100B94531E05306F913AC9636",
+                "EQUIPMENT_CODE": "H21903011H",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN08ATS1_3",
+                "EQUIPMENT_ID": "F77C86900DE355B6E05306F913ACACF7",
+                "EQUIPMENT_CODE": "H21903012E",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN08HIPOT2_1",
+                "EQUIPMENT_ID": "F77C3F6E29D4223DE05306F913AC675D",
+                "EQUIPMENT_CODE": "H219030119",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN08ICT_1",
+                "EQUIPMENT_ID": "F77C25280B2B0E56E05306F913ACBFE1",
+                "EQUIPMENT_CODE": "H21903010W",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN08HIPOT1_1",
+                "EQUIPMENT_ID": "F77C31C6C5161BF9E05306F913AC75A4",
+                "EQUIPMENT_CODE": "H219030117",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN08ATS1_1",
+                "EQUIPMENT_ID": "F77C2ECAA87F16DBE05306F913AC632B",
+                "EQUIPMENT_CODE": "H219030115",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN08HIPOT2_2",
+                "EQUIPMENT_ID": "F7D927F0AF09CFC3E05306F913ACB54E",
+                "EQUIPMENT_CODE": "H21903012F",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN08I2C1P1_4",
+                "EQUIPMENT_ID": "F77C2ECAA87A16DBE05306F913AC632B",
+                "EQUIPMENT_CODE": "H219030110",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN08SHARING_2",
+                "EQUIPMENT_ID": "F77C7BE6FCFC4A46E05306F913AC48FD",
+                "EQUIPMENT_CODE": "H21903011N",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN08I2C2_7",
+                "EQUIPMENT_ID": "F77C7BE100B74531E05306F913AC9636",
+                "EQUIPMENT_CODE": "H21903011G",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "Auto PCB Screw",
+                "EQUIPMENT_ID": "EA471BC9606E5B09E05306F913AC29FC",
+                "EQUIPMENT_CODE": "S021039601",
+                "EQUIPMENT_TYPE": "AM-SA008008-0000",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Burn In cart #T1",
+                "EQUIPMENT_ID": "E99056EFE74347A7E05306F913ACAD72",
+                "EQUIPMENT_CODE": "S022043601",
+                "EQUIPMENT_TYPE": "AM-S0301035-0002",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto loader T1",
+                "EQUIPMENT_ID": "E9903846B1E02F93E05306F913ACA349",
+                "EQUIPMENT_CODE": "S022048201",
+                "EQUIPMENT_TYPE": "AM-S0302111-0000",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto loader T2",
+                "EQUIPMENT_ID": "E99056EFE74647A7E05306F913ACAD72",
+                "EQUIPMENT_CODE": "S022048301",
+                "EQUIPMENT_TYPE": "AM-S0302111-0000",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Burn In cart #T2",
+                "EQUIPMENT_ID": "E99056EFE74447A7E05306F913ACAD72",
+                "EQUIPMENT_CODE": "S022043701",
+                "EQUIPMENT_TYPE": "AM-S0301035-0004",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto ICT inline",
+                "EQUIPMENT_ID": "EA319ECD1CF456E0E05306F913AC2F14",
+                "EQUIPMENT_CODE": "S022047202",
+                "EQUIPMENT_TYPE": "AM-S0102013-0003",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto stick label",
+                "EQUIPMENT_ID": "EA31EF47DC538492E05306F913AC56E4",
+                "EQUIPMENT_CODE": "S022043301",
+                "EQUIPMENT_TYPE": "AM-SA010046-0000",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Test T2 #HIPOT + VIBRATION",
+                "EQUIPMENT_ID": "E993044B5508CADAE05306F913ACBB33",
+                "EQUIPMENT_CODE": "S022045605",
+                "EQUIPMENT_TYPE": "AM-SA002017-0000",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Test T2 #Parallel + EEPOM",
+                "EQUIPMENT_ID": "E99068D7C14D5234E05306F913AC94A5",
+                "EQUIPMENT_CODE": "S022045804",
+                "EQUIPMENT_TYPE": "AM-SA001094-0000",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Test T1 #ATS1 + HIPOT",
+                "EQUIPMENT_ID": "E99045A422A93ABCE05306F913ACDE44",
+                "EQUIPMENT_CODE": "S022045702",
+                "EQUIPMENT_TYPE": "AM-SA001094-0000",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Test T2 #I2C2_1",
+                "EQUIPMENT_ID": "E99045A422AA3ABCE05306F913ACDE44",
+                "EQUIPMENT_CODE": "S022045703",
+                "EQUIPMENT_TYPE": "AM-SA001094-0000",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Test T2 #ATS2",
+                "EQUIPMENT_ID": "E99068D7C14C5234E05306F913AC94A5",
+                "EQUIPMENT_CODE": "S022045803",
+                "EQUIPMENT_TYPE": "AM-SA001094-0000",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Test T2 #I2C2_2",
+                "EQUIPMENT_ID": "E99068D7C14B5234E05306F913AC94A5",
+                "EQUIPMENT_CODE": "S022045802",
+                "EQUIPMENT_TYPE": "AM-SA001094-0000",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Test T1 #I2C1",
+                "EQUIPMENT_ID": "E990829B0BDB5D63E05306F913AC6994",
+                "EQUIPMENT_CODE": "S022045805",
+                "EQUIPMENT_TYPE": "AM-SA001094-0000",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Cache T1 machine",
+                "EQUIPMENT_ID": "E9903846B1DE2F93E05306F913ACA349",
+                "EQUIPMENT_CODE": "S022043101",
+                "EQUIPMENT_TYPE": "AM-S0301016-0000",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Cache T2 machine",
+                "EQUIPMENT_ID": "E99056EFE74547A7E05306F913ACAD72",
+                "EQUIPMENT_CODE": "S022043201",
+                "EQUIPMENT_TYPE": "AM-S0301016-0000",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "Auto cosmetic AOI",
+                "EQUIPMENT_ID": "EA3202E87E529107E05306F913ACC75C",
+                "EQUIPMENT_CODE": "S022041401",
+                "EQUIPMENT_TYPE": "AM-S0105044-2002",
+                "EQUIPMENT_STATUS": "offline",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "Auto unloader T1",
+                "EQUIPMENT_ID": "EA31B0D1C86C62C4E05306F913AC9E5F",
+                "EQUIPMENT_CODE": "S022048001",
+                "EQUIPMENT_TYPE": "AM-S0302112-0000",
+                "EQUIPMENT_STATUS": "offline",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "Auto unloader T2",
+                "EQUIPMENT_ID": "EA31BF6943626CDEE05306F913AC7FC7",
+                "EQUIPMENT_CODE": "S022048101",
+                "EQUIPMENT_TYPE": "AM-S0302112-0000",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Post wave PWB transfer",
+                "EQUIPMENT_ID": "EA31D60CB74E77BDE05306F913AC461A",
+                "EQUIPMENT_CODE": "H022083002",
+                "EQUIPMENT_TYPE": "AM-H0304006-0000",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Open Case test",
+                "EQUIPMENT_ID": "E9908BFE3DB960FCE05306F913ACAF3D",
+                "EQUIPMENT_CODE": "S022052501",
+                "EQUIPMENT_TYPE": "AM-S0103059-1101",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Apply glue",
+                "EQUIPMENT_ID": "EA31E1B7C7E581F7E05306F913AC251A",
+                "EQUIPMENT_CODE": "S022033601",
+                "EQUIPMENT_TYPE": "AM-S0202044-1000",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Post wave buffer",
+                "EQUIPMENT_ID": "EAA5343E3E73FB5EE05306F913ACAC70",
+                "EQUIPMENT_CODE": "H022080802",
+                "EQUIPMENT_TYPE": "AM-C0302002-1100",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Router",
+                "EQUIPMENT_ID": "F84133684B4DE267E05306F913AC8E0C",
+                "EQUIPMENT_CODE": "S022845902",
+                "EQUIPMENT_TYPE": "AM-S0603009-0001",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Lead Check AOI",
+                "EQUIPMENT_ID": "01474C54AF1BC385E06302C4CC0A06E6",
+                "EQUIPMENT_CODE": "S023262201",
+                "EQUIPMENT_TYPE": "AM-S0104025-1002",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Insertion",
+                "EQUIPMENT_ID": "F207CCA870B88A8CE05306F913ACE51A",
+                "EQUIPMENT_CODE": "S022081402",
+                "EQUIPMENT_TYPE": "AM-SA003004-0004",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": "0"
+            }
+        ]
+    },
+    {
+        "LINE_NAME": "CN09",
+        "MACHINE_LIST": [
+            {
+                "MACHINE_NAME": "Auto Insertion 1",
+                "EQUIPMENT_ID": "FE686C5E35DBF511E05306F913ACFDC6",
+                "EQUIPMENT_CODE": "S023006301",
+                "EQUIPMENT_TYPE": "AM-SA003004-0007",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "CN09I2C1P1_2",
+                "EQUIPMENT_ID": "F787C5D3585FE847E05306F913AC0A63",
+                "EQUIPMENT_CODE": "H21903011S",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN09I2C1P1_4",
+                "EQUIPMENT_ID": "F787C6DCC862EB83E05306F913ACB2C5",
+                "EQUIPMENT_CODE": "H21903012B",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN09I2C1P1_3",
+                "EQUIPMENT_ID": "F787C5D35860E847E05306F913AC0A63",
+                "EQUIPMENT_CODE": "H21903012A",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN09ATS2_1",
+                "EQUIPMENT_ID": "F787EC563C3B0525E05306F913AC7E2B",
+                "EQUIPMENT_CODE": "H219030125",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN09ICT_2",
+                "EQUIPMENT_ID": "F787C5D3585DE847E05306F913AC0A63",
+                "EQUIPMENT_CODE": "H21903012C",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN09I2C1P2_1",
+                "EQUIPMENT_ID": "F787C6DCC863EB83E05306F913ACB2C5",
+                "EQUIPMENT_CODE": "H21903011T",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN09ATS2_2",
+                "EQUIPMENT_ID": "F787EC563C3C0525E05306F913AC7E2B",
+                "EQUIPMENT_CODE": "H219030126",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN09ICT_1",
+                "EQUIPMENT_ID": "F787C5CED706E179E05306F913AC836D",
+                "EQUIPMENT_CODE": "H21903011Q",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN09HIPOT1_1",
+                "EQUIPMENT_ID": "F787D766D81AF4A8E05306F913AC8E9D",
+                "EQUIPMENT_CODE": "H21903011W",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN09ATS1_1",
+                "EQUIPMENT_ID": "F787C6DCC865EB83E05306F913ACB2C5",
+                "EQUIPMENT_CODE": "H21903011V",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN09SHARING_1",
+                "EQUIPMENT_ID": "F787EC563C3D0525E05306F913AC7E2B",
+                "EQUIPMENT_CODE": "H219030127",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN09VIBRATION_1",
+                "EQUIPMENT_ID": "F787D766D81BF4A8E05306F913AC8E9D",
+                "EQUIPMENT_CODE": "H21903011X",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN09ATS1_2",
+                "EQUIPMENT_ID": "F787D1CCAC40ED1DE05306F913AC9A98",
+                "EQUIPMENT_CODE": "H21903012D",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN09I2C2_1",
+                "EQUIPMENT_ID": "F787D766D81DF4A8E05306F913AC8E9D",
+                "EQUIPMENT_CODE": "H21903011Z",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN09I2C2_2",
+                "EQUIPMENT_ID": "F787D766D81EF4A8E05306F913AC8E9D",
+                "EQUIPMENT_CODE": "H219030120",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN09I2C2_4",
+                "EQUIPMENT_ID": "F787D766D820F4A8E05306F913AC8E9D",
+                "EQUIPMENT_CODE": "H219030122",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN09I2C1P2_2",
+                "EQUIPMENT_ID": "F787C6DCC864EB83E05306F913ACB2C5",
+                "EQUIPMENT_CODE": "H21903011U",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN09HIPOT2_1",
+                "EQUIPMENT_ID": "F787D766D81CF4A8E05306F913AC8E9D",
+                "EQUIPMENT_CODE": "H21903011Y",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN09I2C2_3",
+                "EQUIPMENT_ID": "F787D766D81FF4A8E05306F913AC8E9D",
+                "EQUIPMENT_CODE": "H219030121",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN09I2C1P1_1",
+                "EQUIPMENT_ID": "F787C5D3585EE847E05306F913AC0A63",
+                "EQUIPMENT_CODE": "H21903011R",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN09EEPROMREAD_1",
+                "EQUIPMENT_ID": "F787EC563C3F0525E05306F913AC7E2B",
+                "EQUIPMENT_CODE": "H219030129",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN09REDUNDANCE_1",
+                "EQUIPMENT_ID": "F787EC563C390525E05306F913AC7E2B",
+                "EQUIPMENT_CODE": "H219030124",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN09I2C2_5",
+                "EQUIPMENT_ID": "F787D8D3DEEFF8A1E05306F913AC3F8F",
+                "EQUIPMENT_CODE": "H219030123",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN09EEPROMWRITE_1",
+                "EQUIPMENT_ID": "F787EC563C3E0525E05306F913AC7E2B",
+                "EQUIPMENT_CODE": "H219030128",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "Auto ICT inline",
+                "EQUIPMENT_ID": "ED92C7BB0D33EA80E05306F913ACE0EC",
+                "EQUIPMENT_CODE": "S022047302",
+                "EQUIPMENT_TYPE": "AM-S0102013-0002",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto stick label",
+                "EQUIPMENT_ID": "EA31B0D1C86E62C4E05306F913AC9E5F",
+                "EQUIPMENT_CODE": "S022041201",
+                "EQUIPMENT_TYPE": "AM-SA010046-0000",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Test T2 #HIPOT + Vibration",
+                "EQUIPMENT_ID": "ED9462A990A6EC53E05306F913AC7F16",
+                "EQUIPMENT_CODE": "S022041801",
+                "EQUIPMENT_TYPE": "AM-SA002017-0000",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "Auto Test T2 #I2C2_1",
+                "EQUIPMENT_ID": "ED9462A990A7EC53E05306F913AC7F16",
+                "EQUIPMENT_CODE": "S022041901",
+                "EQUIPMENT_TYPE": "AM-SA001094-0000",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Test T2 #ATS2",
+                "EQUIPMENT_ID": "ED9480997927F320E05306F913AC254C",
+                "EQUIPMENT_CODE": "S022041903",
+                "EQUIPMENT_TYPE": "AM-SA001094-0000",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Test T1 #ATS1 + HIPOT",
+                "EQUIPMENT_ID": "ED943FEEC961E005E05306F913AC6767",
+                "EQUIPMENT_CODE": "S022029502",
+                "EQUIPMENT_TYPE": "AM-SA001094-0000",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Test T2 #Parallel + EEPOM",
+                "EQUIPMENT_ID": "ED9480997929F320E05306F913AC254C",
+                "EQUIPMENT_CODE": "S022041904",
+                "EQUIPMENT_TYPE": "AM-SA001094-0000",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Test T1 #I2C1",
+                "EQUIPMENT_ID": "ED943FEEC960E005E05306F913AC6767",
+                "EQUIPMENT_CODE": "S022029501",
+                "EQUIPMENT_TYPE": "AM-SA001094-0000",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Test T2 #I2C2_2",
+                "EQUIPMENT_ID": "ED94742AF19CF1ACE05306F913AC9619",
+                "EQUIPMENT_CODE": "S022041902",
+                "EQUIPMENT_TYPE": "AM-SA001094-0000",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Cache T2 machine",
+                "EQUIPMENT_ID": "ED9462A990A4EC53E05306F913AC7F16",
+                "EQUIPMENT_CODE": "S022041301",
+                "EQUIPMENT_TYPE": "AM-S0301016-0001",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "Cache T1 machine",
+                "EQUIPMENT_ID": "ED92DA26EC3FF618E05306F913AC7D49",
+                "EQUIPMENT_CODE": "S022027301",
+                "EQUIPMENT_TYPE": "AM-S0301016-0001",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Cosmetic AOI",
+                "EQUIPMENT_ID": "E990829B0BDC5D63E05306F913AC6994",
+                "EQUIPMENT_CODE": "S022041501",
+                "EQUIPMENT_TYPE": "AM-S0105044-2002",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Post wave PWB transfer",
+                "EQUIPMENT_ID": "EFB34EB24E3914B1E05306F913AC9E1D",
+                "EQUIPMENT_CODE": "H022083001",
+                "EQUIPMENT_TYPE": "AM-H0304006-0000",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Open case test",
+                "EQUIPMENT_ID": "EA31E1B7C7E781F7E05306F913AC251A",
+                "EQUIPMENT_CODE": "S022052601",
+                "EQUIPMENT_TYPE": "AM-S0103059-1102",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Burn In cart T2",
+                "EQUIPMENT_ID": "ED9450A30813E70DE05306F913AC722E",
+                "EQUIPMENT_CODE": "S022041101",
+                "EQUIPMENT_TYPE": "AM-S0301035-0003",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Apply glue",
+                "EQUIPMENT_ID": "E99093A5B4D0649CE05306F913ACAB6A",
+                "EQUIPMENT_CODE": "S022033602",
+                "EQUIPMENT_TYPE": "AM-S0202044-1000",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Burn In cart T1",
+                "EQUIPMENT_ID": "ED9450A30812E70DE05306F913AC722E",
+                "EQUIPMENT_CODE": "S022027501",
+                "EQUIPMENT_TYPE": "AM-S0301035-0001",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "810"
+            },
+            {
+                "MACHINE_NAME": "Auto Post wave buffer",
+                "EQUIPMENT_ID": "EFB34EB24E3A14B1E05306F913AC9E1D",
+                "EQUIPMENT_CODE": "H022080803",
+                "EQUIPMENT_TYPE": "AM-C0302002-1100",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Router",
+                "EQUIPMENT_ID": "F4F6C99B931764DFE05306F913ACFE45",
+                "EQUIPMENT_CODE": "S022845901",
+                "EQUIPMENT_TYPE": "AM-S0603009-0000",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto PCB screw",
+                "EQUIPMENT_ID": "ED93F3ACA8F3B394E05306F913AC3D71",
+                "EQUIPMENT_CODE": "S022027101",
+                "EQUIPMENT_TYPE": "AM-SA008009-0000",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto unloader T2",
+                "EQUIPMENT_ID": "EDF48BF33FFB2374E05306F913AC2473",
+                "EQUIPMENT_CODE": "S022035801",
+                "EQUIPMENT_TYPE": "AM-S0302094-0001",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto unloader T1",
+                "EQUIPMENT_ID": "EDF47B83B5C01BAEE05306F913ACF3B8",
+                "EQUIPMENT_CODE": "S022029901",
+                "EQUIPMENT_TYPE": "AM-S0302094-0001",
+                "EQUIPMENT_STATUS": "offline",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "Auto loader T2",
+                "EQUIPMENT_ID": "EDF48BF33FF92374E05306F913AC2473",
+                "EQUIPMENT_CODE": "S022029801",
+                "EQUIPMENT_TYPE": "AM-S0302094-0000",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "Auto Loader T1",
+                "EQUIPMENT_ID": "EDD3364D831C92DEE05306F913ACDCD6",
+                "EQUIPMENT_CODE": "S022035901",
+                "EQUIPMENT_TYPE": "AM-S0302094-0000",
+                "EQUIPMENT_STATUS": "offline",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "Auto Cover Screw",
+                "EQUIPMENT_ID": "0275E6642CED4396E06302C4CC0A2A54",
+                "EQUIPMENT_CODE": "S023192302",
+                "EQUIPMENT_TYPE": "AM-S0203071-1000",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Insertion",
+                "EQUIPMENT_ID": "F207BAE0F3AB8043E05306F913ACBE00",
+                "EQUIPMENT_CODE": "S022081401",
+                "EQUIPMENT_TYPE": "AM-SA003004-0004",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": "0"
+            }
+        ]
+    },
+    {
+        "LINE_NAME": "CN10",
+        "MACHINE_LIST": [
+            {
+                "MACHINE_NAME": "Auto Insertion 2",
+                "EQUIPMENT_ID": "FE686C5E35D7F511E05306F913ACFDC6",
+                "EQUIPMENT_CODE": "S023025401",
+                "EQUIPMENT_TYPE": "AM-SA003004-0007",
+                "EQUIPMENT_STATUS": "Error",
+                "EQUIPMENT_STATUS_CODE": "21"
+            },
+            {
+                "MACHINE_NAME": "Auto Insertion 1",
+                "EQUIPMENT_ID": "FE686C5E35D9F511E05306F913ACFDC6",
+                "EQUIPMENT_CODE": "S023025402",
+                "EQUIPMENT_TYPE": "AM-SA003004-0007",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "CN11EEPROMWRITE_1",
+                "EQUIPMENT_ID": "FF2C0961A3B98AF5E05306F913ACB67E",
+                "EQUIPMENT_CODE": "H21903013R",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN11EEPROMREAD_1",
+                "EQUIPMENT_ID": "FF2C0EBD4E6E9348E05306F913AC77AD",
+                "EQUIPMENT_CODE": "H21903013S",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN11ICT_1",
+                "EQUIPMENT_ID": "FF2BC1C1041B5676E05306F913AC906D",
+                "EQUIPMENT_CODE": "H21903013T",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "Auto Post Wave PWB buffer",
+                "EQUIPMENT_ID": "01481F5EDFB95CFFE06302C4CC0AB98B",
+                "EQUIPMENT_CODE": "H023041704",
+                "EQUIPMENT_TYPE": "AM-C0302002-1100",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Router",
+                "EQUIPMENT_ID": "F4F6C99B931664DFE05306F913ACFE45",
+                "EQUIPMENT_CODE": "S022837401",
+                "EQUIPMENT_TYPE": "AM-S0603009-0001",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Test T1#I2C1_2",
+                "EQUIPMENT_ID": "09272E405CE7EB4FE06302C4CC0AB0A8",
+                "EQUIPMENT_CODE": "S023568602",
+                "EQUIPMENT_TYPE": "AM-S0104028-0001",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Test T1#ATS1",
+                "EQUIPMENT_ID": "09272E405CE8EB4FE06302C4CC0AB0A8",
+                "EQUIPMENT_CODE": "S023568701",
+                "EQUIPMENT_TYPE": "AM-S0104028-0001",
+                "EQUIPMENT_STATUS": "offline",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "Auto Test T2#I2C2_2",
+                "EQUIPMENT_ID": "02776A06929D35F9E06302C4CC0AC55D",
+                "EQUIPMENT_CODE": "S023305203",
+                "EQUIPMENT_TYPE": "AM-S0104028-0001",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Test T2#ATS2_2",
+                "EQUIPMENT_ID": "027777D23C67384BE06302C4CC0AABF3",
+                "EQUIPMENT_CODE": "S023305204",
+                "EQUIPMENT_TYPE": "AM-S0104028-0001",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Test T2#I2C2_1",
+                "EQUIPMENT_ID": "02776A06929A35F9E06302C4CC0AC55D",
+                "EQUIPMENT_CODE": "S023305201",
+                "EQUIPMENT_TYPE": "AM-S0104028-0001",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Test T2#Sharing+EEPROM",
+                "EQUIPMENT_ID": "02776A06929C35F9E06302C4CC0AC55D",
+                "EQUIPMENT_CODE": "S023305202",
+                "EQUIPMENT_TYPE": "AM-S0104028-0001",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "10"
+            },
+            {
+                "MACHINE_NAME": "Auto Test T1#I2C1_1",
+                "EQUIPMENT_ID": "09272E405CE6EB4FE06302C4CC0AB0A8",
+                "EQUIPMENT_CODE": "S023568601",
+                "EQUIPMENT_TYPE": "AM-S0104028-0001",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Apply Glue",
+                "EQUIPMENT_ID": "09270E0E7059D5F8E06302C4CC0A6425",
+                "EQUIPMENT_CODE": "S023567501",
+                "EQUIPMENT_TYPE": "AM-S0202044-2001",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Cache machine",
+                "EQUIPMENT_ID": "09272855D70AE1D9E06302C4CC0A7301",
+                "EQUIPMENT_CODE": "S023567502",
+                "EQUIPMENT_TYPE": "AM-S0301016-0005",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Stick Label",
+                "EQUIPMENT_ID": "09273F6DC8C8F6E7E06302C4CC0AD005",
+                "EQUIPMENT_CODE": "S023301301",
+                "EQUIPMENT_TYPE": "AM-S0206031-0003",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "767"
+            },
+            {
+                "MACHINE_NAME": "Auto Burn In Loader",
+                "EQUIPMENT_ID": "092732775AA1ED73E06302C4CC0AF645",
+                "EQUIPMENT_CODE": "S023570501",
+                "EQUIPMENT_TYPE": "AM-O0302033-1001",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Test Loader",
+                "EQUIPMENT_ID": "09272B11A90DE445E06302C4CC0AFE1B",
+                "EQUIPMENT_CODE": "S023586903",
+                "EQUIPMENT_TYPE": "AM-O0302111-0001",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Lead Check AOI",
+                "EQUIPMENT_ID": "0927506923AA0380E06302C4CC0A4197",
+                "EQUIPMENT_CODE": "S023262203",
+                "EQUIPMENT_TYPE": "AM-S0104025-1002",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Cosmetic AOI",
+                "EQUIPMENT_ID": "0927506923A90380E06302C4CC0A4197",
+                "EQUIPMENT_CODE": "S023301302",
+                "EQUIPMENT_TYPE": "AM-S0105038-1001",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Post Wave PWB Transfer",
+                "EQUIPMENT_ID": "0926E6FD07EFB965E06302C4CC0AEC4C",
+                "EQUIPMENT_CODE": "H023063005",
+                "EQUIPMENT_TYPE": "AM-H0304006-2100",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto ICT inline",
+                "EQUIPMENT_ID": "02775231D5F62439E06302C4CC0A9EFC",
+                "EQUIPMENT_CODE": "S023255109",
+                "EQUIPMENT_TYPE": "AM-S0102013-0004",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Open Case Test",
+                "EQUIPMENT_ID": "0277587278BC2B77E06302C4CC0A1EEF",
+                "EQUIPMENT_CODE": "S023301201",
+                "EQUIPMENT_TYPE": "AM-S0103059-1104",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Rubber foot machine",
+                "EQUIPMENT_ID": "09270DF253D0D384E06302C4CC0A36B4",
+                "EQUIPMENT_CODE": "H023090902",
+                "EQUIPMENT_TYPE": "AM-H0204001-0000",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Post Wave AOI",
+                "EQUIPMENT_ID": "FC95A71209FB2038E05306F913AC5657",
+                "EQUIPMENT_CODE": "S023011703",
+                "EQUIPMENT_TYPE": "AM-CA012001-0000",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "Auto BR wind flow",
+                "EQUIPMENT_ID": "02778832B49E40C1E06302C4CC0A0E47",
+                "EQUIPMENT_CODE": "S023301303",
+                "EQUIPMENT_TYPE": "AM-S0104026-0002",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Cover Screw",
+                "EQUIPMENT_ID": "09270E0E705AD5F8E06302C4CC0A6425",
+                "EQUIPMENT_CODE": "S023566501",
+                "EQUIPMENT_TYPE": "AM-SA008011-0001",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto PCB Screw",
+                "EQUIPMENT_ID": "09270DF253D3D384E06302C4CC0A36B4",
+                "EQUIPMENT_CODE": "S023566502",
+                "EQUIPMENT_TYPE": "AM-SA008011-0001",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Test T2#ATS2_1",
+                "EQUIPMENT_ID": "038E598664F0CA52E06302C4CC0AE607",
+                "EQUIPMENT_CODE": "S023262303",
+                "EQUIPMENT_TYPE": "AM-S0104028-0003",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Test T2#Vibration+Hi-pot",
+                "EQUIPMENT_ID": "038E3DA2C863B829E06302C4CC0A1694",
+                "EQUIPMENT_CODE": "S023262304",
+                "EQUIPMENT_TYPE": "AM-S0104028-0005",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Burn In Test inline #3",
+                "EQUIPMENT_ID": "09273B37AD87F02DE06302C4CC0A21BE",
+                "EQUIPMENT_CODE": "S023525301",
+                "EQUIPMENT_TYPE": "AM-S0103049-1001",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "86"
+            },
+            {
+                "MACHINE_NAME": "Auto Burn In Test inline #1",
+                "EQUIPMENT_ID": "092732775AA2ED73E06302C4CC0AF645",
+                "EQUIPMENT_CODE": "S023525302",
+                "EQUIPMENT_TYPE": "AM-S0103049-2001",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Burn In Test inline #2",
+                "EQUIPMENT_ID": "09273B37AD86F02DE06302C4CC0A21BE",
+                "EQUIPMENT_CODE": "S023525401",
+                "EQUIPMENT_TYPE": "AM-S0103049-2001",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "79"
+            }
+        ]
+    },
+    {
+        "LINE_NAME": "CN11",
+        "MACHINE_LIST": [
+            {
+                "MACHINE_NAME": "CN11I2C1_5",
+                "EQUIPMENT_ID": "FF2BC5A909455904E05306F913ACC269",
+                "EQUIPMENT_CODE": "H21903013B",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN11I2C1_2",
+                "EQUIPMENT_ID": "FF2BC1C1041D5676E05306F913AC906D",
+                "EQUIPMENT_CODE": "H219030138",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN11ATS2_1",
+                "EQUIPMENT_ID": "FF2C01EAB0398A9DE05306F913AC8011",
+                "EQUIPMENT_CODE": "H21903013O",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN11VIBRATION_1",
+                "EQUIPMENT_ID": "FF2C00B1375285FFE05306F913AC8799",
+                "EQUIPMENT_CODE": "H21903013G",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN11HIPOT2_1",
+                "EQUIPMENT_ID": "FF2C00B1375385FFE05306F913AC8799",
+                "EQUIPMENT_CODE": "H21903013H",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN11HIPOT1_1",
+                "EQUIPMENT_ID": "FF2C00B1375185FFE05306F913AC8799",
+                "EQUIPMENT_CODE": "H21903013F",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN11SHARING_1",
+                "EQUIPMENT_ID": "FF2C01EAB03B8A9DE05306F913AC8011",
+                "EQUIPMENT_CODE": "H21903013Q",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN11ATS1P1_1",
+                "EQUIPMENT_ID": "FF2BCB47F2AF62ADE05306F913ACBAA0",
+                "EQUIPMENT_CODE": "H21903013C",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN11ATS1P2_1",
+                "EQUIPMENT_ID": "FF2C00B1375085FFE05306F913AC8799",
+                "EQUIPMENT_CODE": "H21903013E",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN11I2C1_3",
+                "EQUIPMENT_ID": "FF2BC5A909435904E05306F913ACC269",
+                "EQUIPMENT_CODE": "H219030139",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN11I2C1_4",
+                "EQUIPMENT_ID": "FF2BC5A909445904E05306F913ACC269",
+                "EQUIPMENT_CODE": "H21903013A",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN11I2C1_1",
+                "EQUIPMENT_ID": "FF2BC1C1041C5676E05306F913AC906D",
+                "EQUIPMENT_CODE": "H219030137",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN11I2C2_6",
+                "EQUIPMENT_ID": "FF2C01EAB0388A9DE05306F913AC8011",
+                "EQUIPMENT_CODE": "H21903013N",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN11ATS1P1_2",
+                "EQUIPMENT_ID": "FF2BC83299A35E33E05306F913AC6235",
+                "EQUIPMENT_CODE": "H21903013D",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN11I2C2_5",
+                "EQUIPMENT_ID": "FF2C01EAB0378A9DE05306F913AC8011",
+                "EQUIPMENT_CODE": "H21903013M",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN11I2C2_4",
+                "EQUIPMENT_ID": "FF2C00B1375785FFE05306F913AC8799",
+                "EQUIPMENT_CODE": "H21903013L",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN11I2C2_3",
+                "EQUIPMENT_ID": "FF2C00B1375685FFE05306F913AC8799",
+                "EQUIPMENT_CODE": "H21903013K",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "Auto PCB Screw",
+                "EQUIPMENT_ID": "0276ED4FEFFCF61BE06302C4CC0A4F15",
+                "EQUIPMENT_CODE": "S021041401",
+                "EQUIPMENT_TYPE": "AM-SA008008-0000",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Post Wave Buffer",
+                "EQUIPMENT_ID": "006F28443AC5ACE0E06306F913ACAE98",
+                "EQUIPMENT_CODE": "H023041703",
+                "EQUIPMENT_TYPE": "AM-C0302002-1100",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Post Wave Buffer",
+                "EQUIPMENT_ID": "01BFAEA2A08CCD71E06302C4CC0ACC6C",
+                "EQUIPMENT_CODE": "H023041701",
+                "EQUIPMENT_TYPE": "AM-C0302002-1100",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Loading Router Machine",
+                "EQUIPMENT_ID": "EFC3382575A8E05DE05306F913AC1909",
+                "EQUIPMENT_CODE": "H220103101",
+                "EQUIPMENT_TYPE": "CN-AUTOLOADROUTER-AE01",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Lead Check AOI",
+                "EQUIPMENT_ID": "0276ED4FEFFAF61BE06302C4CC0A4F15",
+                "EQUIPMENT_CODE": "S023255104",
+                "EQUIPMENT_TYPE": "AM-S0104025-1001",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Lead Check AOI",
+                "EQUIPMENT_ID": "FEAFC76CCF983C79E05306F913AC3B91",
+                "EQUIPMENT_CODE": "S023255101",
+                "EQUIPMENT_TYPE": "AM-S0104025-1001",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Cache Machine",
+                "EQUIPMENT_ID": "00C03027BE889B93E06302C4CC0A48FA",
+                "EQUIPMENT_CODE": "S023167802",
+                "EQUIPMENT_TYPE": "AM-S0301016-0004",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Stick Label",
+                "EQUIPMENT_ID": "01BFC18D1F5DD939E06302C4CC0A4934",
+                "EQUIPMENT_CODE": "S023213601",
+                "EQUIPMENT_TYPE": "AM-S0206031-0002",
+                "EQUIPMENT_STATUS": "offline",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "Auto Test T2 #Sharing+EEPROM",
+                "EQUIPMENT_ID": "01C0C34E6C02804BE06302C4CC0A0049",
+                "EQUIPMENT_CODE": "S023126907",
+                "EQUIPMENT_TYPE": "AM-S0104028-0002",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto XY barcode scanning",
+                "EQUIPMENT_ID": "09270DF253D2D384E06302C4CC0A36B4",
+                "EQUIPMENT_CODE": "S023587002",
+                "EQUIPMENT_TYPE": "AM-O0302107-0001",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto XY Barcode Scanning",
+                "EQUIPMENT_ID": "01BFC18D1F5BD939E06302C4CC0A4934",
+                "EQUIPMENT_CODE": "S02312740A",
+                "EQUIPMENT_TYPE": "AM-O0302107-0001",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Test Loader",
+                "EQUIPMENT_ID": "00C030305E779FC5E06302C4CC0A2BDA",
+                "EQUIPMENT_CODE": "S023127408",
+                "EQUIPMENT_TYPE": "AM-O0302111-0000",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Test Unloader",
+                "EQUIPMENT_ID": "02768F2186FDC122E06302C4CC0AA713",
+                "EQUIPMENT_CODE": "S023127409",
+                "EQUIPMENT_TYPE": "AM-O0302112-0000",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Burn In Loader",
+                "EQUIPMENT_ID": "00F582B9A2E40372E06302C4CC0A0185",
+                "EQUIPMENT_CODE": "S023127407",
+                "EQUIPMENT_TYPE": "AM-O0302033-1000",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Post Wave PWB Transfer",
+                "EQUIPMENT_ID": "0A1402CF630E2588E06302C4CC0AD226",
+                "EQUIPMENT_CODE": "H023063007",
+                "EQUIPMENT_TYPE": "AM-H0304006-2100",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto ICT inline",
+                "EQUIPMENT_ID": "FE68A07CBFA10708E05306F913ACE595",
+                "EQUIPMENT_CODE": "S023165301",
+                "EQUIPMENT_TYPE": "AM-S0102013-0004",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Test T2 #I2C2_1",
+                "EQUIPMENT_ID": "FE68B32EE6CF10A0E05306F913AC75FB",
+                "EQUIPMENT_CODE": "S023126804",
+                "EQUIPMENT_TYPE": "AM-S0104028-0000",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Test T2 #ATS2_1",
+                "EQUIPMENT_ID": "FE68B32EE6D110A0E05306F913AC75FB",
+                "EQUIPMENT_CODE": "S023126803",
+                "EQUIPMENT_TYPE": "AM-S0104028-0000",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Test T2 #I2C2_2",
+                "EQUIPMENT_ID": "FE68B32EE6D010A0E05306F913AC75FB",
+                "EQUIPMENT_CODE": "S023126801",
+                "EQUIPMENT_TYPE": "AM-S0104028-0000",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Test T2 #ATS2_2",
+                "EQUIPMENT_ID": "FE68B5DAA385147DE05306F913AC4514",
+                "EQUIPMENT_CODE": "S023126802",
+                "EQUIPMENT_TYPE": "AM-S0104028-0000",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Test T1#ATS1",
+                "EQUIPMENT_ID": "FA7A105AD9EF94A3E05306F913AC7293",
+                "EQUIPMENT_CODE": "S023126503",
+                "EQUIPMENT_TYPE": "AM-S0104028-0000",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": "10"
+            },
+            {
+                "MACHINE_NAME": "Auto Test T1#I2C1_1",
+                "EQUIPMENT_ID": "FA7A105AD9ED94A3E05306F913AC7293",
+                "EQUIPMENT_CODE": "S023126501",
+                "EQUIPMENT_TYPE": "AM-S0104028-0000",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "31"
+            },
+            {
+                "MACHINE_NAME": "Auto Test T1#I2C1_2",
+                "EQUIPMENT_ID": "FA7A105AD9EE94A3E05306F913AC7293",
+                "EQUIPMENT_CODE": "S023126502",
+                "EQUIPMENT_TYPE": "AM-S0104028-0000",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "10"
+            },
+            {
+                "MACHINE_NAME": "Auto Three Way Magazine Loader",
+                "EQUIPMENT_ID": "006F2D7F2ECEB584E06306F913AC3AF6",
+                "EQUIPMENT_CODE": "H023033001",
+                "EQUIPMENT_TYPE": "AM-H0303010-0000",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Three Way Magazine Loader",
+                "EQUIPMENT_ID": "01473BB52764B530E06302C4CC0A4913",
+                "EQUIPMENT_CODE": "H023070801",
+                "EQUIPMENT_TYPE": "AM-H0303010-0000",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Burn In Test inline #1",
+                "EQUIPMENT_ID": "00F58FF1E20106C0E06302C4CC0A2CC0",
+                "EQUIPMENT_CODE": "S023140204",
+                "EQUIPMENT_TYPE": "AM-S0103049-2000",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Burn In Test inline #2",
+                "EQUIPMENT_ID": "027685BA665AB8CCE06302C4CC0AE687",
+                "EQUIPMENT_CODE": "S023140203",
+                "EQUIPMENT_TYPE": "AM-S0103049-2000",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Cover Screw",
+                "EQUIPMENT_ID": "FE68A76613630CD9E05306F913ACEA05",
+                "EQUIPMENT_CODE": "S023141701",
+                "EQUIPMENT_TYPE": "AM-SA008010-0001",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Rubber foot machine",
+                "EQUIPMENT_ID": "0927260E6D16DF6DE06302C4CC0AD822",
+                "EQUIPMENT_CODE": "H023090901",
+                "EQUIPMENT_TYPE": "AM-H0204001-0000",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Rubber Foot",
+                "EQUIPMENT_ID": "08AB98FF622BDF68E06302C4CC0A6EAE",
+                "EQUIPMENT_CODE": "H023060301",
+                "EQUIPMENT_TYPE": "AM-H0204001-0000",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Rubber Foot",
+                "EQUIPMENT_ID": "092763CD19690C80E06302C4CC0AB4AD",
+                "EQUIPMENT_CODE": "H023060302",
+                "EQUIPMENT_TYPE": "AM-H0204001-0000",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto BR wind flow",
+                "EQUIPMENT_ID": "FE68B5DAA387147DE05306F913AC4514",
+                "EQUIPMENT_CODE": "S023126909",
+                "EQUIPMENT_TYPE": "AM-S0104026-0001",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Cover Screw",
+                "EQUIPMENT_ID": "027575CD99AAF5ACE06302C4CC0AAFC5",
+                "EQUIPMENT_CODE": "S023192303",
+                "EQUIPMENT_TYPE": "AM-S0203071-1000",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Open Case Test",
+                "EQUIPMENT_ID": "FA7A0F359BF58EF8E05306F913ACF617",
+                "EQUIPMENT_CODE": "S023127001",
+                "EQUIPMENT_TYPE": "AM-S0103059-1103",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Test T2 #Vibration+Hi-pot",
+                "EQUIPMENT_ID": "FE68A9C0587C0E84E05306F913AC73C3",
+                "EQUIPMENT_CODE": "S023126908",
+                "EQUIPMENT_TYPE": "AM-S0104028-0004",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Post Wave AOI",
+                "EQUIPMENT_ID": "0147DAC1C33339C8E06302C4CC0A9EFB",
+                "EQUIPMENT_CODE": "S023011701",
+                "EQUIPMENT_TYPE": "AM-CA012001-0000",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Post Wave AOI",
+                "EQUIPMENT_ID": "01474C54AF18C385E06302C4CC0A06E6",
+                "EQUIPMENT_CODE": "S023011705",
+                "EQUIPMENT_TYPE": "AM-CA012001-0000",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Post Wave AOI",
+                "EQUIPMENT_ID": "FC933EB3CE376FB1E05306F913AC24A1",
+                "EQUIPMENT_CODE": "S023011702",
+                "EQUIPMENT_TYPE": "AM-CA012001-0001",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Post Wave AOI",
+                "EQUIPMENT_ID": "FC95AD1B7DEE2704E05306F913ACDA44",
+                "EQUIPMENT_CODE": "S023011704",
+                "EQUIPMENT_TYPE": "AM-CA012001-0001",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Conveyor machine ",
+                "EQUIPMENT_ID": "1D5E1DA66EAD8242E06326C4940A4625",
+                "EQUIPMENT_CODE": "OT00310046",
+                "EQUIPMENT_TYPE": "A00310310",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "PWBA Buffer machine",
+                "EQUIPMENT_ID": "1D5E1DA66EAE8242E06326C4940A4625",
+                "EQUIPMENT_CODE": "OT00930010",
+                "EQUIPMENT_TYPE": "A00930100",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto screw machine",
+                "EQUIPMENT_ID": "1E7539F0E50AC6C8E06326C4940AA8D5",
+                "EQUIPMENT_CODE": "OT00420012",
+                "EQUIPMENT_TYPE": "A00420120",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Burn In Lifter",
+                "EQUIPMENT_ID": "027681EB451FB57EE06302C4CC0A4C22",
+                "EQUIPMENT_CODE": "S023114402",
+                "EQUIPMENT_TYPE": "AM-S0302033-3000",
+                "EQUIPMENT_STATUS": "Error",
+                "EQUIPMENT_STATUS_CODE": "14"
+            },
+            {
+                "MACHINE_NAME": "Auto PCB Screw",
+                "EQUIPMENT_ID": "038EA5A400C90553E06302C4CC0A43B5",
+                "EQUIPMENT_CODE": "S023142901",
+                "EQUIPMENT_TYPE": "AM-SA008011-0001",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Selective Soldering machine",
+                "EQUIPMENT_ID": "258104A562A60B0FE06326C4940AC491",
+                "EQUIPMENT_CODE": "OT00350043",
+                "EQUIPMENT_TYPE": "O00350120",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Insertion",
+                "EQUIPMENT_ID": "F6C150258A2D5E6AE05306F913ACFE56",
+                "EQUIPMENT_CODE": "S023084701",
+                "EQUIPMENT_TYPE": "AM-SA003004-0004",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Apply Glue",
+                "EQUIPMENT_ID": "01D3BC3BBCA80670E06302C4CC0ACBF7",
+                "EQUIPMENT_CODE": "S023167904",
+                "EQUIPMENT_TYPE": "AM-S0202044-2000",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Burn In Test inline #3",
+                "EQUIPMENT_ID": "02768AC4A85CBB84E06302C4CC0A5419",
+                "EQUIPMENT_CODE": "S023140202",
+                "EQUIPMENT_TYPE": "AM-S0103049-1000",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "79"
+            }
+        ]
+    },
+    {
+        "LINE_NAME": "CN12",
+        "MACHINE_LIST": [
+            {
+                "MACHINE_NAME": "CN12ICT_1",
+                "EQUIPMENT_ID": "064F481B3832622CE06302C4CC0A321D",
+                "EQUIPMENT_CODE": "H21903013U",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN12VIBRATION_1",
+                "EQUIPMENT_ID": "0650FD85C6E77745E06302C4CC0A4278",
+                "EQUIPMENT_CODE": "H21903014D",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN12VIBRATION_2",
+                "EQUIPMENT_ID": "0650FD85C6E87745E06302C4CC0A4278",
+                "EQUIPMENT_CODE": "H21903014E",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN12CR_1",
+                "EQUIPMENT_ID": "0650FBB81D3475DFE06302C4CC0A6250",
+                "EQUIPMENT_CODE": "H219030141",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN12ATS1 P2_1",
+                "EQUIPMENT_ID": "0650FBB81D3C75DFE06302C4CC0A6250",
+                "EQUIPMENT_CODE": "H219030149",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN12HIPOT1_1",
+                "EQUIPMENT_ID": "0650FD85C6E97745E06302C4CC0A4278",
+                "EQUIPMENT_CODE": "H21903014F",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN12I2C2 P1_1",
+                "EQUIPMENT_ID": "06510A780AD178A0E06302C4CC0A6547",
+                "EQUIPMENT_CODE": "H21903014H",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN12I2C2 P2_1",
+                "EQUIPMENT_ID": "06510CA5B24B7F72E06302C4CC0AE22A",
+                "EQUIPMENT_CODE": "H21903014L",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN12ATS2 P1_1",
+                "EQUIPMENT_ID": "06510CA5B24F7F72E06302C4CC0AE22A",
+                "EQUIPMENT_CODE": "H21903014P",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN12ATS2 P2_1",
+                "EQUIPMENT_ID": "06511C0861F981EFE06302C4CC0A9BA8",
+                "EQUIPMENT_CODE": "H21903014T",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN12EEPROMWRITE_1",
+                "EQUIPMENT_ID": "06511ED4322A8922E06302C4CC0AEAE1",
+                "EQUIPMENT_CODE": "H21903014Z",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN12I2C1 P2_1",
+                "EQUIPMENT_ID": "0650FBB81D3875DFE06302C4CC0A6250",
+                "EQUIPMENT_CODE": "H219030145",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "CN12EEPROMREAD_1",
+                "EQUIPMENT_ID": "06511ED4322B8922E06302C4CC0AEAE1",
+                "EQUIPMENT_CODE": "H219030150",
+                "EQUIPMENT_TYPE": "CD-I2C",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": null
+            }
+        ]
+    },
+    {
+        "LINE_NAME": "CN13",
+        "MACHINE_LIST": [
+            {
+                "MACHINE_NAME": "Auto Post Wave Buffer",
+                "EQUIPMENT_ID": "2DC7F7238CF131BFE06326C4940A750A",
+                "EQUIPMENT_CODE": "OT00930049",
+                "EQUIPMENT_TYPE": "A00930310",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto 3D solder AOI",
+                "EQUIPMENT_ID": "381190FB51B8CB72E06326C4940A11E9",
+                "EQUIPMENT_CODE": "OT00550098",
+                "EQUIPMENT_TYPE": "A00550160",
+                "EQUIPMENT_STATUS": "offline",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "AOI Machine (3D Soldering AOI)",
+                "EQUIPMENT_ID": "1D5C6EC328B3ACCDE06326C4940AC805",
+                "EQUIPMENT_CODE": "OT00550032",
+                "EQUIPMENT_TYPE": "A00550030",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            }
+        ]
+    },
+    {
+        "LINE_NAME": "CN14A",
+        "MACHINE_LIST": []
+    },
+    {
+        "LINE_NAME": "CN18",
+        "MACHINE_LIST": [
+            {
+                "MACHINE_NAME": "Auto Post Wave Buffer",
+                "EQUIPMENT_ID": "2D70CBF97446E2DFE06326C4940A07B6",
+                "EQUIPMENT_CODE": "OT00930042",
+                "EQUIPMENT_TYPE": "A00930310",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Selective Soldering",
+                "EQUIPMENT_ID": "33D26FE32FA894B8E06326C4940A2EF9",
+                "EQUIPMENT_CODE": "OT00530005",
+                "EQUIPMENT_TYPE": "A00530050",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Transfer Testing Carrier machine",
+                "EQUIPMENT_ID": "3012B4602105AE62E06326C4940A975E",
+                "EQUIPMENT_CODE": "OT00310269",
+                "EQUIPMENT_TYPE": "A00311560",
+                "EQUIPMENT_STATUS": "offline",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "Auto Unloader Tester",
+                "EQUIPMENT_ID": "3012B4602108AE62E06326C4940A975E",
+                "EQUIPMENT_CODE": "OT00310272",
+                "EQUIPMENT_TYPE": "A00311580",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Unloader Tester",
+                "EQUIPMENT_ID": "3012B4602109AE62E06326C4940A975E",
+                "EQUIPMENT_CODE": "OT00310273",
+                "EQUIPMENT_TYPE": "A00311580",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Burn In Cart In",
+                "EQUIPMENT_ID": "304BB1CFF8D4E98CE06326C4940A88BB",
+                "EQUIPMENT_CODE": "OT00410005",
+                "EQUIPMENT_TYPE": "A00410040",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Burn In Cart Out",
+                "EQUIPMENT_ID": "304BB1CFF8D6E98CE06326C4940A88BB",
+                "EQUIPMENT_CODE": "OT00480017",
+                "EQUIPMENT_TYPE": "A00480060",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Loader Tester",
+                "EQUIPMENT_ID": "3012B4602106AE62E06326C4940A975E",
+                "EQUIPMENT_CODE": "OT00310270",
+                "EQUIPMENT_TYPE": "A00311570",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Loader Tester",
+                "EQUIPMENT_ID": "3012B4602107AE62E06326C4940A975E",
+                "EQUIPMENT_CODE": "OT00310271",
+                "EQUIPMENT_TYPE": "A00311570",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Function Test machine",
+                "EQUIPMENT_ID": "3012B4602111AE62E06326C4940A975E",
+                "EQUIPMENT_CODE": "OT00580190",
+                "EQUIPMENT_TYPE": "A00580980",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Function Test machine",
+                "EQUIPMENT_ID": "3012B460210BAE62E06326C4940A975E",
+                "EQUIPMENT_CODE": "OT00580184",
+                "EQUIPMENT_TYPE": "A00580980",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Function Test machine",
+                "EQUIPMENT_ID": "3012B460210FAE62E06326C4940A975E",
+                "EQUIPMENT_CODE": "OT00580188",
+                "EQUIPMENT_TYPE": "A00580980",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Function Test machine",
+                "EQUIPMENT_ID": "3012B460210EAE62E06326C4940A975E",
+                "EQUIPMENT_CODE": "OT00580187",
+                "EQUIPMENT_TYPE": "A00580980",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Function Test machine",
+                "EQUIPMENT_ID": "3012B460210DAE62E06326C4940A975E",
+                "EQUIPMENT_CODE": "OT00580186",
+                "EQUIPMENT_TYPE": "A00580980",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Function Test machine",
+                "EQUIPMENT_ID": "3012B4602110AE62E06326C4940A975E",
+                "EQUIPMENT_CODE": "OT00580189",
+                "EQUIPMENT_TYPE": "A00580980",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Function Test machine",
+                "EQUIPMENT_ID": "3012B460210CAE62E06326C4940A975E",
+                "EQUIPMENT_CODE": "OT00580185",
+                "EQUIPMENT_TYPE": "A00580980",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Function Test Machine",
+                "EQUIPMENT_ID": "30D601A2F996C617E06326C4940A9CF9",
+                "EQUIPMENT_CODE": "OT00580191",
+                "EQUIPMENT_TYPE": "A00581010",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": "810"
+            },
+            {
+                "MACHINE_NAME": "Auto Open Case Test machine",
+                "EQUIPMENT_ID": "30D601A2F98EC617E06326C4940A9CF9",
+                "EQUIPMENT_CODE": "OT00580175",
+                "EQUIPMENT_TYPE": "A00580990",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Function Test Machine",
+                "EQUIPMENT_ID": "30D601A2F997C617E06326C4940A9CF9",
+                "EQUIPMENT_CODE": "OT00580194",
+                "EQUIPMENT_TYPE": "A00581050",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto PCB Unloader machine",
+                "EQUIPMENT_ID": "304BB1CFF8D8E98CE06326C4940A88BB",
+                "EQUIPMENT_CODE": "OT00310276",
+                "EQUIPMENT_TYPE": "A00311630",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto 3D solder AOI",
+                "EQUIPMENT_ID": "301B1894C93CBB2AE06326C4940A2938",
+                "EQUIPMENT_CODE": "OT00550076",
+                "EQUIPMENT_TYPE": "A00550160",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "Auto Function Test machine",
+                "EQUIPMENT_ID": "30D601A2F999C617E06326C4940A9CF9",
+                "EQUIPMENT_CODE": "OT00580202",
+                "EQUIPMENT_TYPE": "A00581120",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Function Test machine",
+                "EQUIPMENT_ID": "30D601A2F99DC617E06326C4940A9CF9",
+                "EQUIPMENT_CODE": "OT00580214",
+                "EQUIPMENT_TYPE": "A00581140",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto ICT Tester machine",
+                "EQUIPMENT_ID": "304BB1CFF8D9E98CE06326C4940A88BB",
+                "EQUIPMENT_CODE": "OT00520044",
+                "EQUIPMENT_TYPE": "A00520280",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Transfer Solder Carrier machine",
+                "EQUIPMENT_ID": "30110613FDE3BADFE06326C4940AB9B4",
+                "EQUIPMENT_CODE": "OT00310291",
+                "EQUIPMENT_TYPE": "A00311680",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Automatic Router",
+                "EQUIPMENT_ID": "3010303D081ACA9DE06326C4940A4A0F",
+                "EQUIPMENT_CODE": "OT00320061",
+                "EQUIPMENT_TYPE": "A00320310",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Transfer Carrier machine",
+                "EQUIPMENT_ID": "30110613FDE5BADFE06326C4940AB9B4",
+                "EQUIPMENT_CODE": "OT00310295",
+                "EQUIPMENT_TYPE": "A00311710",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Wind Flow Test",
+                "EQUIPMENT_ID": "3012B460211CAE62E06326C4940A975E",
+                "EQUIPMENT_CODE": "OT00580212",
+                "EQUIPMENT_TYPE": "A00581250",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "自動貼標簽機",
+                "EQUIPMENT_ID": "301B1894C939BB2AE06326C4940A2938",
+                "EQUIPMENT_CODE": "OT00440020",
+                "EQUIPMENT_TYPE": "A00440040",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Magazine loader size M+XL",
+                "EQUIPMENT_ID": "2EF18869E04C636DE06326C4940AA11D",
+                "EQUIPMENT_CODE": "OT00310267",
+                "EQUIPMENT_TYPE": "A00310220",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "自動鎖螺絲機",
+                "EQUIPMENT_ID": "33D26FE32FA794B8E06326C4940A2EF9",
+                "EQUIPMENT_CODE": "OT00420095",
+                "EQUIPMENT_TYPE": "A00420040",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "自動插件機",
+                "EQUIPMENT_ID": "2EF3344879FD3DB0E06326C4940A8F92",
+                "EQUIPMENT_CODE": "OT00330143",
+                "EQUIPMENT_TYPE": "A00330100",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Transfer Carrier and cover machine",
+                "EQUIPMENT_ID": "352AECC398F92F65E06326C4940AF3C6",
+                "EQUIPMENT_CODE": "OT00310281",
+                "EQUIPMENT_TYPE": "A00311670",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "2"
+            },
+            {
+                "MACHINE_NAME": "Auto Post Wave PCB Transfer",
+                "EQUIPMENT_ID": "30110613FDE1BADFE06326C4940AB9B4",
+                "EQUIPMENT_CODE": "OT00360076",
+                "EQUIPMENT_TYPE": "A00360700",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": "84"
+            },
+            {
+                "MACHINE_NAME": "Auto Cosmetic AOI machine",
+                "EQUIPMENT_ID": "360836A44BCAD707E06326C4940AC3B4",
+                "EQUIPMENT_CODE": "OT00610080",
+                "EQUIPMENT_TYPE": "A00610490",
+                "EQUIPMENT_STATUS": "Error",
+                "EQUIPMENT_STATUS_CODE": "753"
+            }
+        ]
+    },
+    {
+        "LINE_NAME": "CN19",
+        "MACHINE_LIST": [
+            {
+                "MACHINE_NAME": "Auto Post Wave Buffer",
+                "EQUIPMENT_ID": "2DC7F7238CED31BFE06326C4940A750A",
+                "EQUIPMENT_CODE": "OT00930045",
+                "EQUIPMENT_TYPE": "A00930310",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto PCB Unloader machine",
+                "EQUIPMENT_ID": "360836A44BC7D707E06326C4940AC3B4",
+                "EQUIPMENT_CODE": "OT00310316",
+                "EQUIPMENT_TYPE": "A00311760",
+                "EQUIPMENT_STATUS": "offline",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "Auto ICT Tester machine",
+                "EQUIPMENT_ID": "35C6D49BA1FBC1E9E06326C4940AF0A7",
+                "EQUIPMENT_CODE": "OT00520051",
+                "EQUIPMENT_TYPE": "A00520330",
+                "EQUIPMENT_STATUS": "offline",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "Auto Function Test Machine",
+                "EQUIPMENT_ID": "3615A3A5CA560E13E06326C4940A08CD",
+                "EQUIPMENT_CODE": "OT00580274",
+                "EQUIPMENT_TYPE": "A00581450",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Transfer Testing Carrier machine",
+                "EQUIPMENT_ID": "375AD6F31E36B3B5E06326C4940A317D",
+                "EQUIPMENT_CODE": "OT00310318",
+                "EQUIPMENT_TYPE": "A00311800",
+                "EQUIPMENT_STATUS": "offline",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "Auto Unloader Tester",
+                "EQUIPMENT_ID": "3012B4602114AE62E06326C4940A975E",
+                "EQUIPMENT_CODE": "OT00310285",
+                "EQUIPMENT_TYPE": "A00311580",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Unloader Tester",
+                "EQUIPMENT_ID": "3012B4602115AE62E06326C4940A975E",
+                "EQUIPMENT_CODE": "OT00310286",
+                "EQUIPMENT_TYPE": "A00311580",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Burn In Cart Out",
+                "EQUIPMENT_ID": "304BB1CFF8D7E98CE06326C4940A88BB",
+                "EQUIPMENT_CODE": "OT00480018",
+                "EQUIPMENT_TYPE": "A00480060",
+                "EQUIPMENT_STATUS": "offline",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "Auto Loader Tester",
+                "EQUIPMENT_ID": "3012B4602113AE62E06326C4940A975E",
+                "EQUIPMENT_CODE": "OT00310284",
+                "EQUIPMENT_TYPE": "A00311570",
+                "EQUIPMENT_STATUS": "offline",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "Auto Loader Tester",
+                "EQUIPMENT_ID": "3012B4602112AE62E06326C4940A975E",
+                "EQUIPMENT_CODE": "OT00310283",
+                "EQUIPMENT_TYPE": "A00311570",
+                "EQUIPMENT_STATUS": "offline",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "Auto Function Test machine",
+                "EQUIPMENT_ID": "30D601A2F993C617E06326C4940A9CF9",
+                "EQUIPMENT_CODE": "OT00580181",
+                "EQUIPMENT_TYPE": "A00580980",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Function Test machine",
+                "EQUIPMENT_ID": "30D601A2F98FC617E06326C4940A9CF9",
+                "EQUIPMENT_CODE": "OT00580177",
+                "EQUIPMENT_TYPE": "A00580980",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Function Test machine",
+                "EQUIPMENT_ID": "30D601A2F990C617E06326C4940A9CF9",
+                "EQUIPMENT_CODE": "OT00580178",
+                "EQUIPMENT_TYPE": "A00580980",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Function Test machine",
+                "EQUIPMENT_ID": "30D601A2F991C617E06326C4940A9CF9",
+                "EQUIPMENT_CODE": "OT00580179",
+                "EQUIPMENT_TYPE": "A00580980",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Function Test machine",
+                "EQUIPMENT_ID": "30D601A2F995C617E06326C4940A9CF9",
+                "EQUIPMENT_CODE": "OT00580183",
+                "EQUIPMENT_TYPE": "A00580980",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Function Test machine",
+                "EQUIPMENT_ID": "30D601A2F994C617E06326C4940A9CF9",
+                "EQUIPMENT_CODE": "OT00580182",
+                "EQUIPMENT_TYPE": "A00580980",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Function Test machine",
+                "EQUIPMENT_ID": "30D601A2F992C617E06326C4940A9CF9",
+                "EQUIPMENT_CODE": "OT00580180",
+                "EQUIPMENT_TYPE": "A00580980",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Open Case Test machine",
+                "EQUIPMENT_ID": "3012B460210AAE62E06326C4940A975E",
+                "EQUIPMENT_CODE": "OT00580176",
+                "EQUIPMENT_TYPE": "A00580990",
+                "EQUIPMENT_STATUS": "offline",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "Auto Function Test Machine",
+                "EQUIPMENT_ID": "30D601A2F998C617E06326C4940A9CF9",
+                "EQUIPMENT_CODE": "OT00580195",
+                "EQUIPMENT_TYPE": "A00581050",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto 3D solder AOI",
+                "EQUIPMENT_ID": "301B1894C93DBB2AE06326C4940A2938",
+                "EQUIPMENT_CODE": "OT00550077",
+                "EQUIPMENT_TYPE": "A00550160",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": "5"
+            },
+            {
+                "MACHINE_NAME": "Auto Function Test machine",
+                "EQUIPMENT_ID": "30D601A2F99AC617E06326C4940A9CF9",
+                "EQUIPMENT_CODE": "OT00580203",
+                "EQUIPMENT_TYPE": "A00581120",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Function Test machine",
+                "EQUIPMENT_ID": "32692C0F6AD742CEE06326C4940AFB9F",
+                "EQUIPMENT_CODE": "OT00580268",
+                "EQUIPMENT_TYPE": "A00581140",
+                "EQUIPMENT_STATUS": "offline",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "Auto Transfer Solder Carrier machine",
+                "EQUIPMENT_ID": "3012B460211AAE62E06326C4940A975E",
+                "EQUIPMENT_CODE": "OT00310289",
+                "EQUIPMENT_TYPE": "A00311680",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Automatic Router",
+                "EQUIPMENT_ID": "30591C4BDED6E0D5E06326C4940A3B32",
+                "EQUIPMENT_CODE": "OT00320059",
+                "EQUIPMENT_TYPE": "A00320310",
+                "EQUIPMENT_STATUS": "offline",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "Magazine loader size M+XL",
+                "EQUIPMENT_ID": "2EF18869E04D636DE06326C4940AA11D",
+                "EQUIPMENT_CODE": "OT00310268",
+                "EQUIPMENT_TYPE": "A00310220",
+                "EQUIPMENT_STATUS": "offline",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "自動插件機",
+                "EQUIPMENT_ID": "2EF3344879FE3DB0E06326C4940A8F92",
+                "EQUIPMENT_CODE": "OT00330144",
+                "EQUIPMENT_TYPE": "A00330100",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Post Wave PCB Transfer",
+                "EQUIPMENT_ID": "30110613FDE2BADFE06326C4940AB9B4",
+                "EQUIPMENT_CODE": "OT00360077",
+                "EQUIPMENT_TYPE": "A00360700",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "84"
+            },
+            {
+                "MACHINE_NAME": "Auto Cosmetic AOI machine",
+                "EQUIPMENT_ID": "33D4F464CDE2B227E06326C4940AA34A",
+                "EQUIPMENT_CODE": "OT00610082",
+                "EQUIPMENT_TYPE": "A00610490",
+                "EQUIPMENT_STATUS": "offline",
+                "EQUIPMENT_STATUS_CODE": null
+            }
+        ]
+    },
+    {
+        "LINE_NAME": "CN23",
+        "MACHINE_LIST": [
+            {
+                "MACHINE_NAME": "Auto Post Wave Buffer",
+                "EQUIPMENT_ID": "35C6D49BA203C1E9E06326C4940AF0A7",
+                "EQUIPMENT_CODE": "OT00930082",
+                "EQUIPMENT_TYPE": "A00930310",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            }
+        ]
+    },
+    {
+        "LINE_NAME": "CN24",
+        "MACHINE_LIST": [
+            {
+                "MACHINE_NAME": "Auto Transfer Testing Carrier machine",
+                "EQUIPMENT_ID": "304BB1CFF8DBE98CE06326C4940A88BB",
+                "EQUIPMENT_CODE": "OT00310297",
+                "EQUIPMENT_TYPE": "A00311560",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto ICT Tester machine",
+                "EQUIPMENT_ID": "304BB1CFF8DAE98CE06326C4940A88BB",
+                "EQUIPMENT_CODE": "OT00520045",
+                "EQUIPMENT_TYPE": "A00520280",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Transfer Solder Carrier machine",
+                "EQUIPMENT_ID": "30110613FDE4BADFE06326C4940AB9B4",
+                "EQUIPMENT_CODE": "OT00310292",
+                "EQUIPMENT_TYPE": "A00311680",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Automatic Router",
+                "EQUIPMENT_ID": "3010303D081BCA9DE06326C4940A4A0F",
+                "EQUIPMENT_CODE": "OT00320062",
+                "EQUIPMENT_TYPE": "A00320310",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Transfer Carrier machine",
+                "EQUIPMENT_ID": "30110613FDE6BADFE06326C4940AB9B4",
+                "EQUIPMENT_CODE": "OT00310296",
+                "EQUIPMENT_TYPE": "A00311710",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "自動插件機",
+                "EQUIPMENT_ID": "30B11F9A36D6D6BDE06326C4940A4227",
+                "EQUIPMENT_CODE": "OT00330146",
+                "EQUIPMENT_TYPE": "A00330100",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Transfer Carrier and cover machine",
+                "EQUIPMENT_ID": "304BB1CFF8DDE98CE06326C4940A88BB",
+                "EQUIPMENT_CODE": "OT00310299",
+                "EQUIPMENT_TYPE": "A00311670",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            }
+        ]
+    },
+    {
+        "LINE_NAME": "CN28",
+        "MACHINE_LIST": [
+            {
+                "MACHINE_NAME": "Auto Post Wave Buffer",
+                "EQUIPMENT_ID": "4270F7087ADDF070E06326C4940A7E28",
+                "EQUIPMENT_CODE": "OT00930132",
+                "EQUIPMENT_TYPE": "A00930360",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            }
+        ]
+    },
+    {
+        "LINE_NAME": "CN29",
+        "MACHINE_LIST": []
+    },
+    {
+        "LINE_NAME": "CN30",
+        "MACHINE_LIST": []
+    },
+    {
+        "LINE_NAME": "CN31",
+        "MACHINE_LIST": [
+            {
+                "MACHINE_NAME": "Auto PCB Unloader machine",
+                "EQUIPMENT_ID": "360836A44BC8D707E06326C4940AC3B4",
+                "EQUIPMENT_CODE": "OT00310317",
+                "EQUIPMENT_TYPE": "A00311760",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto ICT Tester machine",
+                "EQUIPMENT_ID": "35C6D49BA1FCC1E9E06326C4940AF0A7",
+                "EQUIPMENT_CODE": "OT00520052",
+                "EQUIPMENT_TYPE": "A00520330",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Function Test Machine",
+                "EQUIPMENT_ID": "3615A3A5CA570E13E06326C4940A08CD",
+                "EQUIPMENT_CODE": "OT00580275",
+                "EQUIPMENT_TYPE": "A00581450",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Transfer Testing Carrier machine",
+                "EQUIPMENT_ID": "375AD6F31E37B3B5E06326C4940A317D",
+                "EQUIPMENT_CODE": "OT00310319",
+                "EQUIPMENT_TYPE": "A00311800",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Unloader Tester",
+                "EQUIPMENT_ID": "30D52ADC5178CF49E06326C4940A7B25",
+                "EQUIPMENT_CODE": "OT00310308",
+                "EQUIPMENT_TYPE": "A00311580",
+                "EQUIPMENT_STATUS": "offline",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "Auto Loader Tester",
+                "EQUIPMENT_ID": "30D52ADC5173CF49E06326C4940A7B25",
+                "EQUIPMENT_CODE": "OT00310306",
+                "EQUIPMENT_TYPE": "A00311570",
+                "EQUIPMENT_STATUS": "offline",
+                "EQUIPMENT_STATUS_CODE": null
+            },
+            {
+                "MACHINE_NAME": "Auto Open Case Test machine",
+                "EQUIPMENT_ID": "30D601A2F99FC617E06326C4940A9CF9",
+                "EQUIPMENT_CODE": "OT00580226",
+                "EQUIPMENT_TYPE": "A00580990",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto 3D solder AOI",
+                "EQUIPMENT_ID": "305845EDA55DD0C5E06326C4940A5C94",
+                "EQUIPMENT_CODE": "OT00550079",
+                "EQUIPMENT_TYPE": "A00550160",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Transfer Solder Carrier machine",
+                "EQUIPMENT_ID": "3012B460211BAE62E06326C4940A975E",
+                "EQUIPMENT_CODE": "OT00310290",
+                "EQUIPMENT_TYPE": "A00311680",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Automatic Router",
+                "EQUIPMENT_ID": "30591C4BDED7E0D5E06326C4940A3B32",
+                "EQUIPMENT_CODE": "OT00320060",
+                "EQUIPMENT_TYPE": "A00320310",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Transfer Carrier machine",
+                "EQUIPMENT_ID": "360836A44BC3D707E06326C4940AC3B4",
+                "EQUIPMENT_CODE": "OT00310294",
+                "EQUIPMENT_TYPE": "A00311710",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "自動插件機",
+                "EQUIPMENT_ID": "30D37D40B35DE422E06326C4940ACB1A",
+                "EQUIPMENT_CODE": "OT00330147",
+                "EQUIPMENT_TYPE": "A00330100",
+                "EQUIPMENT_STATUS": "Normal",
+                "EQUIPMENT_STATUS_CODE": "0"
+            },
+            {
+                "MACHINE_NAME": "Auto Transfer Carrier and cover machine",
+                "EQUIPMENT_ID": "304BB1CFF8DEE98CE06326C4940A88BB",
+                "EQUIPMENT_CODE": "OT00310300",
+                "EQUIPMENT_TYPE": "A00311670",
+                "EQUIPMENT_STATUS": "Warning",
+                "EQUIPMENT_STATUS_CODE": "0"
+            }
+        ]
+    },
+    {
+        "LINE_NAME": "CN32",
+        "MACHINE_LIST": []
+    },
+    {
+        "LINE_NAME": "REPAIR_CNBU4",
+        "MACHINE_LIST": []
+    }
+]

@@ -1,0 +1,13 @@
+[
+    {
+        "EQUIPMENT_ID": "30D52ADC5178CF49E06326C4940A7B25",
+        "EQUIPMENT_TYPE": "A00311580",
+        "MACHINE_NAME": "Auto Unloader Tester",
+        "STATION_NAME": "UNLOADING01",
+        "GROUP_NAME": "UNLOADING01",
+        "IMAGE_URL": "http://10.150.192.16/images/A00311580.jpg",
+        "LINE_NAME": "CN31",
+        "EQUIPMENT_STATUS": "offline",
+        "EQUIPMENT_STATUS_CODE": null
+    }
+]
