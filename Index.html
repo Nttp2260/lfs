@@ -1,0 +1,1979 @@
+<!DOCTYPE html>
+<html>
+<head>
+<base target="_top">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Repair Tracking System</title>
+<style>
+:root {
+  --navy: #1b2a41;
+  --navy-2: #24344d;
+  --blue: #2f6fb2;
+  --blue-2: #4f8fd4;
+  --blue-light: #eaf1fb;
+  --surface: #ffffff;
+  --bg: #eef1f5;
+  --text: #202b3a;
+  --text-muted: #6b7686;
+  --border: #dfe4ea;
+  --good: #1e8a5b;
+  --good-bg: #e2f6ec;
+  --warn: #b3790a;
+  --warn-bg: #fef2d9;
+  --danger: #c13a2c;
+  --danger-bg: #fdeae7;
+  --closed-bg: #eaecf0;
+  --closed: #5c6673;
+  --violet: #6d5fd1;
+  --violet-bg: #ece9fb;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --shadow-sm: 0 1px 2px rgba(20,30,50,.06);
+  --shadow-md: 0 4px 16px rgba(20,30,50,.08), 0 1px 3px rgba(20,30,50,.06);
+}
+:root[data-theme="dark"] {
+  --navy: #0f1621;
+  --navy-2: #16202e;
+  --blue: #6fa8dc;
+  --blue-2: #8fbde6;
+  --blue-light: #1b2a3c;
+  --surface: #18212c;
+  --bg: #0d131b;
+  --text: #e8edf3;
+  --text-muted: #8d99a8;
+  --border: #2b3746;
+  --good: #4ecb8a;
+  --good-bg: #113224;
+  --warn: #e3ac4d;
+  --warn-bg: #3a2c10;
+  --danger: #f0796c;
+  --danger-bg: #3a1815;
+  --closed-bg: #232e3b;
+  --closed: #a3aebb;
+  --violet: #a79aef;
+  --violet-bg: #241f3d;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.3);
+  --shadow-md: 0 8px 24px rgba(0,0,0,.35);
+}
+* { box-sizing: border-box; }
+body {
+  margin:0; font-family: -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased;
+}
+::selection { background: var(--blue); color: #fff; }
+.navbar {
+  display:flex; align-items:center; justify-content:space-between;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 100%);
+  color:#fff; padding:13px 24px; flex-wrap:wrap; gap:12px;
+  box-shadow: var(--shadow-md); position: sticky; top:0; z-index:40;
+}
+.navbar .brand { display:flex; align-items:center; gap:10px; font-weight:700; font-size:16px; letter-spacing:.2px; }
+.navbar .brand .logo {
+  width:30px; height:30px; border-radius:9px; background: rgba(255,255,255,0.14);
+  display:flex; align-items:center; justify-content:center; font-size:15px;
+  border: 1px solid rgba(255,255,255,0.18);
+}
+.navbar .nav-links { display:flex; gap:3px; flex-wrap:wrap; }
+.navbar .nav-links button {
+  background:transparent; border:none; color:#b9c5d6; font-size:13px; font-weight:600;
+  padding:9px 14px; border-radius:8px; cursor:pointer; transition: all .15s ease;
+}
+.navbar .nav-links button.active { background: rgba(255,255,255,0.16); color:#fff; }
+.navbar .nav-links button:hover:not(.active) { color:#fff; background: rgba(255,255,255,0.07); }
+.navbar .right { display:flex; align-items:center; gap:12px; font-size:12.5px; color:#c8d3e0; }
+.navbar select.role-switch { font-size:12px; padding:6px 8px; border-radius:6px; border:none; font-weight:600; }
+.user-chip { display:flex; align-items:center; gap:8px; }
+.user-chip .avatar {
+  width:26px; height:26px; border-radius:50%; background: var(--blue-2); color:#0c1c2e;
+  display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700;
+}
+.theme-toggle {
+  background: rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); color:#fff;
+  border-radius:7px; padding:7px 10px; cursor:pointer; font-size:13px; transition: background .15s;
+}
+.theme-toggle:hover { background: rgba(255,255,255,0.2); }
+.demo-banner {
+  background: var(--warn-bg); color: var(--warn); font-size:12.5px; padding:8px 24px;
+  text-align:center; font-weight:600; border-bottom: 1px solid var(--border);
+}
+.content { max-width: 1220px; margin: 0 auto; padding: 26px 22px 70px; }
+.page-header { display:flex; align-items:baseline; justify-content:space-between; margin-bottom:20px; flex-wrap:wrap; gap:10px; }
+h2.page-title { font-size:21px; margin: 0; color: var(--text); font-weight:700; letter-spacing:-.2px; }
+.page-subtitle { font-size:13px; color: var(--text-muted); margin-top:4px; }
+.card {
+  background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+  padding:20px 22px; margin-bottom:20px; box-shadow: var(--shadow-sm);
+}
+.section-label { font-size:11.5px; text-transform:uppercase; letter-spacing:.6px; color:var(--text-muted); font-weight:700; margin: 0 0 12px; }
+.form-grid { display:grid; grid-template-columns: 1fr 1fr; gap:16px 20px; }
+.form-field { display:flex; flex-direction:column; gap:6px; }
+.form-field.full { grid-column: 1 / -1; }
+.form-field label { font-size:12.5px; color:var(--text-muted); font-weight:600; }
+.form-field input, .form-field select, .form-field textarea {
+  border:1.5px solid var(--border); border-radius:var(--radius-sm); padding:10px 12px; font-size:14px;
+  background:var(--surface); color:var(--text); font-family:inherit; transition: border-color .15s, box-shadow .15s;
+}
+.form-field input:focus, .form-field select:focus, .form-field textarea:focus {
+  outline:none; border-color: var(--blue); box-shadow: 0 0 0 3px var(--blue-light);
+}
+.form-field textarea { resize:vertical; min-height:64px; }
+.form-field input[readonly] { background:var(--bg); color:var(--text-muted); }
+.radio-group { display:flex; gap:10px; flex-wrap:wrap; }
+.radio-pill {
+  border:1.5px solid var(--border); border-radius:22px; padding:9px 18px; font-size:13.5px; cursor:pointer;
+  display:flex; align-items:center; gap:8px; color:var(--text-muted); transition: all .15s ease; user-select:none;
+}
+.radio-pill input { margin:0; accent-color: var(--blue); }
+.radio-pill.selected { border-color:var(--blue); color:var(--blue); background:var(--blue-light); font-weight:700; }
+.radio-pill:hover { border-color: var(--blue-2); }
+.btn {
+  display:inline-flex; align-items:center; gap:7px; border:1.5px solid var(--blue); color:var(--blue);
+  background:var(--blue-light); border-radius:var(--radius-sm); padding:10px 20px; font-size:13.5px;
+  font-weight:700; cursor:pointer; transition: all .15s ease;
+}
+.btn:hover { transform: translateY(-1px); box-shadow: var(--shadow-sm); filter:brightness(1.03); }
+.btn.primary { background: linear-gradient(135deg, var(--blue) 0%, var(--blue-2) 100%); color:#fff; border-color:transparent; }
+.btn.secondary { border-color:var(--border); color:var(--text-muted); background:transparent; }
+.btn.good { border-color:var(--good); color:var(--good); background:var(--good-bg); }
+.btn.danger { border-color:var(--danger); color:var(--danger); background:var(--danger-bg); }
+.btn.small { padding:6px 12px; font-size:12px; }
+.btn:disabled { opacity:.5; cursor:not-allowed; transform:none; }
+table.data-table { width:100%; border-collapse:collapse; font-size:13px; }
+table.data-table th {
+  text-align:left; padding:10px 12px; color:var(--text-muted); font-size:11px; font-weight:700;
+  text-transform:uppercase; letter-spacing:.4px; border-bottom:1.5px solid var(--border);
+}
+table.data-table td { padding:11px 12px; border-bottom:1px solid var(--border); }
+table.data-table tbody tr { transition: background .12s ease; }
+table.data-table tbody tr:hover { background: var(--bg); }
+table.data-table tr:last-child td { border-bottom:none; }
+.tag { display:inline-block; font-size:10.5px; font-weight:700; padding:4px 10px; border-radius:12px; white-space:nowrap; letter-spacing:.2px; }
+.tag.waiting { background:var(--warn-bg); color:var(--warn); }
+.tag.pending { background:var(--closed-bg); color:var(--closed); }
+.tag.pass { background:var(--good-bg); color:var(--good); }
+.tag.scrap { background:var(--danger-bg); color:var(--danger); }
+.tag.closedpass { background:var(--violet-bg); color:var(--violet); }
+.tag.closedscrap { background:var(--violet-bg); color:var(--violet); }
+.tag.inprogress { background:var(--blue-light); color:var(--blue); }
+.filter-bar { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:16px; }
+.filter-bar input, .filter-bar select {
+  border:1.5px solid var(--border); border-radius:var(--radius-sm); padding:9px 12px; font-size:13px;
+  background:var(--surface); color:var(--text);
+}
+.filter-bar input:focus, .filter-bar select:focus { outline:none; border-color:var(--blue); }
+.toolbar { display:flex; justify-content:space-between; align-items:center; margin-bottom: 12px; flex-wrap:wrap; gap:10px; }
+.toast-container {
+  position:fixed; bottom:22px; right:22px; z-index:80; display:flex; flex-direction:column-reverse; gap:10px;
+  pointer-events:none;
+}
+.toast {
+  background:var(--navy-2); color:#fff; padding:13px 20px;
+  border-radius:var(--radius-sm); font-size:13px; box-shadow:var(--shadow-md); max-width:360px;
+  animation: toastIn .2s ease;
+}
+@keyframes toastIn { from { opacity:0; transform: translateY(8px);} to { opacity:1; transform:translateY(0);} }
+.empty-state { text-align:center; color:var(--text-muted); padding:36px 10px; font-size:13.5px; }
+.placeholder-page { text-align:center; padding:70px 20px; color:var(--text-muted); }
+.placeholder-page .emoji { font-size:44px; margin-bottom:14px; }
+.placeholder-page h2 { color: var(--text); font-size:20px; margin: 0 0 8px; }
+.placeholder-page p { max-width:480px; margin:0 auto; line-height:1.6; }
+.detail-panel .row { display:flex; justify-content:space-between; padding:9px 0; border-bottom:1px dashed var(--border); font-size:13.5px; gap:14px; }
+.detail-panel .row:last-child { border-bottom: none; }
+.detail-panel .row span:first-child { color:var(--text-muted); }
+.detail-panel .row span:last-child { font-weight:600; text-align:right; }
+.two-col { display:grid; grid-template-columns: 1fr 1fr; gap:20px; align-items:start; }
+.access-denied { max-width:440px; margin: 100px auto; text-align:center; }
+.access-denied .card { text-align:left; }
+.kpi-row { display:flex; gap:16px; flex-wrap:wrap; margin-bottom: 22px; }
+.kpi-card {
+  flex:1; min-width:150px; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+  padding:16px 18px; box-shadow: var(--shadow-sm);
+}
+.kpi-card .label { font-size:11px; color:var(--text-muted); text-transform:uppercase; letter-spacing:.5px; font-weight:700; }
+.kpi-card .value { font-size:26px; font-weight:700; margin-top:8px; color:var(--text); }
+.kpi-card .value.accent { color: var(--warn); }
+.kpi-card .value.good { color: var(--good); }
+.kpi-card .value.danger { color: var(--danger); }
+.icon-badge { font-size:16px; }
+.chart-grid { display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-bottom:20px; }
+.chart-card.full { grid-column: 1 / -1; }
+.chart-title { font-size:13.5px; font-weight:700; color:var(--text); margin-bottom:14px; display:flex; align-items:center; gap:8px; }
+.chart-sub { font-size:11.5px; font-weight:600; color:var(--blue); background:var(--blue-light); padding:2px 9px; border-radius:10px; }
+.bar-chart { display:flex; align-items:flex-end; gap:6px; height:170px; overflow-x:auto; padding-bottom:4px; }
+.bar-col { display:flex; flex-direction:column; align-items:center; justify-content:flex-end; min-width:28px; height:100%; flex:1 0 auto; }
+.bar-col.clickable { cursor:pointer; }
+.bar-value { font-size:10px; color:var(--text-muted); margin-bottom:3px; font-weight:600; }
+.bar-fill { width:20px; background:var(--blue); border-radius:5px 5px 0 0; transition: all .15s ease; min-height:2px; }
+.bar-col.clickable:hover .bar-fill { background:var(--blue-2); }
+.bar-col.selected .bar-fill { background: var(--navy); box-shadow: 0 0 0 2px var(--blue-2); }
+.bar-col.dim .bar-fill { opacity:.32; }
+.bar-col.dim .bar-value { opacity:.45; }
+.bar-label { font-size:9.5px; color:var(--text-muted); margin-top:6px; white-space:nowrap; max-width:44px; overflow:hidden; text-overflow:ellipsis; }
+.ranked-chart { display:flex; flex-direction:column; gap:9px; }
+.ranked-row { display:flex; align-items:center; gap:10px; }
+.ranked-row.clickable { cursor:pointer; }
+.ranked-label { width:100px; font-size:12px; color:var(--text); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; flex-shrink:0; }
+.ranked-track { flex:1; background:var(--bg); border-radius:6px; height:14px; overflow:hidden; }
+.ranked-fill { height:100%; background:var(--blue); border-radius:6px; transition: all .15s ease; }
+.ranked-row.clickable:hover .ranked-fill { background:var(--blue-2); }
+.ranked-row.selected .ranked-fill { background:var(--navy); }
+.ranked-row.dim .ranked-fill, .ranked-row.dim .ranked-label { opacity:.4; }
+.ranked-value { width:28px; text-align:right; font-size:12px; font-weight:700; color:var(--text-muted); flex-shrink:0; }
+
+/* รอบที่ 14: Average Duration per Stage — แนวตั้ง หน่วยชั่วโมง โชว์ตัวเลข/label เต็ม ไม่ตัดคำ */
+.duration-chart { display:flex; align-items:flex-end; gap:16px; padding:6px 4px 4px; min-height:220px; }
+.duration-col { display:flex; flex-direction:column; align-items:center; justify-content:flex-end; flex:1 1 0; height:220px; }
+.duration-value { font-size:12.5px; color:var(--text); margin-bottom:4px; font-weight:700; text-align:center; white-space:nowrap; }
+.duration-count { font-size:10.5px; color:var(--text-muted); margin-bottom:4px; }
+.duration-fill { width:44px; background:var(--blue); border-radius:6px 6px 0 0; min-height:2px; transition: all .15s ease; }
+.duration-col.top .duration-fill { background:var(--warn); }
+.duration-col.top .duration-value { color:var(--warn); }
+.duration-label { font-size:11px; color:var(--text-muted); margin-top:10px; text-align:center; line-height:1.4; white-space:normal; max-width:150px; }
+.duration-summary { display:flex; gap:10px; flex-wrap:wrap; margin-top:18px; }
+.duration-stat { background:var(--bg); border-radius:10px; padding:10px 14px; flex:1 1 150px; }
+.duration-stat .lbl { font-size:10.5px; color:var(--text-muted); font-weight:700; line-height:1.4; }
+.duration-stat .val { font-size:17px; font-weight:700; color:var(--text); margin-top:5px; }
+.duration-stat .n { font-size:10.5px; color:var(--text-muted); margin-top:2px; }
+.duration-stat.total { background:var(--blue-light); }
+.duration-stat.total .val { color:var(--blue); }
+.stacked-bar { display:flex; height:24px; border-radius:8px; overflow:hidden; background:var(--bg); }
+.stacked-bar .seg { transition: all .2s ease; }
+.stacked-bar .seg.pass { background: var(--good); }
+.stacked-bar .seg.scrap { background: var(--danger); }
+.stacked-legend { display:flex; gap:18px; margin-top:12px; font-size:12.5px; color:var(--text-muted); }
+.stacked-legend .dot { display:inline-block; width:9px; height:9px; border-radius:50%; margin-right:6px; }
+.stacked-legend .dot.pass { background:var(--good); }
+.stacked-legend .dot.scrap { background:var(--danger); }
+.line-filter { position:relative; }
+.line-filter-panel {
+  position:absolute; top:calc(100% + 6px); left:0; background:var(--surface); border:1px solid var(--border);
+  border-radius:var(--radius-sm); box-shadow:var(--shadow-md); padding:10px 12px; z-index:50; min-width:170px;
+}
+.line-filter-actions { display:flex; gap:6px; margin-bottom:8px; padding-bottom:8px; border-bottom:1px dashed var(--border); }
+.line-filter-item { display:flex; align-items:center; gap:8px; font-size:13px; padding:5px 2px; cursor:pointer; white-space:nowrap; }
+.line-filter-item input { accent-color: var(--blue); margin:0; }
+.dash-updated { font-size:11.5px; color:var(--text-muted); align-self:center; }
+@media (max-width: 760px) {
+  .form-grid, .two-col { grid-template-columns: 1fr; }
+  .chart-grid { grid-template-columns: 1fr; }
+  .content { padding: 18px 14px 60px; }
+}
+</style>
+</head>
+<body>
+<div id="app"></div>
+
+<script>
+// Backend base URL: Code.gs injects the real deployment URL via this template variable so the
+// client does not have to guess it from window.location.href. Falls back to window.location.href
+// when this file is served by a plain web server instead of Apps Script (local demo/testing mode).
+var SCRIPT_URL = "<?!= scriptUrl ?>";
+// NOTE: never write the scriptlet open-delimiter (angle-bracket + question-mark) as a literal
+// pair of adjacent characters anywhere in this file outside the tag above. Apps Script's HtmlService
+// template engine scans the whole raw file text for that opening pair and its closing counterpart
+// before any JS parsing happens, so writing the same two characters together in a string here gets
+// misread as the start of a second, unterminated scriptlet block. That swallows the rest of the file
+// as "code", which is what caused the recurring SyntaxError thrown from template.evaluate() in
+// Code.gs in earlier rounds. Build the marker at runtime via concatenation so it never appears as a
+// literal adjacent pair in the source.
+var UNRENDERED_MARK_ = '<' + '?';
+if (SCRIPT_URL.indexOf(UNRENDERED_MARK_) !== -1) SCRIPT_URL = '';
+function apiBase_() {
+  return SCRIPT_URL || window.location.href.split('?')[0];
+}
+
+// ================= Config =================
+var STATUS = {
+  PENDING_SEND: 'Pending Send to PE',
+  WAITING_REPAIR: 'Waiting for PE Repair',
+  PE_REPAIRING: 'PE Repairing', // รอบที่ 13: ต้องตรงกับ STATUS.PE_REPAIRING ใน Setup.gs ฝั่ง server เป๊ะ
+  REPAIR_COMPLETE: 'Repair Complete',
+  SCRAP: 'Scrap',
+  CLOSED_PASS: 'Closed - Repair Complete',
+  CLOSED_SCRAP: 'Closed - Scrap'
+};
+var NAV_ITEMS = [
+  { key: 'dashboard', label: 'Dashboard', icon: '📊', roles: ['Admin','Production','PE','Viewer'] },
+  { key: 'addDefect', label: 'Add Defect', icon: '➕', roles: ['Admin','Production'] },
+  { key: 'waitingRepair', label: 'Waiting Repair', icon: '🛠️', roles: ['Admin','PE'] },
+  { key: 'repairHistory', label: 'Repair History', icon: '📜', roles: ['Admin','PE','Viewer'] },
+  { key: 'admin', label: 'Admin Setting', icon: '⚙️', roles: ['Admin'] }
+];
+
+var state = {
+  page: 'addDefect',
+  previousPage: 'addDefect',
+  user: null,
+  lines: [],
+  groupDefects: [],
+  productModels: [],
+  failItems: [],
+  departments: [],
+  repairDetailId: null
+};
+
+var USING_MOCK = false;
+
+// ================= Mock backend (for local preview / demo mode) =================
+var mockDb = {
+  role: 'Production',
+  lines: ['CN01', 'CN15', 'CN20', 'CN22', 'CN25', 'CN26'],
+  groupDefects: ['I2C1_P1', 'I2C1_P2', 'I2C1_P3', 'I2C1_P4', 'ATS1', 'B/I', 'Vibration', 'HIPOT', 'I2C2_P1', 'I2C2_P2', 'ATS2', 'Sharing', 'EEprom_W', 'EEprom_R'],
+  productModels: ['DPS-5500AE A', 'DPS-4400AB A', 'DPS-4200AB B'],
+  failItems: (function () { var a = []; for (var i = 1; i <= 100; i++) a.push('No. ' + (i < 10 ? '0' + i : i)); return a; })(),
+  departments: [
+    { DepartmentID: 'D01', DepartmentName: 'SMT', Active: true },
+    { DepartmentID: 'D02', DepartmentName: 'Assembly', Active: true },
+    { DepartmentID: 'D03', DepartmentName: 'Test', Active: true }
+  ],
+  users: [
+    { UserID: 'MOCK-Admin', Name: 'Demo Admin', EmployeeID: '1001', Role: 'Admin', DepartmentID: 'D01', Active: true, CreatedAt: new Date().toISOString() },
+    { UserID: 'MOCK-Production', Name: 'Demo Production', EmployeeID: '1002', Role: 'Production', DepartmentID: 'D01', Active: true, CreatedAt: new Date().toISOString() },
+    { UserID: 'MOCK-PE', Name: 'Demo PE Engineer', EmployeeID: '1003', Role: 'PE', DepartmentID: 'D03', Active: true, CreatedAt: new Date().toISOString() },
+    { UserID: 'MOCK-Viewer', Name: 'Demo Viewer', EmployeeID: '1004', Role: 'Viewer', DepartmentID: '', Active: true, CreatedAt: new Date().toISOString() }
+  ],
+  auditLog: [],
+  defects: [],
+  repairs: [],
+  history: [],
+  seq: { DEF: 0, RPR: 0, HIS: 0, USR: 0, DEPT: 0 }
+};
+function mockPushAudit_(userId, action, table, recordId, details) {
+  mockDb.auditLog.push({ LogID: 'LOG-' + String(mockDb.auditLog.length + 1).padStart(6, '0'), UserID: userId, Action: action, TableAffected: table, RecordID: recordId, Timestamp: new Date().toISOString(), Details: details || '' });
+}
+function mockId(prefix) {
+  mockDb.seq[prefix]++;
+  return prefix + '-' + String(mockDb.seq[prefix]).padStart(6, '0');
+}
+function mockUser() {
+  var names = { Admin: 'Demo Admin', Production: 'Demo Production', PE: 'Demo PE Engineer', Viewer: 'Demo Viewer' };
+  var ids = { Admin: '1001', Production: '1002', PE: '1003', Viewer: '1004' };
+  return { userId: 'MOCK-' + mockDb.role, name: names[mockDb.role], employeeId: ids[mockDb.role], role: mockDb.role, departmentId: 'D01' };
+}
+function mockDelay(val) { return new Promise(function (res) { setTimeout(function () { res(val); }, 110); }); }
+
+function mockApi(action, params) {
+  params = params || {};
+  switch (action) {
+    case 'login': return mockDelay(mockUser());
+    case 'listLines': return mockDelay(mockDb.lines);
+    case 'listGroupDefects': return mockDelay(mockDb.groupDefects);
+    case 'listProductModels': return mockDelay(mockDb.productModels);
+    case 'listFailItems': return mockDelay(mockDb.failItems);
+    case 'listDepartments': return mockDelay(mockDb.departments.filter(function (d) { return d.Active !== false; }));
+    case 'listDepartmentsAdmin': return mockDelay(mockDb.departments.slice().sort(function (a, b) { return String(a.DepartmentName).localeCompare(String(b.DepartmentName)); }));
+    case 'createDepartment': {
+      var dName = (params.name || '').trim();
+      if (!dName) return Promise.reject(new Error('กรุณากรอกชื่อ Department'));
+      if (mockDb.departments.some(function (d) { return d.DepartmentName.toLowerCase() === dName.toLowerCase(); })) return Promise.reject(new Error('มี Department ชื่อนี้อยู่แล้ว'));
+      mockDb.seq.DEPT++;
+      var did = 'DEPT-' + String(mockDb.seq.DEPT).padStart(3, '0');
+      mockDb.departments.push({ DepartmentID: did, DepartmentName: dName, Active: true });
+      mockPushAudit_(mockUser().userId, 'CreateDepartment', 'Departments', did, 'Name=' + dName);
+      return mockDelay({ departmentId: did });
+    }
+    case 'updateDepartment': {
+      var dRec = mockDb.departments.filter(function (d) { return d.DepartmentID === params.departmentId; })[0];
+      if (!dRec) return Promise.reject(new Error('ไม่พบ Department'));
+      var dName2 = (params.name || '').trim();
+      if (!dName2) return Promise.reject(new Error('กรุณากรอกชื่อ Department'));
+      var dActive = params.active !== false && params.active !== 'false';
+      if (mockDb.departments.some(function (d) { return d.DepartmentID !== params.departmentId && d.DepartmentName.toLowerCase() === dName2.toLowerCase(); })) return Promise.reject(new Error('มี Department ชื่อนี้อยู่แล้ว'));
+      dRec.DepartmentName = dName2; dRec.Active = dActive;
+      mockPushAudit_(mockUser().userId, 'UpdateDepartment', 'Departments', dRec.DepartmentID, 'Name=' + dName2 + ' Active=' + dActive);
+      return mockDelay({ departmentId: dRec.DepartmentID });
+    }
+    case 'listUsersAdmin': {
+      var deptByIdU = {}; mockDb.departments.forEach(function (d) { deptByIdU[d.DepartmentID] = d.DepartmentName; });
+      var uList = mockDb.users.map(function (u) { return Object.assign({}, u, { DepartmentName: u.DepartmentID ? (deptByIdU[u.DepartmentID] || u.DepartmentID) : '' }); });
+      return mockDelay(uList.sort(function (a, b) { return String(a.Name).localeCompare(String(b.Name)); }));
+    }
+    case 'createUser': {
+      var uName = (params.name || '').trim();
+      var uEmpId = (params.employeeId || '').trim();
+      if (!uName || !uEmpId) return Promise.reject(new Error('กรุณากรอกชื่อและรหัสพนักงานให้ครบ'));
+      if (['Admin', 'Production', 'PE', 'Viewer'].indexOf(params.role) === -1) return Promise.reject(new Error('Role ไม่ถูกต้อง'));
+      if (mockDb.users.some(function (u) { return u.EmployeeID === uEmpId; })) return Promise.reject(new Error('มีผู้ใช้ที่ใช้รหัสพนักงานนี้อยู่แล้ว'));
+      mockDb.seq.USR++;
+      var uid = 'USR-' + String(mockDb.seq.USR).padStart(4, '0');
+      mockDb.users.push({ UserID: uid, Name: uName, EmployeeID: uEmpId, Role: params.role, DepartmentID: params.departmentId || '', Active: true, CreatedAt: new Date().toISOString() });
+      mockPushAudit_(mockUser().userId, 'CreateUser', 'Users', uid, 'EmployeeID=' + uEmpId + ' Role=' + params.role);
+      return mockDelay({ userId: uid });
+    }
+    case 'updateUser': {
+      var uRec = mockDb.users.filter(function (u) { return u.UserID === params.userId; })[0];
+      if (!uRec) return Promise.reject(new Error('ไม่พบผู้ใช้'));
+      var uName2 = (params.name || '').trim();
+      var uEmpId2 = (params.employeeId || '').trim();
+      if (!uName2 || !uEmpId2) return Promise.reject(new Error('กรุณากรอกชื่อและรหัสพนักงานให้ครบ'));
+      if (['Admin', 'Production', 'PE', 'Viewer'].indexOf(params.role) === -1) return Promise.reject(new Error('Role ไม่ถูกต้อง'));
+      var uActive = params.active !== false && params.active !== 'false';
+      var currentUserId = mockUser().userId;
+      if (uRec.UserID === currentUserId && (!uActive || params.role !== 'Admin')) return Promise.reject(new Error('ไม่สามารถปิดการใช้งานหรือลดสิทธิ์บัญชีของตัวเองได้'));
+      if (mockDb.users.some(function (u) { return u.UserID !== params.userId && u.EmployeeID === uEmpId2; })) return Promise.reject(new Error('มีผู้ใช้อื่นที่ใช้รหัสพนักงานนี้อยู่แล้ว'));
+      uRec.Name = uName2; uRec.EmployeeID = uEmpId2; uRec.Role = params.role; uRec.DepartmentID = params.departmentId || ''; uRec.Active = uActive;
+      mockPushAudit_(currentUserId, 'UpdateUser', 'Users', uRec.UserID, 'EmployeeID=' + uEmpId2 + ' Role=' + params.role + ' Active=' + uActive);
+      return mockDelay({ userId: uRec.UserID });
+    }
+    case 'listAuditLog': {
+      var alNameById = {};
+      mockDb.users.forEach(function (u) { alNameById[u.UserID] = u.Name; });
+      var alRows = mockDb.auditLog.map(function (r) { return Object.assign({}, r, { PerformedByName: alNameById[r.UserID] || r.UserID }); })
+        .sort(function (a, b) { return new Date(b.Timestamp) - new Date(a.Timestamp); });
+      if (params.search) {
+        var qal = String(params.search).toLowerCase();
+        alRows = alRows.filter(function (r) { return [r.PerformedByName, r.Action, r.TableAffected, r.RecordID, r.Details].join(' ').toLowerCase().indexOf(qal) !== -1; });
+      }
+      return mockDelay(alRows.slice(0, 300));
+    }
+    case 'getDashboardData': {
+      var repsOut = mockDb.repairs.map(function (r) {
+        var rr = Object.assign({}, r);
+        if (rr.ChargeDepartmentID) {
+          var dept2 = mockDb.departments.filter(function (dd) { return dd.DepartmentID === rr.ChargeDepartmentID; })[0];
+          rr.ChargeDepartmentName = dept2 ? dept2.DepartmentName : rr.ChargeDepartmentID;
+        }
+        return rr;
+      });
+      return mockDelay({ defects: mockDb.defects, repairs: repsOut });
+    }
+    case 'listOwnDefects': {
+      var mine = mockDb.role === 'Admin' ? mockDb.defects : mockDb.defects.filter(function (d) { return d.CreatedBy === mockUser().userId; });
+      return mockDelay(mine.slice().sort(function (a, b) { return new Date(b.CreatedAt) - new Date(a.CreatedAt); }));
+    }
+    case 'createDefect': {
+      var status = params.sendToPE === 'Send to PE' ? STATUS.WAITING_REPAIR : STATUS.PENDING_SEND;
+      var id = mockId('DEF');
+      var now = new Date().toISOString();
+      var rec = {
+        DefectID: id, Line: params.line, GroupDefect: params.groupDefect, ProductModel: params.productModel,
+        FailItemNo: params.failItemNo, SerialNumber: params.serialNumber, DefectQty: Number(params.defectQty) || 1,
+        SendToPE: params.sendToPE, Notes: params.notes || '', Status: status, CreatedBy: mockUser().userId,
+        CreatedAt: now, ModifiedBy: '', ModifiedAt: '', ReturnConfirmedBy: '', ReturnConfirmedAt: '',
+        SentToPEAt: status === STATUS.WAITING_REPAIR ? now : '', PEReceivedBy: '', PEReceivedAt: ''
+      };
+      mockDb.defects.push(rec);
+      return mockDelay({ defectId: id, status: status });
+    }
+    case 'resumeSendToPE': {
+      var d = mockDb.defects.filter(function (x) { return x.DefectID === params.defectId; })[0];
+      if (!d) return Promise.reject(new Error('Not found'));
+      if (d.Status !== STATUS.PENDING_SEND) return Promise.reject(new Error('Not in Pending Send to PE status'));
+      var nowSend = new Date().toISOString();
+      d.SendToPE = 'Send to PE'; d.Status = STATUS.WAITING_REPAIR; d.ModifiedAt = nowSend; d.ModifiedBy = mockUser().userId; d.SentToPEAt = nowSend;
+      return mockDelay({ defectId: d.DefectID, status: d.Status });
+    }
+    case 'peConfirmReceive': {
+      var dpe = mockDb.defects.filter(function (x) { return x.DefectID === params.defectId; })[0];
+      if (!dpe) return Promise.reject(new Error('Not found'));
+      if (dpe.Status !== STATUS.WAITING_REPAIR) return Promise.reject(new Error('รายการนี้ไม่ได้อยู่ในสถานะ Waiting for PE Repair แล้ว (สถานะปัจจุบัน: ' + dpe.Status + ')'));
+      var nowPe = new Date().toISOString();
+      dpe.Status = STATUS.PE_REPAIRING; dpe.PEReceivedBy = mockUser().userId; dpe.PEReceivedAt = nowPe; dpe.ModifiedAt = nowPe; dpe.ModifiedBy = mockUser().userId;
+      return mockDelay({ defectId: dpe.DefectID, status: dpe.Status });
+    }
+    case 'confirmReceived': {
+      var dc = mockDb.defects.filter(function (x) { return x.DefectID === params.defectId; })[0];
+      if (!dc) return Promise.reject(new Error('Not found'));
+      if (dc.Status !== STATUS.REPAIR_COMPLETE && dc.Status !== STATUS.SCRAP) return Promise.reject(new Error('Not ready to confirm'));
+      var ns = dc.Status === STATUS.REPAIR_COMPLETE ? STATUS.CLOSED_PASS : STATUS.CLOSED_SCRAP;
+      dc.Status = ns; dc.ReturnConfirmedBy = mockUser().userId; dc.ReturnConfirmedAt = new Date().toISOString();
+      return mockDelay({ defectId: dc.DefectID, status: ns });
+    }
+    case 'getWaitingRepairList': {
+      var list = mockDb.defects.filter(function (d) { return d.Status === STATUS.WAITING_REPAIR || d.Status === STATUS.PE_REPAIRING; });
+      if (params.search) {
+        var q = params.search.toLowerCase();
+        list = list.filter(function (d) { return (d.SerialNumber + d.ProductModel + d.Line + d.GroupDefect).toLowerCase().indexOf(q) !== -1; });
+      }
+      return mockDelay(list.slice().sort(function (a, b) { return new Date(a.CreatedAt) - new Date(b.CreatedAt); }));
+    }
+    case 'getDefectDetail': {
+      var def = mockDb.defects.filter(function (x) { return x.DefectID === params.defectId; })[0];
+      var reps = mockDb.repairs.filter(function (x) { return x.DefectID === params.defectId; });
+      reps.forEach(function (r) {
+        if (r.ChargeDepartmentID) {
+          var dept = mockDb.departments.filter(function (dd) { return dd.DepartmentID === r.ChargeDepartmentID; })[0];
+          r.ChargeDepartmentName = dept ? dept.DepartmentName : r.ChargeDepartmentID;
+        }
+      });
+      var hist = mockDb.history.filter(function (x) { return x.DefectID === params.defectId; });
+      var peUser = def && def.PEReceivedBy ? mockDb.users.filter(function (u) { return u.UserID === def.PEReceivedBy; })[0] : null;
+      return mockDelay({ defect: def, repairs: reps, history: hist, createdByName: def ? def.CreatedBy : '', returnConfirmedByName: def ? def.ReturnConfirmedBy : '', peReceivedByName: peUser ? peUser.Name : (def ? def.PEReceivedBy : '') });
+    }
+    case 'updateRepair': {
+      var dd = mockDb.defects.filter(function (x) { return x.DefectID === params.defectId; })[0];
+      if (!dd) return Promise.reject(new Error('Not found'));
+      if (dd.Status !== STATUS.PE_REPAIRING) return Promise.reject(new Error('รายการนี้ยังไม่ได้ยืนยันรับงาน กรุณากดยืนยันรับงานก่อนกรอกผลซ่อม (สถานะปัจจุบัน: ' + dd.Status + ')'));
+      if (params.repairResult === 'Scrap' && !params.chargeDepartmentId) return Promise.reject(new Error('Charge department required for Scrap'));
+      var newStatus = params.repairResult === 'Repair Pass' ? STATUS.REPAIR_COMPLETE : STATUS.SCRAP;
+      var rid = mockId('RPR');
+      mockDb.repairs.push({
+        RepairID: rid, DefectID: params.defectId, RepairResult: params.repairResult, RepairCause: params.repairCause || '',
+        RepairDetail: params.repairDetail || '', RepairDate: params.repairDate, RepairTime: params.repairTime,
+        RepairBy: mockUser().userId, Remark: params.remark || '', ChargeDepartmentID: params.repairResult === 'Scrap' ? params.chargeDepartmentId : '',
+        Status: newStatus, CreatedAt: new Date().toISOString()
+      });
+      dd.Status = newStatus; dd.ModifiedAt = new Date().toISOString(); dd.ModifiedBy = mockUser().userId;
+      return mockDelay({ repairId: rid, status: newStatus });
+    }
+    case 'getRepairHistoryList': {
+      var relevant = [STATUS.REPAIR_COMPLETE, STATUS.SCRAP, STATUS.CLOSED_PASS, STATUS.CLOSED_SCRAP];
+      var closed = mockDb.defects.filter(function (d) { return relevant.indexOf(d.Status) !== -1; });
+      return mockDelay(closed.slice().sort(function (a, b) { return new Date(b.ModifiedAt) - new Date(a.ModifiedAt); }));
+    }
+    default: return Promise.reject(new Error('Unknown mock action: ' + action));
+  }
+}
+
+// ================= API layer =================
+function callApi(action, params, method) {
+  params = params || {};
+  if (USING_MOCK) return mockApi(action, params);
+  // รอบที่ 12: หลังล็อกอินด้วยรหัสพนักงานแล้ว ทุก request ที่ตามมา (นอกจาก 'login' เอง) ต้องแนบ
+  // "callerEmployeeId" ไปด้วยเสมอ เพื่อให้ backend รู้ว่าใครเป็นคนเรียก — ใช้ชื่อ field แยกจาก
+  // "employeeId" ธรรมดา (ซึ่งบาง action เช่น createUser/updateUser ใช้เป็นข้อมูลของผู้ใช้เป้าหมาย
+  // ไม่ใช่ผู้เรียก) ทำที่จุดเดียวตรงนี้ กันลืมแนบตอนเรียก callApi() จากที่อื่น ๆ ทั่วแอป
+  if (action !== 'login' && state.user && state.user.employeeId != null) {
+    params = Object.assign({}, params, { callerEmployeeId: state.user.employeeId });
+  }
+  var isWrite = method === 'POST';
+  var base = apiBase_();
+  if (!isWrite) {
+    var qs = Object.keys(params).map(function (k) {
+      return encodeURIComponent(k) + '=' + encodeURIComponent(params[k] == null ? '' : params[k]);
+    }).join('&');
+    return fetch(base + '?action=' + encodeURIComponent(action) + (qs ? '&' + qs : ''))
+      .then(function (r) { return r.json(); })
+      .then(checkApiError_);
+  }
+  var body = Object.assign({ action: action }, params);
+  return fetch(base, { method: 'POST', body: JSON.stringify(body), headers: { 'Content-Type': 'text/plain;charset=utf-8' } })
+    .then(function (r) { return r.json(); })
+    .then(checkApiError_);
+}
+function checkApiError_(res) {
+  if (res && res.error) { var e = new Error(res.error); e.code = res.code; throw e; }
+  return res;
+}
+
+// ================= Toast =================
+function toastContainer_() {
+  var c = document.getElementById('toastContainer');
+  if (!c) {
+    c = document.createElement('div');
+    c.id = 'toastContainer';
+    c.className = 'toast-container';
+    document.body.appendChild(c);
+  }
+  return c;
+}
+function showToast(msg) {
+  var el = document.createElement('div');
+  el.className = 'toast';
+  el.textContent = msg;
+  toastContainer_().appendChild(el);
+  setTimeout(function () { el.remove(); }, 3200);
+}
+
+// ================= Theme =================
+function initTheme() {
+  var saved = localStorage.getItem('rts-theme') || 'light';
+  document.documentElement.setAttribute('data-theme', saved);
+}
+function toggleTheme() {
+  var cur = document.documentElement.getAttribute('data-theme') || 'light';
+  var next = cur === 'light' ? 'dark' : 'light';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('rts-theme', next);
+}
+
+// ================= Boot =================
+// รอบที่ 10: เปลี่ยนจากล็อกอินอัตโนมัติด้วยอีเมล Google (Session) เป็นให้ผู้ใช้กรอกรหัสพนักงานเองทุกครั้ง
+// ที่เปิดหน้าเว็บ (ไม่จำค้างไว้ในเครื่อง) วิธีแยก demo/จริง ก็ง่ายขึ้นด้วย: ถ้า SCRIPT_URL ว่าง แปลว่าไม่ได้
+// รันผ่าน Apps Script จริง (เช่น preview ไฟล์ static ตอนพัฒนา/เทส) เข้าโหมด demo อัตโนมัติได้เลย ไม่ต้องพึ่ง
+// การเดาจาก network error อีกต่อไป
+function boot() {
+  initTheme();
+  if (!SCRIPT_URL) {
+    USING_MOCK = true;
+    mockApi('login', {}).then(function (u) { state.user = u; afterLogin_(); });
+    return;
+  }
+  renderLoginScreen_();
+}
+function renderLoginScreen_() {
+  document.getElementById('app').innerHTML =
+    '<div class="access-denied">' +
+    '  <div class="card" style="max-width:360px; text-align:left;">' +
+    '    <h2 style="margin-top:0; text-align:center;">🔧 Repair Tracking</h2>' +
+    '    <p style="color:var(--text-muted); font-size:14px; text-align:center; margin-bottom:16px;">กรอกรหัสพนักงานเพื่อเข้าสู่ระบบ</p>' +
+    '    <div class="form-field"><label>รหัสพนักงาน</label><input id="loginEmployeeId" placeholder="เช่น 1001" autocomplete="off"></div>' +
+    '    <div id="loginError" style="color:#dc2626; font-size:13px; min-height:18px; margin:4px 0;"></div>' +
+    '    <button class="btn primary" id="loginBtn" style="width:100%;">เข้าสู่ระบบ</button>' +
+    '  </div>' +
+    '</div>';
+  var input = document.getElementById('loginEmployeeId');
+  var btn = document.getElementById('loginBtn');
+  btn.addEventListener('click', doLogin_);
+  input.addEventListener('keydown', function (e) { if (e.key === 'Enter') doLogin_(); });
+  input.focus();
+}
+function doLogin_() {
+  var input = document.getElementById('loginEmployeeId');
+  var errEl = document.getElementById('loginError');
+  var btn = document.getElementById('loginBtn');
+  var employeeId = (input.value || '').trim();
+  errEl.textContent = '';
+  if (!employeeId) { errEl.textContent = 'กรุณากรอกรหัสพนักงาน'; return; }
+  btn.disabled = true;
+  btn.textContent = 'กำลังเข้าสู่ระบบ…';
+  callApi('login', { employeeId: employeeId }, 'POST').then(function (user) {
+    state.user = user;
+    afterLogin_();
+  }).catch(function (err) {
+    btn.disabled = false;
+    btn.textContent = 'เข้าสู่ระบบ';
+    if (err && err.code) {
+      // ข้อผิดพลาดจาก backend เช่น "ไม่พบรหัสพนักงาน" — โชว์ inline พอ ไม่ต้องเปลี่ยนหน้าทั้งหมด
+      errEl.textContent = err.message || 'เข้าสู่ระบบไม่สำเร็จ';
+    } else {
+      // เชื่อมต่อ backend ไม่ได้เลย (network error / ไม่ใช่ JSON) — โชว์หน้า error พร้อมคำแนะนำ
+      renderBackendError_(err);
+    }
+  });
+}
+function renderBackendError_(err) {
+  var msg = (err && err.message) ? err.message : String(err);
+  document.getElementById('app').innerHTML =
+    '<div class="access-denied">' +
+    '  <div class="card" style="text-align:left; max-width:560px;">' +
+    '    <h2 style="margin-top:0; text-align:center;">⚠️ เชื่อมต่อ Backend ไม่สำเร็จ</h2>' +
+    '    <p style="color:var(--text-muted); font-size:14px;">เว็บนี้ deploy เป็น Apps Script Web App แล้ว ' +
+    '    แต่เรียกข้อมูลจาก Google Sheets ไม่สำเร็จ (ไม่ใช่ demo mode — นี่คือ error จริงจากการ deploy)</p>' +
+    '    <p style="font-family:monospace; font-size:12px; background:rgba(220,38,38,0.08); color:#dc2626; ' +
+    '    padding:8px 10px; border-radius:6px; word-break:break-all;">' + escapeHtml_(msg) + '</p>' +
+    '    <p style="font-size:14px; margin-bottom:6px;"><b>ลองตรวจสอบตามลำดับนี้:</b></p>' +
+    '    <ul style="font-size:14px; line-height:1.7; margin-top:0;">' +
+    '      <li>รันฟังก์ชัน <code>setup()</code> จาก Apps Script editor แล้วอย่างน้อย 1 ครั้งหรือยัง? (สร้าง' +
+    '        ชีตทั้งหมด + ข้อมูลตัวอย่าง)</li>' +
+    '      <li>เปิดลิงก์ที่ลงท้ายด้วย <code>/exec</code> อยู่หรือเปล่า (ไม่ใช่ลิงก์ preview จาก editor หรือ' +
+    '        ลิงก์ /dev)?</li>' +
+    '      <li>หลังแก้โค้ดล่าสุด ได้ไปที่ Deploy &gt; Manage deployments &gt; (ไอคอนดินสอ) &gt; Version: ' +
+    '        <b>New version</b> &gt; Deploy แล้วหรือยัง? (แก้โค้ดอย่างเดียวไม่พอ ต้อง deploy version ใหม่' +
+    '        ทับ link เดิมด้วย)</li>' +
+    '      <li>รหัสพนักงานที่กรอก ตรงกับคอลัมน์ "EmployeeID" ในชีต "Users" หรือไม่ (เช็ค Role/Active ด้วย)?</li>' +
+    '    </ul>' +
+    '    <div style="text-align:center; margin-top:14px;">' +
+    '      <button class="btn primary" onclick="location.reload()">🔄 ลองใหม่</button>' +
+    '    </div>' +
+    '  </div>' +
+    '</div>';
+}
+function afterLogin_() {
+  Promise.all([
+    callApi('listLines', {}, 'GET'),
+    callApi('listGroupDefects', {}, 'GET'),
+    callApi('listProductModels', {}, 'GET'),
+    callApi('listFailItems', {}, 'GET'),
+    callApi('listDepartments', {}, 'GET')
+  ]).then(function (r) {
+    state.lines = r[0]; state.groupDefects = r[1]; state.productModels = r[2]; state.failItems = r[3]; state.departments = r[4];
+    render();
+  }).catch(function (err) {
+    // รอบที่ 12: เดิมจุดนี้ไม่มี .catch() เลย — ถ้า request ใดใน 5 ตัวนี้ error (เช่นตอนนั้นยังไม่มี
+    // การแนบ callerEmployeeId ไปด้วย ทำให้ backend ปฏิเสธด้วย 401) หน้าจอจะค้างที่ปุ่ม
+    // "กำลังเข้าสู่ระบบ…" เงียบ ๆ ตลอดไปโดยไม่มีข้อความ error ใด ๆ โชว์ให้เห็นเลย (ผู้ใช้เห็นแค่ค้าง)
+    // ตอนนี้แสดงหน้า error ให้เห็นชัดเจนแทน พร้อมข้อความจริงจาก backend
+    renderBackendError_(err);
+  });
+}
+
+function switchRole(role) {
+  mockDb.role = role;
+  callApi('login', {}, 'GET').then(function (u) { state.user = u; state.page = defaultPageForRole_(role); render(); });
+}
+function defaultPageForRole_(role) {
+  if (role === 'Production') return 'addDefect';
+  if (role === 'PE') return 'waitingRepair';
+  return 'dashboard';
+}
+
+// ================= Render root =================
+function render() {
+  var root = document.getElementById('app');
+  if (!state.user) { root.innerHTML = ''; return; }
+  var html = '';
+  html += renderNavbar_();
+  if (USING_MOCK) html += '<div class="demo-banner">⚠ Demo mode — not connected to Google Sheets (showing local sample data only)</div>';
+  html += '<div class="content" id="pageContent"></div>';
+  root.innerHTML = html;
+  wireNavbar_();
+  renderPage_();
+}
+
+function renderNavbar_() {
+  var links = NAV_ITEMS.filter(function (n) { return n.roles.indexOf(state.user.role) !== -1; })
+    .map(function (n) {
+      return '<button data-nav="' + n.key + '" class="' + (state.page === n.key ? 'active' : '') + '">' + n.icon + ' ' + n.label + '</button>';
+    }).join('');
+  var roleSwitcher = USING_MOCK
+    ? '<select class="role-switch" id="roleSwitch"><option value="Production">Production</option><option value="PE">PE</option><option value="Admin">Admin</option><option value="Viewer">Viewer</option></select>'
+    : '';
+  var initials = (state.user.name || '?').split(' ').map(function (p) { return p[0]; }).slice(0, 2).join('').toUpperCase();
+  return '' +
+    '<div class="navbar">' +
+    '  <div class="brand"><div class="logo">🔧</div>Repair Tracking</div>' +
+    '  <div class="nav-links">' + links + '</div>' +
+    '  <div class="right">' +
+    roleSwitcher +
+    '    <div class="user-chip"><div class="avatar">' + escapeHtml_(initials) + '</div><span>' + escapeHtml_(state.user.name) + ' · ' + escapeHtml_(state.user.role) + '</span></div>' +
+    '    <button class="theme-toggle" id="themeBtn">🌓</button>' +
+    '  </div>' +
+    '</div>';
+}
+function wireNavbar_() {
+  document.querySelectorAll('[data-nav]').forEach(function (btn) {
+    btn.addEventListener('click', function () { state.page = btn.getAttribute('data-nav'); state.repairDetailId = null; render(); });
+  });
+  var themeBtn = document.getElementById('themeBtn');
+  if (themeBtn) themeBtn.addEventListener('click', toggleTheme);
+  var roleSwitch = document.getElementById('roleSwitch');
+  if (roleSwitch) {
+    roleSwitch.value = mockDb.role;
+    roleSwitch.addEventListener('change', function () { switchRole(roleSwitch.value); });
+  }
+}
+
+function renderPage_() {
+  var el = document.getElementById('pageContent');
+  if (state.page === 'addDefect') return renderAddDefectPage_(el);
+  if (state.page === 'waitingRepair') return renderWaitingRepairPage_(el);
+  if (state.page === 'repairDetail') return renderRepairDetailPage_(el);
+  if (state.page === 'repairHistory') return renderRepairHistoryPage_(el);
+  if (state.page === 'dashboard') return renderDashboardPage_(el);
+  if (state.page === 'admin') return renderAdminPage_(el);
+}
+function renderPlaceholder_(el, emoji, title, text) {
+  el.innerHTML = '<div class="placeholder-page"><div class="emoji">' + emoji + '</div><h2>' + title + '</h2><p>' + text + '</p></div>';
+}
+function goTo_(page, opts) {
+  opts = opts || {};
+  state.previousPage = state.page;
+  state.page = page;
+  if (opts.defectId !== undefined) state.repairDetailId = opts.defectId;
+  render();
+}
+
+function escapeHtml_(s) {
+  return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+  });
+}
+function fmtDateTime_(iso) {
+  if (!iso) return '—';
+  var d = new Date(iso);
+  if (isNaN(d.getTime())) return iso;
+  return d.toLocaleString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' });
+}
+function statusMeta_(status) {
+  switch (status) {
+    case STATUS.WAITING_REPAIR: return { cls: 'waiting', icon: '⏳' };
+    case STATUS.PE_REPAIRING: return { cls: 'inprogress', icon: '🔧' };
+    case STATUS.PENDING_SEND: return { cls: 'pending', icon: '⏸' };
+    case STATUS.REPAIR_COMPLETE: return { cls: 'pass', icon: '✔' };
+    case STATUS.SCRAP: return { cls: 'scrap', icon: '✕' };
+    case STATUS.CLOSED_PASS: return { cls: 'closedpass', icon: '🏁' };
+    case STATUS.CLOSED_SCRAP: return { cls: 'closedscrap', icon: '🏁' };
+    default: return { cls: 'pending', icon: '' };
+  }
+}
+function statusTag_(status) {
+  var m = statusMeta_(status);
+  return '<span class="tag ' + m.cls + '">' + m.icon + ' ' + escapeHtml_(status) + '</span>';
+}
+function selectOptions_(list, placeholder) {
+  var html = placeholder ? '<option value="">' + placeholder + '</option>' : '';
+  list.forEach(function (v) { html += '<option value="' + escapeHtml_(v) + '">' + escapeHtml_(v) + '</option>'; });
+  return html;
+}
+function deptSelectOptions_(placeholder) {
+  var html = placeholder ? '<option value="">' + placeholder + '</option>' : '';
+  state.departments.forEach(function (d) { html += '<option value="' + d.DepartmentID + '">' + escapeHtml_(d.DepartmentName) + '</option>'; });
+  return html;
+}
+
+// ================= Dashboard (Phase 3 — KPIs + drill-down charts + CSV export) =================
+// แนวคิด: โหลด Defects+Repairs ทั้งหมดครั้งเดียวต่อการเข้าเพจ (dash.records) แล้วให้ทุกกราฟ/ตาราง/ปุ่ม
+// download คำนวณจาก state.dash.records ชุดเดียวกันในเครื่อง — คลิกแท่งกราฟ = แค่ re-render ไม่ยิง request
+// ใหม่ (เร็ว ลื่นไหล) ตัวกรองที่ drill ได้: Day (จาก Daily Trend), Line, Group Defect, Fail Item — คลิกซ้อน
+// กันได้ทุกมิติพร้อมกัน (เหมือนแนวทาง day→group→item ของเว็บ Daily Defect Tracker เดิม) ส่วน date-range
+// preset (7/30 วัน/เดือนนี้/ทั้งหมด) ใช้ควบคุมกรอบเวลาโดยรวมและ Daily Trend chart เอง
+var DASH_RANGE_OPTIONS = [
+  { key: 'all', label: 'All time' },
+  { key: '7', label: 'Last 7 days' },
+  { key: '30', label: 'Last 30 days' },
+  { key: 'month', label: 'This month' }
+];
+
+function ensureDashState_() {
+  if (!state.dash) {
+    state.dash = {
+      records: [],
+      rangeKey: '30',
+      drill: { date: null, lines: [], groupDefect: null, failItem: null },
+      search: '',
+      lastUpdated: null
+    };
+  }
+  return state.dash;
+}
+function dateKey_(iso) { return iso ? String(iso).slice(0, 10) : ''; }
+function monthKey_(iso) { return iso ? String(iso).slice(0, 7) : ''; }
+
+// กะทำงาน: Day shift 07:40–19:10, Night shift 19:40–07:10 (วันถัดไป) — ค่าเดียวกับที่ใช้ในเว็บ Daily
+// Defect Tracker เดิม แต่ระบบนี้ไม่มีฟิลด์ Shift เก็บแยกไว้ (ไม่ได้ขอเพิ่มในฟอร์ม Add Defect) จึง infer จาก
+// เวลาใน CreatedAt โดยตรงแทน — ช่วงคาบเกี่ยว 19:10-19:40 และ 07:10-07:40 (buffer เปลี่ยนกะ) จะไม่นับเข้ากะไหน
+function shiftOfDate_(d) {
+  var mins = d.getHours() * 60 + d.getMinutes();
+  var dayStart = 7 * 60 + 40, dayEnd = 19 * 60 + 10, nightStart = 19 * 60 + 40, nightEnd = 7 * 60 + 10;
+  if (mins >= dayStart && mins < dayEnd) return 'Day';
+  if (mins >= nightStart || mins < nightEnd) return 'Night';
+  return null;
+}
+
+// ================= Dashboard auto-refresh (ทุก 3 นาที, silent, หยุดเองเมื่อออกจากหน้า Dashboard) =================
+var DASH_AUTO_REFRESH_MS = 3 * 60 * 1000;
+var dashAutoRefreshTimer = null;
+function startDashAutoRefresh_() {
+  stopDashAutoRefresh_();
+  dashAutoRefreshTimer = setInterval(silentRefreshDashboard_, DASH_AUTO_REFRESH_MS);
+}
+function stopDashAutoRefresh_() {
+  if (dashAutoRefreshTimer) { clearInterval(dashAutoRefreshTimer); dashAutoRefreshTimer = null; }
+}
+function silentRefreshDashboard_() {
+  if (state.page !== 'dashboard') { stopDashAutoRefresh_(); return; }
+  var dash = ensureDashState_();
+  callApi('getDashboardData', {}, 'GET').then(function (data) {
+    if (state.page !== 'dashboard') return;
+    dash.records = joinDashboardRecords_(data.defects, data.repairs);
+    dash.lastUpdated = new Date();
+    renderDashboardKpis_();
+    renderDashboardTodayKpis_();
+    renderDashboardCharts_();
+    renderDashboardRecords_();
+    updateDashLastUpdatedLabel_();
+  }).catch(function () { /* silent — background poll failure shouldn't interrupt the user */ });
+}
+function updateDashLastUpdatedLabel_() {
+  var el = document.getElementById('dashLastUpdated');
+  if (!el) return;
+  var dash = ensureDashState_();
+  el.textContent = dash.lastUpdated ? ('Last updated ' + dash.lastUpdated.toTimeString().slice(0, 5)) : '';
+}
+
+// ================= Dashboard Line multi-select filter =================
+function toggleDashLine_(line) {
+  var dash = ensureDashState_();
+  var idx = dash.drill.lines.indexOf(line);
+  if (idx === -1) dash.drill.lines.push(line); else dash.drill.lines.splice(idx, 1);
+  refreshLineFilterUi_();
+  refreshDashboardViews_();
+}
+function refreshLineFilterUi_() {
+  var dash = ensureDashState_();
+  var label = document.getElementById('lineFilterLabel');
+  if (label) label.textContent = !dash.drill.lines.length ? 'All Lines' : (dash.drill.lines.length === 1 ? dash.drill.lines[0] : dash.drill.lines.length + ' Lines');
+  document.querySelectorAll('.lineFilterCb').forEach(function (cb) { cb.checked = dash.drill.lines.indexOf(cb.value) !== -1; });
+}
+function refreshDashboardViews_() {
+  renderDashboardCharts_();
+  renderDashboardRecords_();
+  renderDashboardTodayKpis_();
+}
+// ปิด dropdown เมื่อคลิกนอกกล่อง — ผูก listener ครั้งเดียวตอนโหลดสคริปต์ (ไม่ผูกซ้ำทุกครั้งที่ re-render
+// หน้า Dashboard เพื่อกัน listener รั่วสะสม) แล้ว lookup element สดทุกครั้งที่คลิก
+document.addEventListener('click', function (e) {
+  var panel = document.getElementById('lineFilterPanel');
+  var wrap = document.getElementById('lineFilterWrap');
+  if (panel && wrap && panel.style.display !== 'none' && !wrap.contains(e.target)) panel.style.display = 'none';
+});
+
+function joinDashboardRecords_(defects, repairs) {
+  var byDefect = {};
+  (repairs || []).forEach(function (r) { byDefect[r.DefectID] = r; });
+  return (defects || []).map(function (d) {
+    var r = byDefect[d.DefectID] || {};
+    return Object.assign({}, d, {
+      dateKey: dateKey_(d.CreatedAt),
+      monthKey: monthKey_(d.CreatedAt),
+      RepairResult: r.RepairResult || '',
+      RepairCause: r.RepairCause || '',
+      RepairDate: r.RepairDate || '',
+      RepairBy: r.RepairBy || '',
+      ChargeDepartmentName: r.ChargeDepartmentName || '',
+      // รอบที่ 13: Repairs.CreatedAt (timestamp เต็ม ต่างจาก RepairDate ที่เป็นแค่วันที่) คือช่วงเวลาที่ PE
+      // กดบันทึกผลซ่อม — ใช้เป็นจุดสิ้นสุดของ stage "ระยะเวลาซ่อมจริง" และจุดเริ่มของ "รอ Production รับคืน"
+      RepairSubmittedAt: r.CreatedAt || ''
+    });
+  });
+}
+
+function renderDashboardPage_(el) {
+  stopDashAutoRefresh_();
+  var dash = ensureDashState_();
+  el.innerHTML =
+    '<div class="page-header">' +
+    '  <div><h2 class="page-title">📊 Dashboard</h2><div class="page-subtitle">Click any chart bar to drill down — Day, Line, Group Defect and Fail Item filters combine together.</div></div>' +
+    '  <div style="display:flex; gap:8px; align-items:center;"><span class="dash-updated" id="dashLastUpdated"></span><button class="btn secondary small" id="dashRefreshBtn">🔄 Refresh</button><button class="btn small" id="dashDownloadBtn" title="Exports the records currently shown below, respecting all active filters.">⬇ Download Database (CSV)</button></div>' +
+    '</div>' +
+    '<div class="kpi-row" id="dashKpis"><div class="empty-state">Loading…</div></div>' +
+    '<div class="section-label">Today · by Shift (Day 07:40–19:10 / Night 19:40–07:10)</div>' +
+    '<div class="kpi-row" id="dashTodayKpis"><div class="empty-state">Loading…</div></div>' +
+    '<div class="card">' +
+    '  <div class="filter-bar">' +
+    DASH_RANGE_OPTIONS.map(function (o) {
+      return '<button class="btn small ' + (dash.rangeKey === o.key ? 'primary' : 'secondary') + '" data-range="' + o.key + '">' + o.label + '</button>';
+    }).join('') +
+    '    <div class="line-filter" id="lineFilterWrap">' +
+    '      <button type="button" class="btn small secondary" id="lineFilterBtn">🏭 <span id="lineFilterLabel">All Lines</span> ▾</button>' +
+    '      <div class="line-filter-panel" id="lineFilterPanel" style="display:none;">' +
+    '        <div class="line-filter-actions"><button type="button" class="btn small secondary" id="lineFilterAll">Select all</button><button type="button" class="btn small secondary" id="lineFilterClear">Clear</button></div>' +
+    state.lines.map(function (l) { return '<label class="line-filter-item"><input type="checkbox" class="lineFilterCb" value="' + escapeHtml_(l) + '"> ' + escapeHtml_(l) + '</label>'; }).join('') +
+    '      </div>' +
+    '    </div>' +
+    '    <input id="dashSearch" placeholder="🔍 Serial / Product Model" style="margin-left:auto; min-width:200px;">' +
+    '  </div>' +
+    '  <div id="dashActiveFilters"></div>' +
+    '</div>' +
+    '<div id="dashCharts"><div class="empty-state">Loading…</div></div>' +
+    '<div class="section-label">Filtered Records</div>' +
+    '<div class="card" id="dashRecordsCard"><div class="empty-state">Loading…</div></div>';
+
+  document.getElementById('dashSearch').value = dash.search;
+  document.getElementById('dashSearch').addEventListener('input', debounce_(function () {
+    dash.search = document.getElementById('dashSearch').value.trim();
+    refreshDashboardViews_();
+  }, 250));
+  document.querySelectorAll('[data-range]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      dash.rangeKey = btn.getAttribute('data-range');
+      dash.drill.date = null;
+      renderDashboardPage_(document.getElementById('pageContent'));
+    });
+  });
+  document.getElementById('dashRefreshBtn').addEventListener('click', function () { renderDashboardPage_(document.getElementById('pageContent')); });
+  document.getElementById('dashDownloadBtn').addEventListener('click', downloadDashboardCsv_);
+
+  document.getElementById('lineFilterBtn').addEventListener('click', function (e) {
+    e.stopPropagation();
+    var panel = document.getElementById('lineFilterPanel');
+    panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
+  });
+  document.querySelectorAll('.lineFilterCb').forEach(function (cb) {
+    cb.checked = dash.drill.lines.indexOf(cb.value) !== -1;
+    cb.addEventListener('change', function () { toggleDashLine_(cb.value); });
+  });
+  document.getElementById('lineFilterAll').addEventListener('click', function () { dash.drill.lines = state.lines.slice(); refreshLineFilterUi_(); refreshDashboardViews_(); });
+  document.getElementById('lineFilterClear').addEventListener('click', function () { dash.drill.lines = []; refreshLineFilterUi_(); refreshDashboardViews_(); });
+  refreshLineFilterUi_();
+
+  callApi('getDashboardData', {}, 'GET').then(function (data) {
+    dash.records = joinDashboardRecords_(data.defects, data.repairs);
+    dash.lastUpdated = new Date();
+    renderDashboardKpis_();
+    renderDashboardTodayKpis_();
+    renderDashboardCharts_();
+    renderDashboardRecords_();
+    updateDashLastUpdatedLabel_();
+    startDashAutoRefresh_();
+  }).catch(function (err) { showToast('Error loading dashboard: ' + err.message); });
+}
+
+function renderDashboardTodayKpis_() {
+  var dash = ensureDashState_();
+  var el = document.getElementById('dashTodayKpis');
+  if (!el) return;
+  var todayKey = dateKey_(new Date().toISOString());
+  var lineFilterOn = dash.drill.lines.length > 0;
+  var recs = dash.records.filter(function (r) {
+    if (lineFilterOn && dash.drill.lines.indexOf(r.Line) === -1) return false;
+    return r.dateKey === todayKey;
+  });
+  var dayCount = 0, nightCount = 0;
+  recs.forEach(function (r) {
+    var s = shiftOfDate_(new Date(r.CreatedAt));
+    if (s === 'Day') dayCount++; else if (s === 'Night') nightCount++;
+  });
+  var suffix = lineFilterOn ? ' (' + dash.drill.lines.join(', ') + ')' : '';
+  var tiles = [
+    { label: "Today's Defects" + suffix, value: recs.length, cls: '' },
+    { label: '☀️ Today — Day Shift', value: dayCount, cls: 'accent' },
+    { label: '🌙 Today — Night Shift', value: nightCount, cls: 'accent' }
+  ];
+  el.innerHTML = tiles.map(function (t) {
+    return '<div class="kpi-card"><div class="label">' + escapeHtml_(t.label) + '</div><div class="value ' + t.cls + '">' + t.value + '</div></div>';
+  }).join('');
+}
+
+function renderDashboardKpis_() {
+  var recs = ensureDashState_().records;
+  var counts = {};
+  Object.keys(STATUS).forEach(function (k) { counts[STATUS[k]] = 0; });
+  recs.forEach(function (r) { counts[r.Status] = (counts[r.Status] || 0) + 1; });
+  var awaitingReturn = (counts[STATUS.REPAIR_COMPLETE] || 0) + (counts[STATUS.SCRAP] || 0);
+  var tiles = [
+    { label: 'Total Defect', value: recs.length, cls: '' },
+    { label: 'Pending Send to PE', value: counts[STATUS.PENDING_SEND] || 0, cls: 'accent' },
+    { label: 'Waiting for PE Repair', value: counts[STATUS.WAITING_REPAIR] || 0, cls: 'accent' },
+    { label: 'PE Repairing', value: counts[STATUS.PE_REPAIRING] || 0, cls: 'accent' },
+    { label: 'Waiting Return from PE', value: awaitingReturn, cls: 'accent' },
+    { label: 'Closed - Repair Complete', value: counts[STATUS.CLOSED_PASS] || 0, cls: 'good' },
+    { label: 'Closed - Scrap', value: counts[STATUS.CLOSED_SCRAP] || 0, cls: 'danger' }
+  ];
+  var kpis = document.getElementById('dashKpis');
+  if (kpis) {
+    kpis.innerHTML = tiles.map(function (t) {
+      return '<div class="kpi-card"><div class="label">' + t.label + '</div><div class="value ' + t.cls + '">' + t.value + '</div></div>';
+    }).join('');
+  }
+}
+
+function dashRangeStart_(rangeKey) {
+  var now = new Date();
+  if (rangeKey === '7' || rangeKey === '30') {
+    var d = new Date(now); d.setDate(d.getDate() - (Number(rangeKey) - 1)); d.setHours(0, 0, 0, 0);
+    return dateKey_(d.toISOString());
+  }
+  if (rangeKey === 'month') {
+    var m = new Date(now.getFullYear(), now.getMonth(), 1);
+    return dateKey_(m.toISOString());
+  }
+  return null;
+}
+function dailyRangeDays_(rangeKey) {
+  if (rangeKey === '7') return 7;
+  if (rangeKey === 'month') return new Date().getDate();
+  return 30;
+}
+function dashFilteredRecords_(excludeDim) {
+  var dash = ensureDashState_();
+  var recs = dash.records;
+  var d = dash.drill;
+  if (d.date && excludeDim !== 'date') {
+    recs = recs.filter(function (r) { return r.dateKey === d.date; });
+  } else if (excludeDim !== 'date') {
+    var start = dashRangeStart_(dash.rangeKey);
+    if (start) recs = recs.filter(function (r) { return r.dateKey >= start; });
+  }
+  if (d.lines && d.lines.length && excludeDim !== 'line') recs = recs.filter(function (r) { return d.lines.indexOf(r.Line) !== -1; });
+  if (d.groupDefect && excludeDim !== 'groupDefect') recs = recs.filter(function (r) { return r.GroupDefect === d.groupDefect; });
+  if (d.failItem && excludeDim !== 'failItem') recs = recs.filter(function (r) { return r.FailItemNo === d.failItem; });
+  if (dash.search) {
+    var q = dash.search.toLowerCase();
+    recs = recs.filter(function (r) { return (r.SerialNumber + ' ' + r.ProductModel).toLowerCase().indexOf(q) !== -1; });
+  }
+  return recs;
+}
+function groupCount_(records, field) {
+  var map = {};
+  records.forEach(function (r) { var k = r[field] || '—'; map[k] = (map[k] || 0) + 1; });
+  return Object.keys(map).map(function (k) { return { key: k, label: k, count: map[k] }; }).sort(function (a, b) { return b.count - a.count; });
+}
+function topNPlusOther_(arr, n) {
+  if (arr.length <= n) return arr;
+  var top = arr.slice(0, n);
+  var restSum = arr.slice(n).reduce(function (s, x) { return s + x.count; }, 0);
+  top.push({ key: '__other__', label: 'Other', count: restSum });
+  return top;
+}
+function buildDailySeries_() {
+  var recs = dashFilteredRecords_('date');
+  var n = dailyRangeDays_(ensureDashState_().rangeKey);
+  var days = [];
+  var now = new Date();
+  for (var i = n - 1; i >= 0; i--) {
+    var dt = new Date(now); dt.setDate(dt.getDate() - i);
+    var key = dateKey_(dt.toISOString());
+    days.push({ key: key, label: key.slice(5), count: 0 });
+  }
+  var byKey = {}; days.forEach(function (dday) { byKey[dday.key] = dday; });
+  recs.forEach(function (r) { if (byKey[r.dateKey]) byKey[r.dateKey].count++; });
+  return days;
+}
+function buildMonthlySeries_() {
+  var recs = dashFilteredRecords_('date');
+  var months = [];
+  var now = new Date();
+  for (var i = 11; i >= 0; i--) {
+    var dt = new Date(now.getFullYear(), now.getMonth() - i, 1);
+    var key = monthKey_(dt.toISOString());
+    months.push({ key: key, label: key, count: 0 });
+  }
+  var byKey = {}; months.forEach(function (m) { byKey[m.key] = m; });
+  recs.forEach(function (r) { if (byKey[r.monthKey]) byKey[r.monthKey].count++; });
+  return months;
+}
+
+function renderVerticalBarChart_(containerId, series, opts) {
+  opts = opts || {};
+  var container = document.getElementById(containerId);
+  if (!container) return;
+  if (!series.length) { container.innerHTML = '<div class="empty-state">No data.</div>'; return; }
+  var maxVal = series.reduce(function (m, s) { return Math.max(m, s.count); }, 0) || 1;
+  var selectedSet = opts.selectedKeys ? opts.selectedKeys : (opts.selectedKey ? [opts.selectedKey] : null);
+  var html = '<div class="bar-chart">';
+  series.forEach(function (s) {
+    var pct = Math.round((s.count / maxVal) * 100);
+    var selected = selectedSet && selectedSet.indexOf(s.key) !== -1;
+    var dim = selectedSet && selectedSet.length > 0 && !selected;
+    html += '<div class="bar-col' + (opts.onBarClick ? ' clickable' : '') + (selected ? ' selected' : '') + (dim ? ' dim' : '') +
+      '" data-key="' + escapeHtml_(s.key) + '" title="' + escapeHtml_(s.label) + ': ' + s.count + '">' +
+      '<div class="bar-value">' + s.count + '</div>' +
+      '<div class="bar-fill" style="height:' + (s.count > 0 ? Math.max(pct, 4) : 1) + '%;"></div>' +
+      '<div class="bar-label">' + escapeHtml_(s.label) + '</div>' +
+      '</div>';
+  });
+  html += '</div>';
+  container.innerHTML = html;
+  if (opts.onBarClick) {
+    container.querySelectorAll('.bar-col').forEach(function (col) {
+      col.addEventListener('click', function () { opts.onBarClick(col.getAttribute('data-key')); });
+    });
+  }
+}
+function renderRankedBarChart_(containerId, series, opts) {
+  opts = opts || {};
+  var container = document.getElementById(containerId);
+  if (!container) return;
+  if (!series.length) { container.innerHTML = '<div class="empty-state">No data.</div>'; return; }
+  var maxVal = series.reduce(function (m, s) { return Math.max(m, s.count); }, 0) || 1;
+  var html = '<div class="ranked-chart">';
+  series.forEach(function (s) {
+    var pct = Math.round((s.count / maxVal) * 100);
+    var selected = opts.selectedKey && opts.selectedKey === s.key;
+    var dim = opts.selectedKey && !selected;
+    var clickable = opts.onBarClick && s.key !== '__other__';
+    html += '<div class="ranked-row' + (clickable ? ' clickable' : '') + (selected ? ' selected' : '') + (dim ? ' dim' : '') + '" data-key="' + escapeHtml_(s.key) + '" title="' + escapeHtml_(s.label) + ': ' + s.count + '">' +
+      '<div class="ranked-label">' + escapeHtml_(s.label) + '</div>' +
+      '<div class="ranked-track"><div class="ranked-fill" style="width:' + pct + '%;"></div></div>' +
+      '<div class="ranked-value">' + s.count + '</div>' +
+      '</div>';
+  });
+  html += '</div>';
+  container.innerHTML = html;
+  if (opts.onBarClick) {
+    container.querySelectorAll('.ranked-row.clickable').forEach(function (row) {
+      row.addEventListener('click', function () { opts.onBarClick(row.getAttribute('data-key')); });
+    });
+  }
+}
+function renderStackedResultBar_(containerId, records) {
+  var container = document.getElementById(containerId);
+  if (!container) return;
+  var pass = records.filter(function (r) { return r.RepairResult === 'Repair Pass'; }).length;
+  var scrap = records.filter(function (r) { return r.RepairResult === 'Scrap'; }).length;
+  var total = pass + scrap;
+  if (!total) { container.innerHTML = '<div class="empty-state">No repair results in this filter yet.</div>'; return; }
+  var passPct = Math.round((pass / total) * 100);
+  var scrapPct = 100 - passPct;
+  container.innerHTML =
+    '<div class="stacked-bar"><div class="seg pass" style="width:' + passPct + '%;" title="Repair Pass: ' + pass + '"></div>' +
+    '<div class="seg scrap" style="width:' + scrapPct + '%;" title="Scrap: ' + scrap + '"></div></div>' +
+    '<div class="stacked-legend"><span><i class="dot pass"></i>Repair Pass (' + pass + ')</span><span><i class="dot scrap"></i>Scrap (' + scrap + ')</span></div>';
+}
+
+// ================= รอบที่ 13: Dashboard — ระยะเวลาเฉลี่ยแต่ละขั้นตอน (หาว่าเสียเวลาที่จุดไหน) =================
+// แบ่งกระบวนการเป็น 4 ช่วงเต็มตามที่ผู้ใช้เลือก: รอส่งซ่อม -> รอ PE รับงาน -> ระยะเวลาซ่อมจริง ->
+// รอ Production รับคืน — คำนวณจาก timestamp คอลัมน์ที่มีอยู่แล้วในแต่ละ record (ไม่ต้อง parse
+// RepairHistory ให้ซับซ้อน) นับเฉพาะ record ที่มี timestamp ครบทั้งสองปลายของช่วงนั้นๆ เท่านั้น (record ที่
+// ยังไปไม่ถึงขั้นตอนนั้นจะไม่ถูกนับรวมในค่าเฉลี่ย ไม่ใช่นับเป็น 0)
+// รอบที่ 14: ผู้ใช้ขอให้หน่วยเวลาเป็น "ชั่วโมง" คงที่เสมอ (ไม่สลับเป็นนาที/วันแบบ adaptive แบบรอบที่ 13 เดิม)
+// เพื่อให้เทียบตัวเลขระหว่าง stage ได้ง่าย และตัวหนังสือ label ยาวแค่ไหนก็โชว์เต็ม ไม่ตัดคำ
+function fmtDuration_(ms) {
+  if (ms == null || isNaN(ms)) return '—';
+  return (ms / 3600000).toFixed(1) + ' ชม.';
+}
+function addDurationSample_(stage, fromIso, toIso) {
+  if (!fromIso || !toIso) return;
+  var from = new Date(fromIso).getTime(), to = new Date(toIso).getTime();
+  if (isNaN(from) || isNaN(to) || to < from) return;
+  stage.sumMs += (to - from);
+  stage.n++;
+}
+function buildDurationStages_(records) {
+  var stages = [
+    { key: 'toSend', label: '① รอส่งซ่อม (สร้างงาน → ส่ง PE)', sumMs: 0, n: 0 },
+    { key: 'toReceive', label: '② รอ PE รับงาน (ส่ง PE → PE ยืนยันรับงาน)', sumMs: 0, n: 0 },
+    { key: 'repairing', label: '③ ระยะเวลาซ่อมจริง (PE รับงาน → แจ้งผลซ่อม)', sumMs: 0, n: 0 },
+    { key: 'toClose', label: '④ รอ Production รับคืน (แจ้งผลซ่อม → ยืนยันรับคืน)', sumMs: 0, n: 0 }
+  ];
+  var byKey = {}; stages.forEach(function (s) { byKey[s.key] = s; });
+  records.forEach(function (r) {
+    addDurationSample_(byKey.toSend, r.CreatedAt, r.SentToPEAt);
+    addDurationSample_(byKey.toReceive, r.SentToPEAt, r.PEReceivedAt);
+    addDurationSample_(byKey.repairing, r.PEReceivedAt, r.RepairSubmittedAt);
+    addDurationSample_(byKey.toClose, r.RepairSubmittedAt, r.ReturnConfirmedAt);
+  });
+  return stages.map(function (s) {
+    return { key: s.key, label: s.label, avgMs: s.n ? (s.sumMs / s.n) : null, n: s.n };
+  }).sort(function (a, b) {
+    // เสียเวลามากสุดขึ้นก่อน (record ที่ยังไม่มีข้อมูลถึงขั้นนั้นเลย ให้ตกไปอยู่ท้ายสุด)
+    if (a.avgMs == null) return 1;
+    if (b.avgMs == null) return -1;
+    return b.avgMs - a.avgMs;
+  });
+}
+function totalCycleAvg_(records) {
+  var stage = { sumMs: 0, n: 0 };
+  records.forEach(function (r) { addDurationSample_(stage, r.CreatedAt, r.ReturnConfirmedAt); });
+  return { avgMs: stage.n ? (stage.sumMs / stage.n) : null, n: stage.n };
+}
+// รอบที่ 14: เปลี่ยนจากกราฟแท่งแนวนอน (ranked) เป็นกราฟแท่งแนวตั้ง ตามที่ผู้ใช้ขอ — แท่งที่เสียเวลามากสุด
+// (stages[0] หลังจาก sort ใน buildDurationStages_) ไฮไลต์สีส้ม (.top) ให้เห็นชัดว่าเป็นจุดที่เสียเวลาที่สุด
+function renderDurationBarChart_(containerId, stages) {
+  var container = document.getElementById(containerId);
+  if (!container) return;
+  var maxVal = stages.reduce(function (m, s) { return Math.max(m, s.avgMs || 0); }, 0) || 1;
+  var html = '<div class="duration-chart">';
+  stages.forEach(function (s, idx) {
+    var pct = s.avgMs != null ? Math.max(Math.round((s.avgMs / maxVal) * 100), 3) : 1;
+    var isTop = idx === 0 && s.avgMs != null;
+    html += '<div class="duration-col' + (isTop ? ' top' : '') + '" title="' + escapeHtml_(s.label) + '">' +
+      '<div class="duration-value">' + fmtDuration_(s.avgMs) + '</div>' +
+      '<div class="duration-count">' + (s.avgMs != null ? ('n=' + s.n) : 'No data yet') + '</div>' +
+      '<div class="duration-fill" style="height:' + pct + '%;"></div>' +
+      '<div class="duration-label">' + escapeHtml_(s.label) + '</div>' +
+      '</div>';
+  });
+  html += '</div>';
+  container.innerHTML = html;
+}
+// รอบที่ 14: สรุประยะเวลาเฉลี่ยรวม (total cycle) และเฉลี่ยแต่ละ stage เป็นตัวเลขชัดเจน หน่วยชั่วโมงทั้งหมด
+function renderDurationSummary_(containerId, stages, totalCycle) {
+  var container = document.getElementById(containerId);
+  if (!container) return;
+  var html = '<div class="duration-summary">';
+  html += '<div class="duration-stat total"><div class="lbl">⏱️ ระยะเวลารวมเฉลี่ย (Total Cycle)</div>' +
+    '<div class="val">' + fmtDuration_(totalCycle.avgMs) + '</div>' +
+    '<div class="n">n=' + totalCycle.n + '</div></div>';
+  stages.forEach(function (s) {
+    html += '<div class="duration-stat"><div class="lbl">' + escapeHtml_(s.label) + '</div>' +
+      '<div class="val">' + fmtDuration_(s.avgMs) + '</div>' +
+      '<div class="n">n=' + s.n + '</div></div>';
+  });
+  html += '</div>';
+  container.innerHTML = html;
+}
+
+function renderDashboardCharts_() {
+  var dash = ensureDashState_();
+  var container = document.getElementById('dashCharts');
+  if (!container) return;
+  container.innerHTML =
+    '<div class="chart-grid">' +
+    '  <div class="card chart-card full"><div class="chart-title">⏱️ Average Duration per Stage — where time is lost <span class="chart-sub" id="durationSub"></span></div><div id="durationChart"></div><div id="durationSummary"></div></div>' +
+    '  <div class="card chart-card full"><div class="chart-title">📅 Daily Repair Trend <span class="chart-sub" id="dailySub"></span></div><div id="dailyChart"></div></div>' +
+    '  <div class="card chart-card"><div class="chart-title">🏭 Defect by Line</div><div id="lineChart"></div></div>' +
+    '  <div class="card chart-card"><div class="chart-title">🧩 Defect by Group Defect</div><div id="groupChart"></div></div>' +
+    '  <div class="card chart-card"><div class="chart-title">✅ Repair Result (Pass vs Scrap)</div><div id="resultChart"></div></div>' +
+    '  <div class="card chart-card"><div class="chart-title">📆 Monthly Repair Trend</div><div id="monthlyChart"></div></div>' +
+    '  <div class="card chart-card"><div class="chart-title">🔧 Top Fail Item</div><div id="failItemChart"></div></div>' +
+    '  <div class="card chart-card"><div class="chart-title">📝 Top Repair Cause</div><div id="causeChart"></div></div>' +
+    '</div>';
+
+  var durationRecs = dashFilteredRecords_(null);
+  var durationStages = buildDurationStages_(durationRecs);
+  renderDurationBarChart_('durationChart', durationStages);
+  var totalCycle = totalCycleAvg_(durationRecs);
+  renderDurationSummary_('durationSummary', durationStages, totalCycle);
+  var durationSubEl = document.getElementById('durationSub');
+  if (durationSubEl) {
+    durationSubEl.textContent = totalCycle.avgMs != null
+      ? ('· Avg total cycle time (created → closed): ' + fmtDuration_(totalCycle.avgMs) + ' (n=' + totalCycle.n + ')')
+      : '· No fully-closed jobs in this filter yet';
+  }
+  renderVerticalBarChart_('dailyChart', buildDailySeries_(), {
+    selectedKey: dash.drill.date,
+    onBarClick: function (key) { dash.drill.date = dash.drill.date === key ? null : key; refreshDashboardViews_(); }
+  });
+  renderVerticalBarChart_('lineChart', groupCount_(dashFilteredRecords_('line'), 'Line'), {
+    selectedKeys: dash.drill.lines,
+    onBarClick: function (key) { toggleDashLine_(key); }
+  });
+  renderVerticalBarChart_('groupChart', groupCount_(dashFilteredRecords_('groupDefect'), 'GroupDefect'), {
+    selectedKey: dash.drill.groupDefect,
+    onBarClick: function (key) { dash.drill.groupDefect = dash.drill.groupDefect === key ? null : key; refreshDashboardViews_(); }
+  });
+  renderStackedResultBar_('resultChart', dashFilteredRecords_(null));
+  renderVerticalBarChart_('monthlyChart', buildMonthlySeries_(), {});
+  renderRankedBarChart_('failItemChart', topNPlusOther_(groupCount_(dashFilteredRecords_('failItem'), 'FailItemNo'), 8), {
+    selectedKey: dash.drill.failItem,
+    onBarClick: function (key) { dash.drill.failItem = dash.drill.failItem === key ? null : key; refreshDashboardViews_(); }
+  });
+  var causeRecs = dashFilteredRecords_(null).filter(function (r) { return r.RepairCause; });
+  renderRankedBarChart_('causeChart', topNPlusOther_(groupCount_(causeRecs, 'RepairCause'), 8), {});
+
+  updateActiveFilters_();
+}
+
+function updateActiveFilters_() {
+  var dash = ensureDashState_();
+  var el = document.getElementById('dashActiveFilters');
+  if (!el) return;
+  var chips = [];
+  if (dash.drill.date) chips.push({ dim: 'date', label: '📅 Day: ' + dash.drill.date });
+  if (dash.drill.lines.length) chips.push({ dim: 'line', label: '🏭 Line: ' + dash.drill.lines.join(', ') });
+  if (dash.drill.groupDefect) chips.push({ dim: 'groupDefect', label: '🧩 Group Defect: ' + dash.drill.groupDefect });
+  if (dash.drill.failItem) chips.push({ dim: 'failItem', label: '🔧 Fail Item: ' + dash.drill.failItem });
+  if (!chips.length) {
+    el.innerHTML = '<div class="page-subtitle" style="margin-top:10px;">No drill-down filter active — click any chart bar above to filter everything below it.</div>';
+    return;
+  }
+  el.innerHTML = '<div style="margin-top:12px; display:flex; gap:8px; flex-wrap:wrap;">' + chips.map(function (c) {
+    return '<span class="tag pending" style="cursor:pointer;" data-clear="' + c.dim + '">' + escapeHtml_(c.label) + ' ✕</span>';
+  }).join('') + '</div>';
+  el.querySelectorAll('[data-clear]').forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      var dim = chip.getAttribute('data-clear');
+      if (dim === 'line') { dash.drill.lines = []; refreshLineFilterUi_(); } else { dash.drill[dim] = null; }
+      refreshDashboardViews_();
+    });
+  });
+}
+
+function renderDashboardRecords_() {
+  var wrap = document.getElementById('dashRecordsCard');
+  if (!wrap) return;
+  var recs = dashFilteredRecords_(null).slice().sort(function (a, b) { return new Date(b.CreatedAt) - new Date(a.CreatedAt); });
+  if (!recs.length) { wrap.innerHTML = '<div class="empty-state">No records match the current filters.</div>'; return; }
+  var shown = recs.slice(0, 100);
+  var html = '<table class="data-table"><tr><th>Defect ID</th><th>Created</th><th>Line</th><th>Group Defect</th><th>Product Model</th><th>Fail Item</th><th>Serial</th><th>Status</th><th></th></tr>';
+  shown.forEach(function (r) {
+    html += '<tr><td>' + r.DefectID + '</td><td>' + fmtDateTime_(r.CreatedAt) + '</td><td>' + escapeHtml_(r.Line) + '</td>' +
+      '<td>' + escapeHtml_(r.GroupDefect) + '</td><td>' + escapeHtml_(r.ProductModel) + '</td><td>' + escapeHtml_(r.FailItemNo) + '</td>' +
+      '<td>' + escapeHtml_(r.SerialNumber) + '</td><td>' + statusTag_(r.Status) + '</td>' +
+      '<td><button class="btn small secondary" data-view="' + r.DefectID + '">View</button></td></tr>';
+  });
+  html += '</table>';
+  if (recs.length > shown.length) html += '<div class="page-subtitle" style="margin-top:10px;">Showing latest ' + shown.length + ' of ' + recs.length + ' matching records — use Download Database to get everything.</div>';
+  wrap.innerHTML = html;
+  wrap.querySelectorAll('[data-view]').forEach(function (btn) {
+    btn.addEventListener('click', function () { goTo_('repairDetail', { defectId: btn.getAttribute('data-view') }); });
+  });
+}
+
+function csvEscape_(v) {
+  v = v == null ? '' : String(v);
+  if (/[",\n]/.test(v)) v = '"' + v.replace(/"/g, '""') + '"';
+  return v;
+}
+function downloadDashboardCsv_() {
+  var recs = dashFilteredRecords_(null).slice().sort(function (a, b) { return new Date(a.CreatedAt) - new Date(b.CreatedAt); });
+  if (!recs.length) { showToast('No records to download for the current filter.'); return; }
+  var cols = ['DefectID', 'Line', 'GroupDefect', 'ProductModel', 'FailItemNo', 'SerialNumber', 'DefectQty', 'SendToPE', 'Status',
+    'CreatedBy', 'CreatedAt', 'ModifiedBy', 'ModifiedAt', 'SentToPEAt', 'PEReceivedBy', 'PEReceivedAt',
+    'ReturnConfirmedBy', 'ReturnConfirmedAt',
+    'RepairResult', 'RepairCause', 'RepairDate', 'RepairBy', 'RepairSubmittedAt', 'ChargeDepartmentName'];
+  var lines = [cols.join(',')];
+  recs.forEach(function (r) { lines.push(cols.map(function (c) { return csvEscape_(r[c]); }).join(',')); });
+  var csv = '﻿' + lines.join('\r\n');
+  var blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a');
+  a.href = url;
+  a.download = 'repair-tracking-database-' + new Date().toISOString().slice(0, 10) + '.csv';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  showToast('Downloaded ' + recs.length + ' record(s).');
+}
+
+// ================= Add Defect page =================
+function renderAddDefectPage_(el) {
+  el.innerHTML =
+    '<div class="page-header"><div><h2 class="page-title">➕ Add Defect Record</h2><div class="page-subtitle">Log a defective unit and decide whether it needs PE repair.</div></div></div>' +
+    '<div class="card">' +
+    '  <div class="form-grid">' +
+    '    <div class="form-field"><label>Line *</label><select id="fLine"><option value="">Select line</option>' + selectOptions_(state.lines) + '</select></div>' +
+    '    <div class="form-field"><label>Group Defect *</label><select id="fGroupDefect"><option value="">Select group defect</option>' + selectOptions_(state.groupDefects) + '</select></div>' +
+    '    <div class="form-field"><label>Product Model *</label><select id="fProductModel"><option value="">Select product model</option>' + selectOptions_(state.productModels) + '</select></div>' +
+    '    <div class="form-field"><label>Fail Item No. *</label><select id="fFailItem"><option value="">Select fail item</option>' + selectOptions_(state.failItems) + '</select></div>' +
+    '    <div class="form-field"><label>Product Serial Number *</label><input id="fSerial" placeholder="Scan or type serial number"></div>' +
+    '    <div class="form-field"><label>Defect Quantity</label><input id="fQty" type="number" min="1" value="1"></div>' +
+    '    <div class="form-field full"><label>Send to PE *</label>' +
+    '      <div class="radio-group" id="sendToPEGroup">' +
+    '        <label class="radio-pill selected" data-val="Send to PE"><input type="radio" name="sendToPE" checked> ✈ Send to PE</label>' +
+    '        <label class="radio-pill" data-val="Not Send to PE"><input type="radio" name="sendToPE"> ⏸ Not Send to PE</label>' +
+    '      </div>' +
+    '    </div>' +
+    '    <div class="form-field full"><label>Notes (optional)</label><textarea id="fNotes" placeholder="Cause field is not required here"></textarea></div>' +
+    '  </div>' +
+    '  <div style="margin-top:18px; display:flex; gap:10px;">' +
+    '    <button class="btn primary" id="saveDefectBtn">💾 Save Defect</button>' +
+    '    <button class="btn secondary" id="resetDefectBtn">Reset</button>' +
+    '  </div>' +
+    '</div>' +
+    '<div class="section-label">My Recent Defect Records</div>' +
+    '<div class="card" id="ownRecordsCard"><div class="empty-state">Loading…</div></div>';
+
+  document.querySelectorAll('#sendToPEGroup .radio-pill').forEach(function (pill) {
+    pill.addEventListener('click', function () {
+      document.querySelectorAll('#sendToPEGroup .radio-pill').forEach(function (p) { p.classList.remove('selected'); p.querySelector('input').checked = false; });
+      pill.classList.add('selected'); pill.querySelector('input').checked = true;
+    });
+  });
+  document.getElementById('saveDefectBtn').addEventListener('click', submitDefect_);
+  document.getElementById('resetDefectBtn').addEventListener('click', function () { renderAddDefectPage_(el); });
+
+  loadOwnRecords_();
+}
+
+function submitDefect_() {
+  var selected = document.querySelector('#sendToPEGroup .radio-pill.selected');
+  var payload = {
+    line: document.getElementById('fLine').value,
+    groupDefect: document.getElementById('fGroupDefect').value,
+    productModel: document.getElementById('fProductModel').value,
+    failItemNo: document.getElementById('fFailItem').value,
+    serialNumber: document.getElementById('fSerial').value.trim(),
+    defectQty: document.getElementById('fQty').value,
+    sendToPE: selected ? selected.getAttribute('data-val') : '',
+    notes: document.getElementById('fNotes').value.trim()
+  };
+  var btn = document.getElementById('saveDefectBtn');
+  btn.disabled = true;
+  callApi('createDefect', payload, 'POST').then(function (res) {
+    showToast('Saved ' + res.defectId + ' — status: ' + res.status);
+    renderAddDefectPage_(document.getElementById('pageContent'));
+  }).catch(function (err) {
+    showToast('Error: ' + err.message);
+    btn.disabled = false;
+  });
+}
+
+function loadOwnRecords_() {
+  callApi('listOwnDefects', {}, 'GET').then(function (rows) {
+    var card = document.getElementById('ownRecordsCard');
+    if (!card) return;
+    if (!rows.length) { card.innerHTML = '<div class="empty-state">No defect records yet — add your first one above.</div>'; return; }
+    var html = '<table class="data-table"><tr><th>Defect ID</th><th>Serial</th><th>Product Model</th><th>Fail Item</th><th>Line</th><th>Group Defect</th><th>Qty</th><th>Status</th><th>Created At</th><th></th></tr>';
+    rows.forEach(function (r) {
+      var actions = '<button class="btn small secondary" data-view="' + r.DefectID + '">View</button>';
+      if (r.Status === STATUS.PENDING_SEND) {
+        actions = '<button class="btn small" data-resume="' + r.DefectID + '">▶ Send to PE now</button> ' + actions;
+      } else if (r.Status === STATUS.REPAIR_COMPLETE || r.Status === STATUS.SCRAP) {
+        actions = '<button class="btn small good" data-confirm="' + r.DefectID + '">📥 Confirm Received</button> ' + actions;
+      }
+      html += '<tr><td>' + r.DefectID + '</td><td>' + escapeHtml_(r.SerialNumber) + '</td><td>' + escapeHtml_(r.ProductModel) + '</td>' +
+        '<td>' + escapeHtml_(r.FailItemNo) + '</td><td>' + escapeHtml_(r.Line) + '</td><td>' + escapeHtml_(r.GroupDefect) + '</td><td>' + r.DefectQty + '</td>' +
+        '<td>' + statusTag_(r.Status) + '</td><td>' + fmtDateTime_(r.CreatedAt) + '</td><td style="white-space:nowrap;">' + actions + '</td></tr>';
+    });
+    html += '</table>';
+    card.innerHTML = html;
+    card.querySelectorAll('[data-resume]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var id = btn.getAttribute('data-resume');
+        btn.disabled = true;
+        callApi('resumeSendToPE', { defectId: id, notes: '' }, 'POST').then(function (res) {
+          showToast(id + ' updated → ' + res.status);
+          loadOwnRecords_();
+        }).catch(function (err) { showToast('Error: ' + err.message); btn.disabled = false; });
+      });
+    });
+    card.querySelectorAll('[data-confirm]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var id = btn.getAttribute('data-confirm');
+        btn.disabled = true;
+        callApi('confirmReceived', { defectId: id }, 'POST').then(function (res) {
+          showToast(id + ' closed → ' + res.status);
+          loadOwnRecords_();
+        }).catch(function (err) { showToast('Error: ' + err.message); btn.disabled = false; });
+      });
+    });
+    card.querySelectorAll('[data-view]').forEach(function (btn) {
+      btn.addEventListener('click', function () { goTo_('repairDetail', { defectId: btn.getAttribute('data-view') }); });
+    });
+  });
+}
+
+// ================= Waiting Repair page =================
+function renderWaitingRepairPage_(el) {
+  el.innerHTML =
+    '<div class="page-header"><div><h2 class="page-title">🛠️ Waiting Repair Queue</h2><div class="page-subtitle">Oldest job first (FIFO). Includes jobs waiting for you to confirm receipt and jobs you already confirmed and are repairing.</div></div></div>' +
+    '<div class="card">' +
+    '  <div class="filter-bar">' +
+    '    <input id="wrSearch" placeholder="🔍 Serial / Product Model / Line / Group Defect">' +
+    '    <button class="btn secondary small" id="wrRefresh">🔄 Refresh</button>' +
+    '  </div>' +
+    '  <div id="wrTableWrap"><div class="empty-state">Loading…</div></div>' +
+    '</div>';
+  document.getElementById('wrSearch').addEventListener('input', debounce_(loadWaitingRepair_, 250));
+  document.getElementById('wrRefresh').addEventListener('click', loadWaitingRepair_);
+  loadWaitingRepair_();
+}
+function debounce_(fn, ms) {
+  var t; return function () { clearTimeout(t); var args = arguments; t = setTimeout(function () { fn.apply(null, args); }, ms); };
+}
+function loadWaitingRepair_() {
+  var search = document.getElementById('wrSearch') ? document.getElementById('wrSearch').value.trim() : '';
+  callApi('getWaitingRepairList', { search: search }, 'GET').then(function (rows) {
+    var wrap = document.getElementById('wrTableWrap');
+    if (!wrap) return;
+    if (!rows.length) { wrap.innerHTML = '<div class="empty-state">No jobs waiting for repair 🎉</div>'; return; }
+    // รอบที่ 13: แถวนี้อาจเป็น "รอ PE กดรับงาน" (Waiting for PE Repair) หรือ "PE รับงานแล้วกำลังซ่อมอยู่"
+    // (PE Repairing) ก็ได้ — โชว์คอลัมน์ Status ให้ชัดเจน ปุ่ม Open พาไปหน้า detail ที่จะโชว์ปุ่ม/ฟอร์มที่
+    // ถูกต้องตามสถานะจริงให้เอง
+    var html = '<table class="data-table"><tr><th>Defect ID</th><th>Serial</th><th>Product Model</th><th>Fail Item</th><th>Line</th><th>Group Defect</th><th>Qty</th><th>Created At</th><th>Status</th><th></th></tr>';
+    rows.forEach(function (r) {
+      html += '<tr><td>' + r.DefectID + '</td><td>' + escapeHtml_(r.SerialNumber) + '</td><td>' + escapeHtml_(r.ProductModel) + '</td>' +
+        '<td>' + escapeHtml_(r.FailItemNo) + '</td><td>' + escapeHtml_(r.Line) + '</td><td>' + escapeHtml_(r.GroupDefect) + '</td><td>' + r.DefectQty + '</td>' +
+        '<td>' + fmtDateTime_(r.CreatedAt) + '</td><td>' + statusTag_(r.Status) + '</td><td><button class="btn small" data-open="' + r.DefectID + '">Open ›</button></td></tr>';
+    });
+    html += '</table>';
+    wrap.innerHTML = html;
+    wrap.querySelectorAll('[data-open]').forEach(function (btn) {
+      btn.addEventListener('click', function () { goTo_('repairDetail', { defectId: btn.getAttribute('data-open') }); });
+    });
+  });
+}
+
+// ================= Repair Detail page =================
+function renderRepairDetailPage_(el) {
+  var id = state.repairDetailId;
+  el.innerHTML = '<div class="empty-state">Loading…</div>';
+  callApi('getDefectDetail', { defectId: id }, 'GET').then(function (data) {
+    var d = data.defect;
+    if (!d) { el.innerHTML = '<div class="empty-state">Defect not found.</div>'; return; }
+    el.innerHTML =
+      '<div class="toolbar">' +
+      '  <h2 class="page-title" style="margin:0;">Repair Detail — ' + d.DefectID + '</h2>' +
+      '  <button class="btn secondary small" id="backBtn">‹ Back</button>' +
+      '</div>' +
+      '<div class="two-col">' +
+      '  <div class="card detail-panel">' +
+      '    <div class="row"><span>Serial Number</span><span>' + escapeHtml_(d.SerialNumber) + '</span></div>' +
+      '    <div class="row"><span>Product Model</span><span>' + escapeHtml_(d.ProductModel) + '</span></div>' +
+      '    <div class="row"><span>Fail Item No.</span><span>' + escapeHtml_(d.FailItemNo) + '</span></div>' +
+      '    <div class="row"><span>Line / Group Defect</span><span>' + escapeHtml_(d.Line) + ' / ' + escapeHtml_(d.GroupDefect) + '</span></div>' +
+      '    <div class="row"><span>Defect Qty</span><span>' + d.DefectQty + '</span></div>' +
+      '    <div class="row"><span>Notes (from Production)</span><span>' + (d.Notes ? escapeHtml_(d.Notes) : '—') + '</span></div>' +
+      '    <div class="row"><span>Created By / At</span><span>' + escapeHtml_(data.createdByName || d.CreatedBy) + ' — ' + fmtDateTime_(d.CreatedAt) + '</span></div>' +
+      '    <div class="row"><span>Status</span><span>' + statusTag_(d.Status) + '</span></div>' +
+      (d.PEReceivedAt ? '    <div class="row"><span>PE Confirmed Received By / At</span><span>' + escapeHtml_(data.peReceivedByName || d.PEReceivedBy) + ' — ' + fmtDateTime_(d.PEReceivedAt) + '</span></div>' : '') +
+      (d.ReturnConfirmedAt ? '    <div class="row"><span>Received Back By / At</span><span>' + escapeHtml_(data.returnConfirmedByName || d.ReturnConfirmedBy) + ' — ' + fmtDateTime_(d.ReturnConfirmedAt) + '</span></div>' : '') +
+      '  </div>' +
+      '  <div class="card" id="repairFormCard"></div>' +
+      '</div>';
+    document.getElementById('backBtn').addEventListener('click', function () { state.page = state.previousPage || 'addDefect'; render(); });
+    renderRepairPanel_(d, data);
+  });
+}
+function renderRepairPanel_(d, data) {
+  var card = document.getElementById('repairFormCard');
+  var user = state.user;
+
+  if (d.Status === STATUS.PENDING_SEND) {
+    var canResume = user.role === 'Admin' || d.CreatedBy === user.userId;
+    card.innerHTML = '<div class="empty-state">⏸ This defect has not been sent to PE yet.' +
+      (canResume ? '<div style="margin-top:14px;"><button class="btn" id="resumeBtnDetail">▶ Send to PE now</button></div>' : '') + '</div>';
+    var rb = document.getElementById('resumeBtnDetail');
+    if (rb) rb.addEventListener('click', function () {
+      rb.disabled = true;
+      callApi('resumeSendToPE', { defectId: d.DefectID, notes: '' }, 'POST').then(function (res) {
+        showToast(d.DefectID + ' updated → ' + res.status);
+        goTo_('repairDetail', { defectId: d.DefectID });
+      }).catch(function (err) { showToast('Error: ' + err.message); rb.disabled = false; });
+    });
+    return;
+  }
+
+  // รอบที่ 13: PE ต้องกดยืนยัน "รับงานแล้ว" ก่อน ถึงจะเห็นฟอร์มกรอกผลซ่อม (บังคับ workflow ตามที่ขอ) —
+  // แยกจากเดิมที่กรอกผลซ่อมได้ทันทีตอนสถานะยังเป็น Waiting for PE Repair
+  if (d.Status === STATUS.WAITING_REPAIR) {
+    var canConfirmReceive = user.role === 'Admin' || user.role === 'PE';
+    card.innerHTML = '<div class="empty-state">⏳ Waiting for PE to confirm receiving this item before repair can start.' +
+      (canConfirmReceive ? '<div style="margin-top:14px;"><button class="btn" id="peConfirmBtnDetail">📥 Confirm Received — Start Repair</button></div>' : '') + '</div>';
+    var pcb = document.getElementById('peConfirmBtnDetail');
+    if (pcb) pcb.addEventListener('click', function () {
+      pcb.disabled = true;
+      callApi('peConfirmReceive', { defectId: d.DefectID }, 'POST').then(function (res) {
+        showToast(d.DefectID + ' → ' + res.status);
+        goTo_('repairDetail', { defectId: d.DefectID });
+      }).catch(function (err) { showToast('Error: ' + err.message); pcb.disabled = false; });
+    });
+    return;
+  }
+
+  if (d.Status === STATUS.PE_REPAIRING) {
+    renderRepairForm_(card, d);
+    return;
+  }
+
+  // Repair Complete / Scrap / Closed status: read-only outcome summary
+  var repair = data.repairs && data.repairs[0];
+  var canConfirm = (d.Status === STATUS.REPAIR_COMPLETE || d.Status === STATUS.SCRAP) && (user.role === 'Admin' || d.CreatedBy === user.userId);
+  var html = '<div class="section-label">Repair Outcome</div>';
+  if (repair) {
+    html += '<div class="detail-panel">' +
+      '<div class="row"><span>Result</span><span>' + statusTag_(repair.RepairResult === 'Repair Pass' ? STATUS.REPAIR_COMPLETE : STATUS.SCRAP) + '</span></div>' +
+      '<div class="row"><span>Repair Cause</span><span>' + (repair.RepairCause ? escapeHtml_(repair.RepairCause) : '—') + '</span></div>' +
+      '<div class="row"><span>Repair Detail</span><span>' + (repair.RepairDetail ? escapeHtml_(repair.RepairDetail) : '—') + '</span></div>' +
+      '<div class="row"><span>Repair Date / Time</span><span>' + escapeHtml_(repair.RepairDate) + ' ' + escapeHtml_(repair.RepairTime) + '</span></div>' +
+      '<div class="row"><span>Repair By</span><span>' + escapeHtml_(repair.RepairBy) + '</span></div>' +
+      (repair.ChargeDepartmentName ? '<div class="row"><span>Scrap Cost Charged To</span><span>' + escapeHtml_(repair.ChargeDepartmentName) + '</span></div>' : '') +
+      (repair.Remark ? '<div class="row"><span>Remark</span><span>' + escapeHtml_(repair.Remark) + '</span></div>' : '') +
+      '</div>';
+  } else {
+    html += '<div class="empty-state">No repair record found.</div>';
+  }
+  if (canConfirm) {
+    html += '<div style="margin-top:16px;"><button class="btn good" id="confirmBtnDetail">📥 Confirm Received Back</button></div>';
+  } else if (d.Status === STATUS.CLOSED_PASS || d.Status === STATUS.CLOSED_SCRAP) {
+    html += '<div class="empty-state" style="text-align:left; padding:14px 0 0;">🏁 This job is fully closed — Production has confirmed the unit is back in hand.</div>';
+  }
+  card.innerHTML = html;
+  var cb = document.getElementById('confirmBtnDetail');
+  if (cb) cb.addEventListener('click', function () {
+    cb.disabled = true;
+    callApi('confirmReceived', { defectId: d.DefectID }, 'POST').then(function (res) {
+      showToast(d.DefectID + ' closed → ' + res.status);
+      goTo_('repairDetail', { defectId: d.DefectID });
+    }).catch(function (err) { showToast('Error: ' + err.message); cb.disabled = false; });
+  });
+}
+function renderRepairForm_(card, d) {
+  var today = new Date();
+  var dateStr = today.toISOString().slice(0, 10);
+  var timeStr = today.toTimeString().slice(0, 5);
+  card.innerHTML =
+    '<div class="section-label">Repair Result Form</div>' +
+    '<div class="form-field full" style="margin-bottom:14px;">' +
+    '  <label>Repair Result *</label>' +
+    '  <div class="radio-group" id="repairResultGroup">' +
+    '    <label class="radio-pill selected" data-val="Repair Pass"><input type="radio" name="repairResult" checked> ✔ Repair Pass</label>' +
+    '    <label class="radio-pill" data-val="Scrap"><input type="radio" name="repairResult"> ✕ Scrap</label>' +
+    '  </div>' +
+    '</div>' +
+    '<div class="form-grid">' +
+    '  <div class="form-field"><label>Repair Cause</label><input id="rCause" placeholder="e.g. Solder defect"></div>' +
+    '  <div class="form-field"><label>Repair Date</label><input id="rDate" type="date" value="' + dateStr + '"></div>' +
+    '  <div class="form-field"><label>Repair Time</label><input id="rTime" type="time" value="' + timeStr + '"></div>' +
+    '  <div class="form-field"><label>Repair By</label><input value="' + escapeHtml_(state.user.name) + '" readonly></div>' +
+    '  <div class="form-field full" id="chargeDeptField" style="display:none;"><label>Department (Charge Scrap Cost) *</label><select id="rChargeDept">' + deptSelectOptions_('Select department') + '</select></div>' +
+    '  <div class="form-field full"><label>Repair Detail</label><textarea id="rDetail" placeholder="What was done to fix it"></textarea></div>' +
+    '  <div class="form-field full"><label>Remark (optional)</label><input id="rRemark"></div>' +
+    '</div>' +
+    '<div style="margin-top:18px; display:flex; gap:10px;">' +
+    '  <button class="btn primary" id="saveRepairBtn">✓ Save &amp; Close Job</button>' +
+    '</div>';
+  var chargeDeptField = document.getElementById('chargeDeptField');
+  document.querySelectorAll('#repairResultGroup .radio-pill').forEach(function (pill) {
+    pill.addEventListener('click', function () {
+      document.querySelectorAll('#repairResultGroup .radio-pill').forEach(function (p) { p.classList.remove('selected'); p.querySelector('input').checked = false; });
+      pill.classList.add('selected'); pill.querySelector('input').checked = true;
+      chargeDeptField.style.display = pill.getAttribute('data-val') === 'Scrap' ? 'block' : 'none';
+    });
+  });
+  document.getElementById('saveRepairBtn').addEventListener('click', function () {
+    var selected = document.querySelector('#repairResultGroup .radio-pill.selected');
+    var result = selected ? selected.getAttribute('data-val') : '';
+    var payload = {
+      defectId: d.DefectID,
+      repairResult: result,
+      repairCause: document.getElementById('rCause').value.trim(),
+      repairDetail: document.getElementById('rDetail').value.trim(),
+      repairDate: document.getElementById('rDate').value,
+      repairTime: document.getElementById('rTime').value,
+      remark: document.getElementById('rRemark').value.trim(),
+      chargeDepartmentId: result === 'Scrap' ? document.getElementById('rChargeDept').value : ''
+    };
+    if (result === 'Scrap' && !payload.chargeDepartmentId) {
+      showToast('Please select a Department to charge the scrap cost to.');
+      return;
+    }
+    var btn = document.getElementById('saveRepairBtn');
+    btn.disabled = true;
+    callApi('updateRepair', payload, 'POST').then(function (res) {
+      showToast(d.DefectID + ' — PE result saved: ' + res.status);
+      state.page = 'waitingRepair';
+      render();
+    }).catch(function (err) { showToast('Error: ' + err.message); btn.disabled = false; });
+  });
+}
+
+// ================= Repair History page =================
+function renderRepairHistoryPage_(el) {
+  el.innerHTML =
+    '<div class="page-header"><div><h2 class="page-title">📜 Repair History</h2><div class="page-subtitle">All jobs PE has processed, including ones still awaiting return confirmation.</div></div></div>' +
+    '<div class="card">' +
+    '  <div class="filter-bar"><input id="rhSearch" placeholder="🔍 Serial / Product Model / Line / Group Defect"></div>' +
+    '  <div id="rhTableWrap"><div class="empty-state">Loading…</div></div>' +
+    '</div>';
+  document.getElementById('rhSearch').addEventListener('input', debounce_(loadRepairHistory_, 250));
+  loadRepairHistory_();
+}
+function loadRepairHistory_() {
+  var search = document.getElementById('rhSearch') ? document.getElementById('rhSearch').value.trim() : '';
+  callApi('getRepairHistoryList', { search: search }, 'GET').then(function (rows) {
+    var wrap = document.getElementById('rhTableWrap');
+    if (!wrap) return;
+    if (!rows.length) { wrap.innerHTML = '<div class="empty-state">No closed jobs yet.</div>'; return; }
+    var html = '<table class="data-table"><tr><th>Defect ID</th><th>Serial</th><th>Product Model</th><th>Line</th><th>Group Defect</th><th>Status</th><th>Updated At</th><th></th></tr>';
+    rows.forEach(function (r) {
+      html += '<tr><td>' + r.DefectID + '</td><td>' + escapeHtml_(r.SerialNumber) + '</td><td>' + escapeHtml_(r.ProductModel) + '</td>' +
+        '<td>' + escapeHtml_(r.Line) + '</td><td>' + escapeHtml_(r.GroupDefect) + '</td><td>' + statusTag_(r.Status) + '</td>' +
+        '<td>' + fmtDateTime_(r.ModifiedAt || r.CreatedAt) + '</td><td><button class="btn small secondary" data-view="' + r.DefectID + '">View</button></td></tr>';
+    });
+    html += '</table>';
+    wrap.innerHTML = html;
+    wrap.querySelectorAll('[data-view]').forEach(function (btn) {
+      btn.addEventListener('click', function () { goTo_('repairDetail', { defectId: btn.getAttribute('data-view') }); });
+    });
+  });
+}
+
+// ================= Admin Setting (Phase 4) =================
+var ADMIN_TAB_LABELS = { users: '👤 Users', departments: '🏢 Departments', audit: '📝 Audit Log' };
+
+function renderAdminPage_(el) {
+  if (!state.adminTab) state.adminTab = 'users';
+  el.innerHTML =
+    '<div class="page-header"><div><h2 class="page-title">⚙️ Admin Setting</h2><div class="page-subtitle">Manage Users and Departments, and review the Audit Log. Line / Group Defect / Product Model / Fail Item are still fixed lists in Setup.gs.</div></div></div>' +
+    '<div class="filter-bar" style="margin-bottom:18px;">' +
+    Object.keys(ADMIN_TAB_LABELS).map(function (t) {
+      return '<button class="btn small ' + (state.adminTab === t ? 'primary' : 'secondary') + '" data-admin-tab="' + t + '">' + ADMIN_TAB_LABELS[t] + '</button>';
+    }).join('') +
+    '</div>' +
+    '<div id="adminTabContent"></div>';
+  document.querySelectorAll('[data-admin-tab]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      state.adminTab = btn.getAttribute('data-admin-tab');
+      renderAdminPage_(document.getElementById('pageContent'));
+    });
+  });
+  var container = document.getElementById('adminTabContent');
+  if (state.adminTab === 'users') renderAdminUsersTab_(container);
+  else if (state.adminTab === 'departments') renderAdminDepartmentsTab_(container);
+  else renderAdminAuditTab_(container);
+}
+
+function refreshPublicDepartments_() {
+  return callApi('listDepartments', {}, 'GET').then(function (rows) { state.departments = rows; });
+}
+
+// ---------- Users tab ----------
+function renderAdminUsersTab_(container) {
+  state.adminEditingUserId = null;
+  container.innerHTML =
+    '<div class="card">' +
+    '  <div class="section-label" id="userFormLabel">Add User</div>' +
+    '  <div class="form-grid">' +
+    '    <div class="form-field"><label>Name *</label><input id="uName" placeholder="Full name"></div>' +
+    '    <div class="form-field"><label>Employee ID *</label><input id="uEmployeeId" placeholder="e.g. 1001"></div>' +
+    '    <div class="form-field"><label>Role *</label><select id="uRole"><option value="Admin">Admin</option><option value="Production">Production</option><option value="PE">PE</option><option value="Viewer">Viewer</option></select></div>' +
+    '    <div class="form-field"><label>Department</label><select id="uDept"><option value="">— None —</option>' + deptSelectOptions_('') + '</select></div>' +
+    '    <div class="form-field full"><label>Status</label>' +
+    '      <div class="radio-group" id="uActiveGroup">' +
+    '        <label class="radio-pill selected" data-val="true"><input type="radio" name="uActive" checked> ✔ Active</label>' +
+    '        <label class="radio-pill" data-val="false"><input type="radio" name="uActive"> ⏸ Inactive</label>' +
+    '      </div>' +
+    '    </div>' +
+    '  </div>' +
+    '  <div style="margin-top:16px; display:flex; gap:10px;">' +
+    '    <button class="btn primary" id="saveUserBtn">💾 Add User</button>' +
+    '    <button class="btn secondary" id="cancelUserEditBtn" style="display:none;">Cancel edit</button>' +
+    '  </div>' +
+    '</div>' +
+    '<div class="section-label">All Users</div>' +
+    '<div class="card" id="userTableWrap"><div class="empty-state">Loading…</div></div>';
+
+  wireActiveRadioGroup_('uActiveGroup');
+  document.getElementById('saveUserBtn').addEventListener('click', submitUserForm_);
+  document.getElementById('cancelUserEditBtn').addEventListener('click', function () { renderAdminUsersTab_(container); });
+  loadAdminUsers_();
+}
+
+function wireActiveRadioGroup_(groupId) {
+  document.querySelectorAll('#' + groupId + ' .radio-pill').forEach(function (pill) {
+    pill.addEventListener('click', function () {
+      document.querySelectorAll('#' + groupId + ' .radio-pill').forEach(function (p) { p.classList.remove('selected'); p.querySelector('input').checked = false; });
+      pill.classList.add('selected'); pill.querySelector('input').checked = true;
+    });
+  });
+}
+function setActiveRadioGroup_(groupId, active) {
+  document.querySelectorAll('#' + groupId + ' .radio-pill').forEach(function (pill) {
+    var match = pill.getAttribute('data-val') === String(active);
+    pill.classList.toggle('selected', match);
+    pill.querySelector('input').checked = match;
+  });
+}
+
+function submitUserForm_() {
+  var payload = {
+    name: document.getElementById('uName').value.trim(),
+    employeeId: document.getElementById('uEmployeeId').value.trim(),
+    role: document.getElementById('uRole').value,
+    departmentId: document.getElementById('uDept').value,
+    active: document.querySelector('#uActiveGroup .radio-pill.selected').getAttribute('data-val') === 'true'
+  };
+  var btn = document.getElementById('saveUserBtn');
+  btn.disabled = true;
+  var editingId = state.adminEditingUserId;
+  var action = editingId ? 'updateUser' : 'createUser';
+  if (editingId) payload.userId = editingId;
+  callApi(action, payload, 'POST').then(function (res) {
+    showToast(editingId ? 'User updated: ' + payload.employeeId : 'User added: ' + res.userId);
+    renderAdminUsersTab_(document.getElementById('adminTabContent'));
+  }).catch(function (err) { showToast('Error: ' + err.message); btn.disabled = false; });
+}
+
+function loadAdminUsers_() {
+  callApi('listUsersAdmin', {}, 'GET').then(function (rows) {
+    var wrap = document.getElementById('userTableWrap');
+    if (!wrap) return;
+    if (!rows.length) { wrap.innerHTML = '<div class="empty-state">No users yet.</div>'; return; }
+    var html = '<table class="data-table"><tr><th>Name</th><th>Employee ID</th><th>Role</th><th>Department</th><th>Status</th><th>Created At</th><th></th></tr>';
+    rows.forEach(function (u) {
+      html += '<tr><td>' + escapeHtml_(u.Name) + '</td><td>' + escapeHtml_(u.EmployeeID) + '</td><td>' + escapeHtml_(u.Role) + '</td>' +
+        '<td>' + (u.DepartmentName ? escapeHtml_(u.DepartmentName) : '—') + '</td>' +
+        '<td><span class="tag ' + (u.Active === false ? 'scrap' : 'pass') + '">' + (u.Active === false ? '⏸ Inactive' : '✔ Active') + '</span></td>' +
+        '<td>' + fmtDateTime_(u.CreatedAt) + '</td><td><button class="btn small secondary" data-edit-user="' + u.UserID + '">Edit</button></td></tr>';
+    });
+    html += '</table>';
+    wrap.innerHTML = html;
+    wrap.querySelectorAll('[data-edit-user]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var u = rows.filter(function (x) { return x.UserID === btn.getAttribute('data-edit-user'); })[0];
+        if (u) startEditUser_(u);
+      });
+    });
+  });
+}
+
+function startEditUser_(u) {
+  state.adminEditingUserId = u.UserID;
+  document.getElementById('userFormLabel').textContent = 'Edit User — ' + u.Name;
+  document.getElementById('uName').value = u.Name;
+  document.getElementById('uEmployeeId').value = u.EmployeeID;
+  document.getElementById('uRole').value = u.Role;
+  document.getElementById('uDept').value = u.DepartmentID || '';
+  setActiveRadioGroup_('uActiveGroup', u.Active !== false);
+  document.getElementById('saveUserBtn').textContent = '💾 Save Changes';
+  document.getElementById('cancelUserEditBtn').style.display = 'inline-flex';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ---------- Departments tab ----------
+function renderAdminDepartmentsTab_(container) {
+  state.adminEditingDeptId = null;
+  container.innerHTML =
+    '<div class="card">' +
+    '  <div class="section-label" id="deptFormLabel">Add Department</div>' +
+    '  <div class="form-grid">' +
+    '    <div class="form-field"><label>Department Name *</label><input id="dName" placeholder="e.g. SMT"></div>' +
+    '    <div class="form-field full"><label>Status</label>' +
+    '      <div class="radio-group" id="dActiveGroup">' +
+    '        <label class="radio-pill selected" data-val="true"><input type="radio" name="dActive" checked> ✔ Active</label>' +
+    '        <label class="radio-pill" data-val="false"><input type="radio" name="dActive"> ⏸ Inactive</label>' +
+    '      </div>' +
+    '    </div>' +
+    '  </div>' +
+    '  <div style="margin-top:16px; display:flex; gap:10px;">' +
+    '    <button class="btn primary" id="saveDeptBtn">💾 Add Department</button>' +
+    '    <button class="btn secondary" id="cancelDeptEditBtn" style="display:none;">Cancel edit</button>' +
+    '  </div>' +
+    '</div>' +
+    '<div class="section-label">All Departments</div>' +
+    '<div class="card" id="deptTableWrap"><div class="empty-state">Loading…</div></div>';
+
+  wireActiveRadioGroup_('dActiveGroup');
+  document.getElementById('saveDeptBtn').addEventListener('click', submitDeptForm_);
+  document.getElementById('cancelDeptEditBtn').addEventListener('click', function () { renderAdminDepartmentsTab_(container); });
+  loadAdminDepartments_();
+}
+
+function submitDeptForm_() {
+  var payload = {
+    name: document.getElementById('dName').value.trim(),
+    active: document.querySelector('#dActiveGroup .radio-pill.selected').getAttribute('data-val') === 'true'
+  };
+  var btn = document.getElementById('saveDeptBtn');
+  btn.disabled = true;
+  var editingId = state.adminEditingDeptId;
+  var action = editingId ? 'updateDepartment' : 'createDepartment';
+  if (editingId) payload.departmentId = editingId;
+  callApi(action, payload, 'POST').then(function () {
+    showToast(editingId ? 'Department updated: ' + payload.name : 'Department added: ' + payload.name);
+    return refreshPublicDepartments_();
+  }).then(function () {
+    renderAdminDepartmentsTab_(document.getElementById('adminTabContent'));
+  }).catch(function (err) { showToast('Error: ' + err.message); btn.disabled = false; });
+}
+
+function loadAdminDepartments_() {
+  callApi('listDepartmentsAdmin', {}, 'GET').then(function (rows) {
+    var wrap = document.getElementById('deptTableWrap');
+    if (!wrap) return;
+    if (!rows.length) { wrap.innerHTML = '<div class="empty-state">No departments yet.</div>'; return; }
+    var html = '<table class="data-table"><tr><th>Department</th><th>Status</th><th></th></tr>';
+    rows.forEach(function (d) {
+      html += '<tr><td>' + escapeHtml_(d.DepartmentName) + '</td>' +
+        '<td><span class="tag ' + (d.Active === false ? 'scrap' : 'pass') + '">' + (d.Active === false ? '⏸ Inactive' : '✔ Active') + '</span></td>' +
+        '<td><button class="btn small secondary" data-edit-dept="' + d.DepartmentID + '">Edit</button></td></tr>';
+    });
+    html += '</table>';
+    wrap.innerHTML = html;
+    wrap.querySelectorAll('[data-edit-dept]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var d = rows.filter(function (x) { return x.DepartmentID === btn.getAttribute('data-edit-dept'); })[0];
+        if (d) startEditDept_(d);
+      });
+    });
+  });
+}
+
+function startEditDept_(d) {
+  state.adminEditingDeptId = d.DepartmentID;
+  document.getElementById('deptFormLabel').textContent = 'Edit Department — ' + d.DepartmentName;
+  document.getElementById('dName').value = d.DepartmentName;
+  setActiveRadioGroup_('dActiveGroup', d.Active !== false);
+  document.getElementById('saveDeptBtn').textContent = '💾 Save Changes';
+  document.getElementById('cancelDeptEditBtn').style.display = 'inline-flex';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ---------- Audit Log tab ----------
+function renderAdminAuditTab_(container) {
+  container.innerHTML =
+    '<div class="card">' +
+    '  <div class="filter-bar"><input id="alSearch" placeholder="🔍 User / Action / Table / Details"></div>' +
+    '  <div id="alTableWrap"><div class="empty-state">Loading…</div></div>' +
+    '</div>';
+  document.getElementById('alSearch').addEventListener('input', debounce_(loadAuditLog_, 250));
+  loadAuditLog_();
+}
+function loadAuditLog_() {
+  var search = document.getElementById('alSearch') ? document.getElementById('alSearch').value.trim() : '';
+  callApi('listAuditLog', { search: search }, 'GET').then(function (rows) {
+    var wrap = document.getElementById('alTableWrap');
+    if (!wrap) return;
+    if (!rows.length) { wrap.innerHTML = '<div class="empty-state">No audit log entries yet.</div>'; return; }
+    var html = '<table class="data-table"><tr><th>Time</th><th>User</th><th>Action</th><th>Table</th><th>Record</th><th>Details</th></tr>';
+    rows.forEach(function (r) {
+      html += '<tr><td>' + fmtDateTime_(r.Timestamp) + '</td><td>' + escapeHtml_(r.PerformedByName || r.UserID) + '</td>' +
+        '<td>' + escapeHtml_(r.Action) + '</td><td>' + escapeHtml_(r.TableAffected) + '</td><td>' + escapeHtml_(r.RecordID) + '</td>' +
+        '<td>' + escapeHtml_(r.Details) + '</td></tr>';
+    });
+    html += '</table>';
+    wrap.innerHTML = html;
+  });
+}
+
+boot();
+</script>
+</body>
+</html>
