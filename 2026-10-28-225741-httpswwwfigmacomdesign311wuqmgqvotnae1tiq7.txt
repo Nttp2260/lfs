@@ -1,0 +1,653 @@
+
+> https://www.figma.com/design/311wUqMgqVOTNae1Tiq7kA/MobileApp?node-id=0-1&p=f
+  &t=a0i1pEXcgc9MI8Gd-0 ดูได้มั้ย
+
+  Called Figma 2 times (ctrl+o to expand)
+
+● Let me extract the top-level frames.
+
+  Ran 1 shell command (ctrl+o to expand)
+
+● ได้ครับ ผมเปิดไฟล์ Figma MobileApp ได้ แล้วไล่ดูหน้า Page 1 (node 0:1) ไปบางส่วน
+  ยังไม่ได้ดูภาพหน้าจอ
+
+  ถึงชื่อไฟล์จะเป็น MobileApp แต่ frame หลักทุกอันเป็นขนาด Desktop (กว้าง 1440px)
+  ไม่ใช่ขนาดมือถือ ที่เจอมีดังนี้:
+
+  - Desktop - 1 (1440×1464) เป็นหน้า dashboard มีการ์ด 3 ใบ (ใบละ 548×286) อย่างน้อย 1
+    ใบเป็นกราฟ Utilization มีชิ้นที่ชื่อ image 1 ขนาด 256×900 อยู่ชิดซ้าย น่าจะเป็น sidebar
+  - Desktop - 2 (1440×1600) มี panel สูง 2 อัน (ประมาณ 550×864) วางข้างกัน และมี
+    sidebar แบบเดียวกัน
+  - Desktop - 3 (1440×1600) เป็นหน้า Engineer Member Management ฝั่งซ้ายเป็น Members
+    List 7 แถวพร้อม scrollbar ฝั่งขวาเป็น Information ที่มีปุ่มอยู่ด้านล่าง
+
+  Desktop - 1 น่าจะตรงกับ commit ล่าสุด "add area and line to dashboard"
+
+  อยากให้ทำอะไรต่อครับ? เช่น ดึงภาพหน้าจอของ frame ไหนมาดูใกล้ ๆ, เอาดีไซน์ไปเทียบกับโค้ดที่มีอยู่
+  หรือเอาหน้าไหนไปเขียนเป็นโค้ด เช่น Engineer Member Management
+
+> https://www.figma.com/design/311wUqMgqVOTNae1Tiq7kA/MobileApp?node-id=267-3&p
+  =f&t=a0i1pEXcgc9MI8Gd-0 อันนี้ด้วย
+
+  Called Figma (ctrl+o to expand)
+
+● ดูได้ครับ node 267:3 เป็นหน้าแคนวาสใหญ่ (ประมาณ 12,000×9,500 px) ที่รวมหน้าจอแอปมือถือ
+  (Android) ไว้ อันนี้ตรงกับชื่อไฟล์ MobileApp มากกว่าลิงก์แรก ผมดึงภาพมาแค่ภาพเดียวแบบย่อเหลือ
+  1024px ตัวอักษรในจอเลยอ่านไม่ออก ที่สรุปข้างล่างดูจากเลย์เอาต์อย่างเดียว
+
+  ในกรอบ "Pharse 1" (กรอบสีน้ำเงินใหญ่)
+  - Login มี 4 แบบ พื้นหลังไล่สีน้ำเงินและมีลายคลื่นด้านล่าง น่าจะเป็นสถานะปกติ, error
+    (มีแถบสีแดง) และ success (มีแถบสีเขียว)
+  - หน้ารายการต่อจาก login มีป้ายสถานะสีแดง/เขียว และมี bottom navigation
+  - ชั้นถัดลงมา เป็นหน้ารายการ/รายละเอียดหลายหน้า บางหน้ามีปุ่มสีน้ำเงินเต็มความกว้างด้านล่าง
+    และมีหน้าที่แสดงภาพกล้องหรือภาพสายการผลิต
+  - หน้าฟอร์ม มีช่องแนบรูป และหน้าที่มีปุ่มแดง/น้ำเงินคู่กัน
+  - มีเส้นสีม่วงเชื่อมหน้าจอต่าง ๆ เป็น flow
+  - ฝั่งขวาของกรอบเป็นหน้าโปรไฟล์ ต่อด้วย timeline ที่มีจุดสีส้ม แล้วแตกออกเป็นการ์ดรายการ 6 อัน
+
+  นอกกรอบ
+  - แผนภาพ Activity Lifecycle in Android (ภาพอ้างอิง)
+  - มุมขวาบนเป็นหน้า desktop ขนาดเล็ก 1 หน้า, หน้า lock screen และหน้าจอที่มีคีย์บอร์ดหรือ
+    dialog
+
+  ถ้าบอกหน้าที่สนใจ เช่น Login หรือหน้ารายการ ผมจะซูมดูรายละเอียดหรือดึง design context
+  มาเขียนเป็นโค้ดให้ได้ครับ
+
+> จาก figma 2 อันที่ให้ไป มีระบบ rating เกี่ยวกับพวก record มั้ย
+
+  Called Figma 3 times, ran 3 shell commands (ctrl+o to expand)
+
+● ไม่มีครับ ทั้งสองลิงก์ไม่มีระบบ rating ที่ให้คนมาให้คะแนนหรือรีวิว record (แบบให้ดาว 1–5
+  หรือเขียน feedback) ที่มีคือระบบแต้มของช่าง ชื่อ Skill Point ซึ่งระบบคิดให้อัตโนมัติ ผมหาจากชื่อ
+  layer และข้อความในไฟล์ด้วยคำอย่าง rating, star, score, review, feedback, คะแนน,
+  ประเมิน แล้วซูมดูเฉพาะจุดที่เจอ
+
+  ลิงก์แรก (node 0-1) เจอแค่ข้อความ "Archive Rate" ซึ่งน่าจะเป็นตัวชี้วัดบน dashboard
+  ไม่เกี่ยวกับการให้คะแนน
+
+  ลิงก์ที่สอง (node 267-3) มีเรื่อง Skill Point อยู่ 3 จุด:
+  - ป้าย Skill Point เป็นไอคอนดาวสีน้ำเงินกับตัวเลข "000" แล้วมีคำว่า "Skill Point" ต่อท้าย
+    (node 445:2448)
+  - ป้ายดาวเล็ก "★ 120" น่าจะใช้แสดงแต้มในการ์ดรายการหรือโปรไฟล์ (node 613:882)
+  - ข้อความอธิบายสูตรคิดแต้ม มีหัวข้อ "Action Period Point (score)" และวิธีคิด "Avg Skill
+    Point" แบบนี้:
+  ▎ fundamental point : 10 point, time no. 1 : 10 score, time no. 2 : 2 score,
+  time no. 3 : 5 score, time no. 4 : 8 score =24/4 = 6.25 point + fundamental
+  point = 16.25
+
+    สรุปคือ แต้มเฉลี่ยของแต่ละครั้งที่ทำงาน บวกกับแต้มพื้นฐาน
+
+  ตัวอย่างในสูตรเลขไม่ตรงกัน 10+2+5+8 ได้ 25 ไม่ใช่ 24 แต่ผลลัพธ์ 6.25 คิดมาจาก 25/4
+  ถ้าจะเขียนเป็นโค้ด ควรถามคนออกแบบก่อนว่าใช้ตัวไหน
+
+  ถ้าต้องการให้ช่างหรือหัวหน้าให้คะแนน record ได้จริง ส่วนนี้ยังไม่มีใน Figma ต้องออกแบบเพิ่มครับ
+
+> ถ้าจะนำบางระบบมา apply กับโปรเจคปัจจุบัน มีอะไรพอจะรวมได้บ้าง
+
+  Ran 4 shell commands (ctrl+o to expand)
+
+● มีหลายอย่างที่เอามารวมได้ครับ โปรเจคตอนนี้ (React + Vite + shadcn) มี login, dashboard
+  ที่เลือก line/machine แล้วดู status code ได้ และ record ที่เก็บ issue, root cause,
+  solution พร้อมรูป ซึ่งตรงกับ flow ใน Figma อยู่แล้ว เลยต่อยอดได้เลย
+  ผมเรียงจากคุ้มที่สุดไปน้อยที่สุด:
+
+  1. ระบุคนเขียน record
+  ตอนนี้ฟอร์มส่ง owner เป็น "-" ตายตัว (MachineStatusCodesPage.jsx:134
+  (src/features/machines/status-codes/pages/MachineStatusCodesPage.jsx#L134)
+  และบรรทัด 181) ทั้งที่มี AuthContext ที่รู้อยู่แล้วว่าใครล็อกอิน
+  - งานน้อยมากและควรทำก่อนข้ออื่น เพราะ Skill Point กับหน้าจัดการช่างต้องรู้ว่า record
+    นี้เป็นของใคร
+  - ฝั่ง backend ควรดึง owner จาก token เองด้วย ไม่เชื่อค่าที่ client ส่งมา
+
+  2. Skill Point (จาก Figma ลิงก์ที่สอง)
+  - แสดงป้าย "★ 120" ที่ Navbar หรือโปรไฟล์ และป้ายเล็กในรายการ record
+  - ใช้สูตร "แต้มพื้นฐาน + ค่าเฉลี่ยแต้มของแต่ละครั้ง" ตามที่ออกแบบไว้
+  - ควรคำนวณที่ backend ฝั่ง frontend มีหน้าที่แสดงผลอย่างเดียว
+  - ต้องตกลงกันก่อนว่าแต้มต่อครั้งมาจากอะไร (ความยากของ status code, เวลาที่ใช้ซ่อม
+    หรือหัวหน้าให้) และต้องแก้ตัวอย่างในสูตรที่เลขไม่ตรงกัน (24 กับ 25)
+
+  3. ให้คะแนน record (ใน Figma ยังไม่มี แต่เข้ากับระบบนี้)
+  - ให้คนที่เปิด solution ไปใช้กดว่า "ช่วยได้หรือไม่" หรือให้ดาว 1–5
+  - เอาไปเรียง solution ที่ใช้ได้จริงขึ้นก่อนในหน้า StatusCodeRecordListPage.jsx
+    (src/features/machines/status-codes/pages/StatusCodeRecordListPage.jsx)
+  - ใช้คะแนนนี้เป็นตัวป้อนแต้มต่อครั้งให้ข้อ 2 ได้ด้วย
+
+  4. หน้าจัดการช่าง (Desktop - 3 "Engineer Member Management")
+  - รายชื่อช่างอยู่ซ้าย ข้อมูลอยู่ขวา เพิ่มเป็น route ใหม่ เช่น /members
+  - ใช้แสดง Skill Point และ record ของแต่ละคน
+  - ต้องมีสิทธิ์ admin หรือหัวหน้า ซึ่ง ProtectedRoute.jsx (src/routes/ProtectedRoute.jsx)
+    ตอนนี้ยังไม่แยก role
+
+  5. Dashboard (Desktop - 1)
+  - เพิ่มการ์ด Utilization หรือ Archive Rate ต่อจากที่เพิ่งเพิ่ม area/line ไป ข้อนี้ขึ้นกับว่า
+    backend มีข้อมูลให้หรือยัง
+
+  ไม่แนะนำให้ยกมา
+  - ระบบมอบหมายงาน ("designate this task to your list of assignments")
+    เป็นอีกโดเมนหนึ่ง ต้องมี workflow และสถานะงานแยกต่างหาก
+  - Login หลายแบบ โปรเจคมี login อยู่แล้ว
+
+  ถ้าจะเริ่มทำ ผมแนะนำเรียง 1 → 3 → 2 ให้ผมเริ่มจากข้อ 1 (ผูก owner เข้ากับ user ที่ล็อกอิน)
+  เลยไหมครับ? ก่อนลงมือต้องเช็คก่อนว่า AuthContext เก็บข้อมูล user ไว้แบบไหน
+
+> ตอนนี้การเขียน record บันทึกอะไรบ้าง
+
+  Searched for 2 patterns, read 1 file (ctrl+o to expand)
+
+● ตอนนี้ record ที่บันทึกได้จริงมีแค่ "เครื่องไหน เจอ code อะไร อาการเป็นยังไง แก้ยังไง พร้อมรูป"
+  ส่วนคนเขียนกับพื้นที่ผลิตยังไม่ได้เก็บ เพราะฟอร์มส่งเป็น "-" ตายตัว
+
+  ฟอร์มส่งข้อมูลเป็น multipart/form-data ไปที่ RECORDS_API โดยสร้างใหม่ใช้ POST แก้ไขใช้ PUT
+  /records/{id}/ (MachineStatusCodesPage.jsx:119-199 (src/features/machines/sta
+  tus-codes/pages/MachineStatusCodesPage.jsx#L119-L199))
+
+  ฟิลด์ที่ส่งไป
+
+  ┌───────────────────────────────────┬──────────────────────┬──────────────┐
+  │                ฟิลด์                │        ค่าที่ส่ง         │   หมายเหตุ    │
+  ├───────────────────────────────────┼──────────────────────┼──────────────┤
+  │ machine_id                        │ มาจาก URL            │              │
+  ├───────────────────────────────────┼──────────────────────┼──────────────┤
+  │ line                              │ LINE_NAME จาก API    │              │
+  │                                   │ ข้อมูลเครื่อง            │              │
+  ├───────────────────────────────────┼──────────────────────┼──────────────┤
+  │ status_code                       │ ผู้ใช้กรอก              │ บังคับกรอก     │
+  ├───────────────────────────────────┼──────────────────────┼──────────────┤
+  │ issue_detail                      │ อาการหรือปัญหา         │ บังคับกรอก     │
+  ├───────────────────────────────────┼──────────────────────┼──────────────┤
+  │ root_cause                        │ สาเหตุ                │ ไม่บังคับ       │
+  ├───────────────────────────────────┼──────────────────────┼──────────────┤
+  │ solution                          │ วิธีแก้                 │ บังคับกรอก     │
+  ├───────────────────────────────────┼──────────────────────┼──────────────┤
+  │ issue_images                      │ รูปปัญหา (หลายรูปได้)    │              │
+  ├───────────────────────────────────┼──────────────────────┼──────────────┤
+  │ solution_images                   │ รูปวิธีแก้ (หลายรูปได้)    │              │
+  ├───────────────────────────────────┼──────────────────────┼──────────────┤
+  │ prod_area                         │ "-" ตายตัว            │ ไม่ได้บันทึกจริง  │
+  ├───────────────────────────────────┼──────────────────────┼──────────────┤
+  │ owner                             │ "-" ตายตัว            │ ไม่รู้ว่าใครเขียน │
+  ├───────────────────────────────────┼──────────────────────┼──────────────┤
+  │ retained_issue_images /           │ id ของรูปเดิมที่เก็บไว้    │              │
+  │ retained_solution_images          │ (ตอนแก้ไขเท่านั้น)       │              │
+  └───────────────────────────────────┴──────────────────────┴──────────────┘
+
+  ข้อมูลที่ backend ส่งกลับมาแล้วหน้าเว็บใช้
+  - record_id
+  - record_images แยกเป็น ISSUE/SOLUTION ด้วย image_type
+  - last_updated_at ซึ่งแสดงในหน้ารายการ
+
+  ข้อมูลที่ยังไม่ได้เก็บ
+  - คนเขียนหรือคนแก้ ตอนนี้แยกไม่ได้เลยว่า record ไหนเป็นของใคร
+  - ประวัติการแก้ไข การแก้ไขเป็นการเขียนทับ record เดิม
+  - เวลาที่เกิดปัญหาและเวลาที่แก้เสร็จ มีแค่เวลาที่อัปเดตล่าสุด เลยคำนวณระยะเวลาซ่อมไม่ได้
+  - ผลลัพธ์ ไม่มีบอกว่าแก้ได้จริงหรือไม่ และไม่มีคะแนนหรือ feedback
+
+  ช่องว่างพวกนี้คือสิ่งที่ Skill Point และระบบ rating ต้องใช้ ถ้าจะทำต่อ ควรเริ่มจากเก็บ owner
+  จาก user ที่ล็อกอิน แล้วเพิ่มเวลาเกิดเหตุ/เวลาแก้เสร็จครับ
+
+> จริงๆ ใน 1 error record (1 status code) จะต้องสามารถบันทึก record ได้หลายแบบมั้ย
+  เพราะ 1 error มันควรจะมีได้หลาย solution หรือ issue แต่เราควรจะจัดการใหม่ยังไง
+
+● ควรครับ แต่ไม่ควรแก้ด้วยการเพิ่ม record ซ้ำเข้าไปเรื่อย ๆ ควรแยกข้อมูลเป็น 2 ชนิด ตอนนี้ 1
+  record เก็บทั้งสองอย่างปนกันไว้
+
+  - ความรู้ (knowledge): error นี้เกิดจากอะไรได้บ้าง และแก้ยังไงได้บ้าง ข้อมูลนี้ใช้ซ้ำได้
+  - เหตุการณ์ (incident): วันนี้เครื่อง X เจอ error นี้ ใครไปแก้ ใช้วิธีไหน และแก้ได้หรือไม่
+    ข้อมูลนี้เกิดใหม่ทุกครั้ง
+
+  โครงสร้างที่แนะนำ
+
+  StatusCode         (code, คำอธิบาย, รุ่นหรือประเภทเครื่อง)
+   └─ Cause          (สาเหตุที่เป็นไปได้ อาการที่สังเกตได้ รูป)        1 code มีได้หลาย
+  cause
+       └─ Solution   (ขั้นตอนแก้ รูป คนเขียน)                           1 cause
+  มีได้หลาย solution
+
+  Incident           (machine_id, line, status_code, เวลาเกิด, เวลาแก้เสร็จ,
+                      owner, อาการที่เจอจริง, รูป,
+                      cause_id, solution_id ที่ใช้, ผล: แก้ได้/ไม่ได้)
+
+  สิ่งที่ได้จากการแยกแบบนี้
+
+  - 1 error มีได้หลายสาเหตุและหลายวิธีแก้ ตามที่ต้องการ และไม่ต้องเขียนซ้ำทุกครั้งที่เกิด
+  - ได้ rating จากการใช้งานจริง อัตราสำเร็จของ solution คำนวณได้จาก incident ที่เลือกใช้
+    solution นั้นแล้วแก้ได้ ไม่ต้องให้คนมากดดาว เอาไปเรียงลำดับ solution ได้เลย
+  - Skill Point คิดจาก incident ได้ มีทั้ง owner, เวลาซ่อม (เวลาแก้เสร็จลบเวลาเกิด)
+    และผลว่าแก้ได้หรือไม่ ครบตามที่สูตรใน Figma ต้องใช้
+  - Dashboard มีข้อมูลจริง เช่น error ไหนเกิดบ่อย หรือ MTTR ของแต่ละ line
+
+  flow หน้าจอเมื่อช่างเจอ error
+
+  1. เข้าหน้า status code จะเห็นรายการ cause และ solution เรียงตามอัตราสำเร็จ
+  2. ช่างเลือก solution ที่ลองใช้ แล้วกด "แก้ได้" หรือ "แก้ไม่ได้" ระบบสร้าง incident
+     ให้อัตโนมัติ
+  3. ถ้าไม่มีวิธีไหนใช้ได้ ช่างเพิ่ม cause หรือ solution ใหม่ได้ในขั้นนี้เลย
+
+  การย้ายข้อมูลเดิม
+
+  record เดิมแปลงได้ตรง ๆ คือ 1 record กลายเป็น 1 Cause (root_cause + issue_images),
+  1 Solution (solution + solution_images) และ 1 Incident (issue_detail,
+  last_updated_at)
+
+  สิ่งที่ต้องตัดสินใจก่อน
+
+  status code ผูกกับเครื่องแต่ละตัว (machine_id) หรือผูกกับรุ่นหรือประเภทเครื่อง? ตอนนี้ผูกกับ
+  machine_id ถ้าเครื่องหลายตัวเป็นรุ่นเดียวกัน ควรผูกกับรุ่น
+  ความรู้ที่บันทึกจากเครื่องหนึ่งจะใช้กับทุกเครื่องรุ่นนั้นได้ ส่วน incident ยังผูกกับ machine_id
+  เหมือนเดิม ต้องดูว่าข้อมูลจาก get_machine_info มีฟิลด์บอกรุ่นหรือประเภทเครื่องหรือไม่
+
+  ถ้าโอเค ผมร่าง schema ฝั่ง backend (Django น่าจะใช่ ดูจาก Token auth) กับ flow
+  หน้าจอใหม่ให้ได้ครับ แต่ backend ไม่ได้อยู่ใน repo นี้ ถ้าจะให้แก้ backend ต้องบอกผมว่าโปรเจค
+  backend อยู่ที่ไหน
+
+> ร่างใส่ figma ได้มั้ย สร้างเป็นโปรเจค figma มาใหม่
+
+  Searched for 1 pattern, called Figma 8 times (ctrl+o to expand)
+
+● สร้างไฟล์ Figma ใหม่เรียบร้อยแล้ว กำลังวาดแผนภาพ data model ก่อน แล้วจะทำหน้าจอต่อไป
+
+  Called Figma 2 times (ctrl+o to expand)
+
+● แผนภาพ data model เสร็จแล้ว ต่อไปจะทำหน้าจอ 3 หน้าในอีกหน้าหนึ่งของไฟล์
+
+  Called Figma 5 times (ctrl+o to expand)
+
+● ผมร่างลงไฟล์ Figma ใหม่ให้แล้วครับ: ASC – Status Code Knowledge Redesign
+  (https://www.figma.com/design/vYY3t5f7vW1McVcCtoSP1r) ไฟล์อยู่ใน team ส่วนตัวของคุณ
+  เพราะใน team "mobile app" คุณมีสิทธิ์แค่ดู สร้างไฟล์ไม่ได้
+
+  หน้า 1 · Data Model
+  - แผนภาพ 4 ตาราง: StatusCode → Cause → Solution (ส่วนความรู้) แยกกับ Incident
+    (ส่วนเหตุการณ์) พร้อมฟิลด์และ FK
+  - การ์ดอธิบายวิธีคำนวณ rating ของ solution (success_rate) และ Skill Point
+  - วิธีย้าย record เดิมมาเข้าโครงสร้างใหม่
+
+  หน้า 2 · Screens ใช้ขนาดเดสก์ท็อป 1440 ให้ตรงกับเว็บแอปปัจจุบัน
+  - A · หน้า Status Code: ส่วนหัวมีสถิติ (จำนวนสาเหตุ, จำนวนวิธีแก้, จำนวนครั้งที่เกิด, MTTR)
+    รายการสาเหตุกางและพับได้ ข้างในเป็น solution ที่เรียงตาม % แก้ได้ แต่ละอันมีปุ่ม "ใช้วิธีนี้"
+    ด้านขวาเป็นรายการ incident ล่าสุดของเครื่องนั้น
+  - B · Dialog บันทึกผล: เลือกผลได้ 3 แบบ (แก้ได้ / แก้ไม่ได้ / ยังไม่เสร็จ)
+    กรอกเวลาเกิดกับเวลาแก้เสร็จ, หมายเหตุ, แนบรูป ผู้บันทึกดึงจากบัญชีที่ล็อกอินอัตโนมัติ
+  - C · เพิ่มวิธีแก้: เลือกสาเหตุเดิมหรือสร้างสาเหตุใหม่ กรอกขั้นตอนและแนบรูป มีช่องติ๊ก "บันทึก
+    incident ด้วย" เพื่อบันทึกผลไปพร้อมกันในขั้นตอนเดียว
+  - เหนือแต่ละหน้าจอมีโน้ตสีเหลืองอธิบาย flow ระหว่างหน้า
+  - Navbar กับแถว solution ทำเป็น component ไว้แล้ว แก้ที่เดียวจะเปลี่ยนทุกจุด
+
+  ข้อมูลในหน้าจอ เช่น E-1024, เครื่อง M-0421, ชื่อช่าง และตัวเลขต่าง ๆ เป็นข้อมูลสมมติทั้งหมด
+  ฟอนต์ใช้ IBM Plex Sans Thai เพราะ Geist ที่โปรเจคใช้ไม่มีตัวอักษรไทย
+
+  ถ้าดูแล้วโอเค ขั้นต่อไปเป็นฝั่งโค้ด ให้ผมเริ่มทำ frontend ไหมครับ? ส่วน backend ไม่ได้อยู่ใน repo
+  นี้ ถ้าจะให้ทำด้วยต้องบอกผมว่าอยู่ที่ไหน
+
+> reference จากโค้ดปัจจุบันของเราสิ วาดใหม่เฉพาะฟังก์ชัน add-on หรือใหม่เท่านั้น และไม่ต้องเขียน
+  data model เขียนเป็นแค่ดราฟตัวอย่าง เพราะต้องการนำไปอธิบายให้ junior dev ทำได้
+
+  Read 8 files (ctrl+o to expand)
+
+● อ่านโค้ด UI ปัจจุบันแล้ว เป็นธีมมืด ใช้การ์ดมุมโค้งและสีน้ำเงินแดงเป็นสีเน้น
+  ต่อไปจะออกแบบเฉพาะส่วนที่เพิ่ม/เปลี่ยนให้เข้ากับสไตล์นี้ พร้อมโน้ตอธิบายสำหรับ junior dev
+
+  Called Figma 4 times (ctrl+o to expand)
+
+● ทำได้แค่บางส่วนครับ ระหว่างวาดผมใช้ Figma MCP ครบโควตาของแพลน Starter ในไฟล์ตอนนี้เลยมี
+  2 จาก 5 board ที่วางแผนไว้
+
+  ไฟล์เดิม: ASC – Status Code Knowledge Redesign
+  (https://www.figma.com/design/vYY3t5f7vW1McVcCtoSP1r) ผมลบหน้า Data Model กับหน้า
+  Screens ชุดก่อนออกแล้ว ที่เหลือมีหน้าเดียวคือ Draft · Add-on Features
+
+  ที่วาดเสร็จแล้ว
+  - Board 1 · ADD-ON: Record List เปลี่ยนเป็นการ์ดต่อ Status Code ตรวจภาพหน้าจอแล้ว
+    ออกมาตรงตามที่ตั้งใจ
+    - ใช้ธีมมืดเดียวกับ StatusCodeRecordListPage.jsx
+      (src/features/machines/status-codes/pages/StatusCodeRecordListPage.jsx)
+      ทั้งป้าย CODE: 012, label ตัวพิมพ์ใหญ่ และ footer ที่มีเวลา + "VIEW … →"
+    - ส่วนที่เพิ่มใหม่: ปุ่ม Sort, จำนวนครั้งที่เกิด, จำนวน cause/solution และวิธีแก้ที่ได้ผลที่สุด
+    - มีหมุดตัวเลขสีแดงชี้แต่ละจุด และกล่อง Dev Notes สีเหลืองด้านข้างบอกว่าต้องทำอะไร ไฟล์ไหน
+      และเรียก API ตัวไหน
+  - Board 2 · NEW: Causes & Solutions + Incident History อยู่ในไฟล์แล้ว
+    แต่ยังไม่ได้ตรวจภาพหน้าจอ เพราะโดนจำกัดตรงจังหวะนี้พอดี ตำแหน่งหมุดอาจคลาดได้
+    - header ของหน้า detail เดิมวาดเป็นกล่องเส้นประ เขียนว่า "EXISTING (ไม่ต้องแก้)"
+    - ข้างใต้เป็นรายการ cause ที่กางและพับได้ ข้างในเป็นแถว solution (SolutionRow ทำเป็น
+      component) มี % แก้ได้และปุ่ม USE THIS
+    - ด้านขวาเป็น panel รายการ incident
+    - Dev Notes หมายเลข 5–11
+
+  ที่ยังไม่ได้วาด
+  - Board 3 · NEW: LogResultDialog เปิดจากปุ่ม USE THIS หรือ LOG INCIDENT ให้เลือกผล
+    FIXED / NOT FIXED / PENDING, กรอกเวลาเกิดกับเวลาแก้เสร็จ, หมายเหตุ, แนบรูป
+    ผู้บันทึกดึงจาก useAuth()
+  - Board 4 · ADD-ON: เพิ่มบล็อกเลือกสาเหตุ (cause เดิมหรือสร้างใหม่) ไว้เหนือฟอร์มเดิมใน
+    StatusCodeRecordFormPage.jsx
+    (src/features/machines/status-codes/pages/StatusCodeRecordFormPage.jsx)
+    พร้อมช่องติ๊ก "บันทึก incident ด้วย" และเปลี่ยน owner ให้มาจาก user ที่ล็อกอินแทน "-"
+  - Board 5 · ADD-ON: เพิ่มป้าย ★ Skill Point ในการ์ดผู้ใช้ด้านล่างของ Navbar.jsx
+    (src/layout/Navbar.jsx)
+
+  จะทำต่อได้ต้องรอให้โควตา Figma MCP รีเซ็ต หรืออัปเกรดแพลน ระหว่างนี้ผมเขียนเนื้อหาของ Board
+  3–5 เป็นสเปกข้อความไว้ก่อนได้ แล้วพอโควตากลับมาค่อยวาดลง Figma พร้อมตรวจ Board 2 ให้ครับ
+
+> งั้นวาดใส่ claude design แทน
+
+● Artifact(quickstart design without design systems)
+  ⎿  found the type to start from, left design systems out
+
+● Artifact(→ new artifact from type
+          https://claude.ai/artifact/QKN21svewxgyPb6SYRqWnd)
+  ⎿  Created ⧉ https://claude.ai/artifact/TfP5GZJ8XbQooCKj2ghrS4 from
+     Artifact type ⧉ https://claude.ai/artifact/QKN21svewxgyPb6SYRqWnd,
+     read its instructions
+
+● กำลังวาด 5 artboard บน canvas โดยใช้ธีมมืดแบบแอปจริง พร้อมแนบ sticky note ที่มีโน้ตสำหรับ
+  dev ไว้ข้างแต่ละ artboard
+
+  Made 2 scratchpad edits +123 (ctrl+o to expand)
+● Artifact("asc-design/project/canvas.json")
+  ⎿  Updated ⧉ https://claude.ai/artifact/TfP5GZJ8XbQooCKj2ghrS4
+
+  Made 1 scratchpad edit +139 (ctrl+o to expand)
+
+● Artifact("asc-design/project/CausesSolutions.dc.html")
+  ⎿  Updated ⧉ https://claude.ai/artifact/TfP5GZJ8XbQooCKj2ghrS4
+
+  Made 1 scratchpad edit +106 (ctrl+o to expand)
+
+● ทำเสร็จแล้ว 2 board ตอนนี้กำลังส่ง Board 3 (dialog บันทึกผล) แล้วจะทำ Board 4–5 ต่อ
+
+● Artifact("asc-design/project/LogResultDialog.dc.html")
+  ⎿  Updated ⧉ https://claude.ai/artifact/TfP5GZJ8XbQooCKj2ghrS4
+
+  Made 1 scratchpad edit +81 (ctrl+o to expand)
+
+● Artifact("asc-design/project/FormCauseSelector.dc.html")
+  ⎿  Updated ⧉ https://claude.ai/artifact/TfP5GZJ8XbQooCKj2ghrS4
+
+  Made 1 scratchpad edit +52 (ctrl+o to expand)
+
+● Artifact("asc-design/project/NavbarSkillPoint.dc.html")
+  ⎿  Updated ⧉ https://claude.ai/artifact/TfP5GZJ8XbQooCKj2ghrS4
+
+● Written for: junior dev ที่จะลงมือทำฟีเจอร์เหล่านี้
+
+  ผมวาดลง Claude Design ครบ 5 board แล้วครับ: ⧉ ASC Add-on Features Draft
+  (https://claude.ai/artifact/TfP5GZJ8XbQooCKj2ghrS4) ยังไม่ได้เปิดดูหน้าที่ render
+  ออกมาจริง ขอให้ลองเปิดดูอีกที
+
+  ทุก board ใช้ธีมมืดเดียวกับโค้ดจริง (#020408, การ์ด white/5, label ตัวพิมพ์ใหญ่, ฟอนต์ Plus
+  Jakarta Sans) วาดเฉพาะส่วนที่เพิ่มหรือเปลี่ยน ส่วนที่มีอยู่แล้วเป็นกล่องเส้นประเขียนว่า "EXISTING"
+  จุดที่ต้องทำมีวงกลมแดงใส่เลข และมี sticky สีเหลืองข้าง ๆ บอกไฟล์ที่ต้องแก้ สิ่งที่ต้องทำ และ API
+  ร่าง
+
+  ┌───────────────────────┬────────┬────────────────────────────────────────┐
+  │         Board         │ ประเภท │                  ไฟล์                   │
+  ├───────────────────────┼────────┼────────────────────────────────────────┤
+  │ 1 · Record List       │        │ StatusCodeRecordListPage.jsx +         │
+  │ เปลี่ยนเป็นการ์ดต่อ Status │ ADD-ON │ StatusCodeCard.jsx ใหม่                 │
+  │  Code                 │        │                                        │
+  ├───────────────────────┼────────┼────────────────────────────────────────┤
+  │ 2 · Causes &          │        │ CauseSolutionSection.jsx,              │
+  │ Solutions + Incident  │ NEW    │ SolutionRow.jsx,                       │
+  │ History               │        │ IncidentHistoryPanel.jsx               │
+  ├───────────────────────┼────────┼────────────────────────────────────────┤
+  │ 3 · Log Result dialog │ NEW    │ LogResultDialog.jsx (ใช้ shadcn Dialog  │
+  │                       │        │ กับ FileUpload ที่มีอยู่)                    │
+  ├───────────────────────┼────────┼────────────────────────────────────────┤
+  │ 4 · บล็อกเลือก cause    │ ADD-ON │ StatusCodeRecordFormPage.jsx และเลิกส่ง  │
+  │ ในฟอร์มสร้าง            │        │ owner: "-"                             │
+  ├───────────────────────┼────────┼────────────────────────────────────────┤
+  │ 5 · ป้าย Skill Point   │ ADD-ON │ Navbar.jsx                             │
+  │ ใน Navbar             │        │                                        │
+  └───────────────────────┴────────┴────────────────────────────────────────┘
+
+  - ไม่มี data model แล้ว
+  - ปุ่ม VIEW SOLUTIONS, USE THIS, ADD CAUSE กับ LOG INCIDENT ลิงก์ไปยัง board
+    ที่เกี่ยวข้อง กดไล่ดู flow ได้ในโหมด Play
+  - ข้อมูลในจอเป็นตัวอย่างสมมติ และ endpoint API ทั้งหมดยังเป็นร่าง ต้องตกลงกับ backend ก่อน
+
+  ลิงก์นี้ตอนนี้เปิดได้แค่คุณ ถ้าจะส่งให้ junior dev ต้องแชร์จากเมนู Share ในหน้านั้นก่อน
+
+  ไฟล์ Figma ที่สร้างไว้ก่อนหน้ายังอยู่ แต่ข้างในตอนนี้มีหน้า "Draft · Add-on Features"
+  ที่วาดไม่ครบ (Board 1–2 และ Board 2 ยังไม่ได้ตรวจ) แนะนำให้ใช้ลิงก์ Claude Design นี้แทน
+  ถ้าไม่ใช้ไฟล์ Figma แล้ว ลบทิ้งได้
+
+> % = สัดส่วน incident ของ cause นี้  หมายความว่าไง อธิบายในแชทนี้
+
+● หมายถึงว่า ทุกครั้งที่ error code นี้เกิด มีกี่เปอร์เซ็นต์ที่สาเหตุจริงคือ cause นี้ ใช้บอกว่าเจอ code
+  นี้แล้วควรสงสัยสาเหตุไหนก่อน
+
+  วิธีคิด
+
+  % ของ cause = จำนวน incident ของ code นี้ที่ระบุว่าเป็น cause นี้
+                ÷ จำนวน incident ทั้งหมดของ code นี้ที่ระบุ cause แล้ว
+
+  ตัวอย่าง CODE 012 ในช่วง 90 วัน เกิด 42 ครั้ง มี 2 ครั้งที่ยังไม่ระบุสาเหตุ (PENDING) เหลือ 40
+  ครั้งที่ระบุแล้ว:
+
+  ┌───────────────┬──────────┬───────────────┐
+  │     Cause     │ จำนวนครั้ง │    % ที่แสดง    │
+  ├───────────────┼──────────┼───────────────┤
+  │ Nozzle jam    │ 25       │ 25 ÷ 40 = 62% │
+  ├───────────────┼──────────┼───────────────┤
+  │ Belt loose    │ 10       │ 10 ÷ 40 = 25% │
+  ├───────────────┼──────────┼───────────────┤
+  │ Encoder cable │ 5        │ 5 ÷ 40 = 12%  │
+  └───────────────┴──────────┴───────────────┘
+
+  ใน mock ผมเขียนตัวเลขเป็น 62 / 26 / 12 ไว้แบบลวก ๆ ถ้าคิดจากตัวอย่างนี้จริงจะเป็น 62 / 25
+  / 12 (ปัดลงทุกตัว)
+
+  incident จะผูกกับ cause ได้ผ่าน solution ที่ช่างเลือกใน dialog บันทึกผล เพราะ solution
+  แต่ละตัวอยู่ใต้ cause เดียว ถ้าช่างเลือกวิธีแก้ของ Nozzle jam ระบบก็นับ incident นั้นให้ Nozzle
+  jam
+
+  ต่างจาก Fixed rate ยังไง
+
+  - % of cases (ระดับ cause) ตอบคำถามว่า สาเหตุนี้เจอบ่อยแค่ไหน
+    ใช้เรียงว่าจะตรวจสาเหตุไหนก่อน
+  - Fixed rate (ระดับ solution) ตอบคำถามว่า วิธีแก้นี้ใช้แล้วได้ผลแค่ไหน คิดจากจำนวนครั้งที่
+    FIXED ÷ จำนวนครั้งที่เลือกใช้ solution นี้
+
+  สิ่งที่ต้องตกลงกับ backend ก่อนทำ
+
+  1. ครั้งที่แก้ไม่ได้ (NOT FIXED) นับให้ cause นั้นด้วยไหม? ถ้าช่างลองวิธีของ cause A แล้วแก้ไม่ได้
+     แสดงว่าสาเหตุจริงอาจไม่ใช่ A ผมแนะนำให้นับเฉพาะ incident ที่ FIXED
+     ตัวเลขจะสะท้อนสาเหตุที่ยืนยันแล้ว
+  2. ช่วงเวลา จะคิดจาก 90 วันล่าสุดเหมือนตัวเลข occurrences หรือคิดจากข้อมูลทั้งหมด
+  3. ข้อมูลน้อย ถ้ามีไม่ถึงประมาณ 5 ครั้ง ตัวเลขจะหลอกตา (เกิด 1 ครั้งก็ขึ้น 100%) ควรแสดงเป็น
+     "new" หรือแสดงจำนวนครั้งแทน %
+
+  ถ้าจะให้ junior dev เข้าใจตรงกัน ผมแก้ sticky ใน board 2 ให้มีคำอธิบายพร้อมตัวอย่างนี้
+  และปรับตัวเลขใน mock ให้ตรงกับที่คำนวณได้เลยไหมครับ?
+
+> เขียนอธิบายสำหรับ cause rate กับ fixed rate เป็นภาษาอังกฤษ
+
+● Written for: junior devs building the Causes & Solutions feature. Paste this
+  into a ticket, README or the board 2 sticky.
+
+  ---
+
+  Cause Rate vs. Fixed Rate
+
+  These two numbers appear on the status code detail page and answer different
+  questions.
+
+  Cause Rate (shown on each cause as "% OF CASES")
+
+  Question: When this status code happens, how often is this the real cause?
+
+  cause_rate = FIXED incidents of this status code linked to this cause
+               ÷ all FIXED incidents of this status code
+
+  - An incident is linked to a cause through the solution the technician picked:
+    each solution belongs to exactly one cause.
+  - Count only FIXED incidents. A NOT_FIXED or PENDING incident doesn't confirm
+    the cause, so it is excluded.
+  - Use the same time window as the occurrence count (last 90 days).
+  - Purpose: rank causes so technicians check the most likely one first.
+
+  Example (CODE 012, 40 confirmed incidents):
+
+  ┌───────────────┬─────────────────────┬───────────────┐
+  │     Cause     │ Confirmed incidents │  Cause rate   │
+  ├───────────────┼─────────────────────┼───────────────┤
+  │ Nozzle jam    │ 25                  │ 25 ÷ 40 = 62% │
+  ├───────────────┼─────────────────────┼───────────────┤
+  │ Belt loose    │ 10                  │ 10 ÷ 40 = 25% │
+  ├───────────────┼─────────────────────┼───────────────┤
+  │ Encoder cable │ 5                   │ 5 ÷ 40 = 12%  │
+  └───────────────┴─────────────────────┴───────────────┘
+
+  All the cause rates for one status code add up to about 100%, give or take
+  rounding.
+
+  Fixed Rate (shown on each solution as "FIXED RATE")
+
+  Question: When someone tries this solution, how often does it actually fix the
+  machine?
+
+  fixed_rate = incidents using this solution with result = FIXED
+               ÷ incidents using this solution with result = FIXED or NOT_FIXED
+
+  - Exclude PENDING incidents. The outcome isn't known yet.
+  - Purpose: rank solutions inside a cause so the most reliable one is on top.
+
+  Example ("Reset servo driver", used 18 times): 16 fixed, 2 not fixed, so 16 ÷
+  18 = 89%.
+
+  Fixed rates are independent of each other and do not add up to 100%.
+
+  Side-by-side
+
+  ┌──────────────┬───────────────────────────────┬─────────────────────────┐
+  │              │          Cause Rate           │       Fixed Rate        │
+  ├──────────────┼───────────────────────────────┼─────────────────────────┤
+  │ Belongs to   │ Cause                         │ Solution                │
+  ├──────────────┼───────────────────────────────┼─────────────────────────┤
+  │ Measures     │ How common the cause is       │ How reliable the fix is │
+  ├──────────────┼───────────────────────────────┼─────────────────────────┤
+  │ Counts       │ FIXED only                    │ FIXED and NOT_FIXED     │
+  ├──────────────┼───────────────────────────────┼─────────────────────────┤
+  │ Sums to      │ Yes, across causes of one     │ No                      │
+  │ 100%?        │ code                          │                         │
+  ├──────────────┼───────────────────────────────┼─────────────────────────┤
+  │ Used to sort │ Causes                        │ Solutions within a      │
+  │              │                               │ cause                   │
+  └──────────────┴───────────────────────────────┴─────────────────────────┘
+
+  Implementation notes
+
+  - Both are calculated by the backend. The frontend only displays cause_rate
+    and fixed_rate from the API. Do not calculate them in React.
+  - Low sample size: if the denominator is under 5, show NEW (or 3 uses) instead
+    of a percentage. One success shouldn't display as "100%".
+  - Fixed Rate colors: ≥ 80% green, 50–79% amber, < 50% red. Cause Rate stays
+    neutral gray, because a common cause isn't good or bad.
+  - Rounding: round down to whole numbers. A cause or solution with no data
+    shows —, not 0%.
+
+  ---
+
+  Two of these are rules I'm proposing, not settled decisions, so check them
+  with the team before this goes to the devs: cause rate counting FIXED only,
+  and the minimum of 5 incidents before showing a percentage. I can also put
+  this into the board 2 sticky on the canvas.
+
+> เพิ่มตารางตัวอย่างใน claude design ทั้งสองเคส
+
+  Made 2 scratchpad edits +93 -3 (ctrl+o to expand)
+
+● Artifact("asc-design/project/canvas.json")
+  ⎿  Not published: "project/canvas.json" changed on the artifact since Claude
+     last saw it. Claude needs to read the latest version before publishing
+     again.
+
+● Artifact(read project/canvas.json of "ASC Add-on Features Draft")
+  ⎿  saved C:\Users\natta\AppData\Local\Temp\claude\c--Users-natta-Desktop-
+     Project-automation-solution-center\c0e8b024-6435-44e8-a5fb-ee6a702d75f
+     1\scratchpad\artifact-files\d7e978c4-cc3b-42b7-a58f-c2c90f897d61\proje
+     ct\canvas.json (5.5KB)
+
+● The user has edited the canvas in the meantime (sticky n1 is now wider), so
+  I'm placing the new board farther right so it doesn't overlap.
+
+  Made 2 scratchpad edits +15 -7 (ctrl+o to expand)
+
+● Artifact("artifact-files/d7e978c4-cc3b-42b7-a58f-c2c90f897d61/project/canvas.j
+          son")
+  ⎿  Updated ⧉ https://claude.ai/artifact/TfP5GZJ8XbQooCKj2ghrS4
+
+● Written for: junior devs building the Causes & Solutions feature.
+
+  ผมเพิ่ม board ใหม่ "2a · Reference — Cause Rate vs Fixed Rate" ใน canvas แล้วครับ:
+  ⧉ ASC Add-on Features Draft
+  (https://claude.ai/artifact/TfP5GZJ8XbQooCKj2ghrS4) อยู่ทางขวาของ Board 2
+  เนื้อหาเป็นภาษาอังกฤษ ใช้ธีมมืดเดียวกัน ผมยังไม่ได้เปิดดูหน้าที่ render ออกมาจริง
+
+  Cause Rate (ใช้ CODE 012 เป็นตัวอย่าง)
+  - มีสูตร และตารางแยกนับ FIXED / NOT FIXED / PENDING ของแต่ละ cause
+    พร้อมช่องแสดงวิธีคำนวณ
+  - ได้ 25÷40 = 62%, 10÷40 = 25%, 5÷40 = 12%
+  - มีแถว "No solution selected" ที่ไม่ถูกนับ และแถวผลรวมที่ใช้เป็นตัวหาร (40)
+  - หมายเหตุใต้ตาราง: นับเฉพาะ FIXED, ผลรวมได้ประมาณ 100% (ปัดลงทุกตัวเลยได้ 99), badge
+    ใช้สีเทา
+
+  Fixed Rate (solution ใต้ Cause 1)
+  - 4 แถว ครอบคลุมทุกสี: 16÷18 = 89% เขียว, 6÷9 = 66% เหลือง (มี PENDING 1 ครั้งที่ไม่นับ),
+    3÷7 = 42% แดง และ 1÷1 ที่แสดงเป็น NEW เพราะใช้ไม่ถึง 5 ครั้ง
+  - ใต้ตารางมีป้ายเกณฑ์สี และหมายเหตุว่าตัวเลขของแต่ละ solution ไม่ต้องรวมกันได้ 100%
+
+  ตัวอย่างนี้ใช้ 6÷9 = 66% ตามกฎปัดลง ตรงกับที่เขียนอธิบายไปก่อนหน้า แต่ mock ใน Board 2
+  ยังแสดง 67% อยู่ ต้องปรับให้ตรงกัน
+
+  ตอนผมส่งงาน มีคนแก้ canvas ไปแล้วหนึ่งรอบ คือ sticky n1 กับ n2a เปลี่ยนเป็นภาษาอังกฤษ
+  และหัวเรื่องเหลือแค่ "ASC" ผมเพิ่ม board ลงบนเวอร์ชันล่าสุดนั้น การแก้ไขพวกนั้นอยู่ครบ และวาง
+  board ใหม่ไว้ที่ x=2120 จะได้ไม่ทับ sticky n1 ที่กว้างขึ้น
+
+  ถ้าต้องการ ผมแก้เลข 67% ใน Board 2 ให้ตรงกัน และแปล sticky
+  ที่ยังเป็นภาษาไทยเป็นอังกฤษให้เหมือน n1 กับ n2a ได้ครับ
+
+> แสดงแชทของ session นี้
+
+● ผมดึงแชทดิบทั้งหมดออกมาแสดงตรงนี้ไม่ได้ครับ ถ้าต้องการบทสนทนาเต็ม ๆ พิมพ์ /export ใน Claude
+  Code จะได้ไฟล์หรือคัดลอกไป clipboard ได้ ส่วนนี่คือสรุปของ session นี้ตามลำดับ:
+
+  1. ดูไฟล์ Figma "MobileApp" 2 ลิงก์
+  - ลิงก์แรก (node 0-1) เป็นหน้า Desktop 3 หน้า: Dashboard ที่มีการ์ด Utilization, หน้าที่มี
+    2 panel วางข้างกัน และหน้า Engineer Member Management
+  - ลิงก์ที่สอง (node 267-3) เป็น flow ของแอป Android ในกรอบ "Pharse 1" มี Login,
+    หน้ารายการ, หน้ารายละเอียด, ฟอร์ม และ timeline
+
+  2. ถามว่ามีระบบ rating ไหม
+  - ไม่มีระบบให้คะแนน record มีแต่ Skill Point ที่ระบบคิดให้อัตโนมัติ คือป้าย ★ กับสูตร
+    "fundamental + ค่าเฉลี่ยแต้ม"
+  - ตัวอย่างในสูตรเลขไม่ตรงกัน (24 กับ 25)
+
+  3. อะไรเอามารวมกับโปรเจคได้บ้าง
+  - เรียงตามความคุ้ม: ใส่ owner จริง, Skill Point, ให้คะแนน record, หน้า Member
+    Management, Dashboard
+  - record ตอนนี้เก็บ code, issue, root cause, solution และรูป แต่ owner กับ prod_area
+    ส่งเป็น "-" ตายตัว และยังไม่มีประวัติการแก้ไข เวลาเกิดและเวลาแก้เสร็จ หรือผลว่าแก้ได้ไหม
+
+  4. 1 error ควรมีได้หลาย cause และหลาย solution
+  - เสนอให้แยกเป็น ความรู้ (StatusCode → Cause → Solution) กับ เหตุการณ์ (Incident)
+  - rating ของ solution คำนวณได้อัตโนมัติจาก incident
+
+  5. วาดลง Figma
+  - สร้างไฟล์ใหม่ วาด data model กับ 3 หน้าจอ
+  - คุณขอให้วาดใหม่โดยอิงโค้ดจริงและเอาเฉพาะส่วน add-on ผมลบหน้าชุดเดิมแล้ววาดใหม่ได้ 2 board
+    ก็ติดโควตา MCP ของแพลน Starter
+
+  6. ย้ายมาวาดใน Claude Design
+  - ⧉ ASC Add-on Features Draft
+    (https://claude.ai/artifact/TfP5GZJ8XbQooCKj2ghrS4) มี 5 board ใช้ธีมมืดเหมือนแอป
+    มีหมุดตัวเลขชี้จุดที่ต้องทำ และ sticky Dev Notes ข้าง ๆ
+
+  7. อธิบาย Cause Rate กับ Fixed Rate
+  - อธิบายในแชทเป็นภาษาไทย แล้วเขียนเป็นภาษาอังกฤษ
+  - เพิ่ม board 2a ที่มีตารางตัวอย่างของทั้งสองแบบลงใน canvas
+
+  ที่ยังค้างอยู่
+  - mock ใน Board 2 แสดง 67% แต่ตามกฎปัดลงควรเป็น 66%
+  - sticky n2b–n5 ยังเป็นภาษาไทย
+  - ไฟล์ Figma ยังมีหน้าที่วาดไม่ครบ ลบได้ถ้าไม่ใช้แล้ว
+  - canvas ยังเปิดได้แค่คุณ ต้องกด Share ก่อนส่งให้ junior dev
